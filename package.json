@@ -128,8 +128,12 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,css,md}": [
-      "eslint src --ext .js --ext .jsx",
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint src --ext .js --ext .jsx --fix",
+      "git add"
+    ],
+    "*.{css,scss}": [
       "prettier --write",
       "git add"
     ]

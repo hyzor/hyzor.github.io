@@ -65,7 +65,7 @@ class ProjectModal extends React.Component {
     }));
   };
 
-  handleChangePic = activePic => {
+  handleChangePic = (activePic) => {
     this.setState({ activePic });
   };
 
@@ -96,15 +96,15 @@ class ProjectModal extends React.Component {
           </Typography>
           {project.fulltext
             ? project.fulltext.map(text => (
-                <Typography
-                  className={classes.title}
-                  key={text}
-                  variant="body1"
-                  style={{ marginTop: 10 }}
-                >
-                  {text}
-                </Typography>
-              ))
+              <Typography
+                className={classes.title}
+                key={text}
+                variant="body1"
+                style={{ marginTop: 10 }}
+              >
+                {text}
+              </Typography>
+            ))
             : null}
 
           {project.source && (
@@ -132,16 +132,16 @@ class ProjectModal extends React.Component {
             position="static"
             activeStep={activePic}
             className={classes.mobileStepper}
-            nextButton={
+            nextButton={(
               <IconButton onClick={this.handleNext}>
                 <KeyboardArrowRight />
               </IconButton>
-            }
-            backButton={
+)}
+            backButton={(
               <IconButton onClick={this.handleBack}>
                 <KeyboardArrowLeft />
               </IconButton>
-            }
+)}
           />
         </div>
       </Modal>
