@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/rtivital/react-pages-boilerplate#readme",
   "dependencies": {
+    "@material-ui/core": "^3.1.0",
+    "@material-ui/icons": "^3.0.1",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-centered": "^3.4.10",
     "@storybook/addons": "^3.4.10",
@@ -46,10 +48,12 @@
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
     "react-icons": "^3.0.5",
+    "react-pdf": "next",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-router-prop-types": "1.0.4",
+    "react-swipeable-views": "^0.13.0",
     "redux": "^4.0.0",
     "redux-axios-middleware": "^4.0.0",
     "redux-thunk": "^2.3.0",
@@ -79,6 +83,7 @@
     "browser-sync-webpack-plugin": "^2.2.2",
     "chalk": "^2.4.1",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.4.0",
@@ -94,9 +99,11 @@
     "gh-pages": "^1.2.0",
     "git-repo-name": "^0.6.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.0.0-rc.14",
     "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "^5.0.1",
     "jest": "^23.5.0",
+    "lint-staged": "^7.3.0",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^4.9.3",
     "open-browser-webpack-plugin": "^0.0.5",
@@ -114,5 +121,17 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "yesno": "0.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,md}": [
+      "eslint src --ext .js --ext .jsx",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

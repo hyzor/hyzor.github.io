@@ -8,6 +8,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const SETTINGS = require('./settings');
 
@@ -55,9 +56,9 @@ const rules = [
     test: /\.(css)$/,
     loaders: production
       ? ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader'],
-      })
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader'],
+        })
       : ['style-loader', 'css-loader', 'postcss-loader'],
     exclude: path.resolve(__dirname, '../src'),
   },
@@ -77,6 +78,10 @@ const pluginsBase = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
     },
   }),
+  new CopyWebpackPlugin([
+    { from: 'static/' },
+    { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
+  ]),
 ];
 
 const developmentPlugins = [
@@ -105,7 +110,7 @@ const productionPlugins = [
 ];
 
 module.exports = {
-  devtool: production ? false : 'eval',
+  devtool: production ? false : 'cheap-module-source-map',
 
   mode: production ? 'production' : 'development',
 
@@ -116,15 +121,16 @@ module.exports = {
   entry: production
     ? path.join(__dirname, './src/index')
     : [
-      `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
-      'webpack/hot/only-dev-server',
-      path.join(__dirname, './src/index'),
-    ],
+        `webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, './src/index'),
+      ],
 
   output: {
     path: SETTINGS.PUBLIC_PATH,
     filename: 'bundle.js',
     publicPath: pagesBuild ? `/${getRepositoryName()}/` : '/',
+    globalObject: 'this',
   },
 
   resolve: {

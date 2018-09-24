@@ -1,0 +1,211 @@
+{
+  "data": {
+    "projects": [
+      {
+        "id": 1,
+        "name": "Skyflower", 
+        "desc": "Skyflower is a third person platforming game heavily inspired by 3D puzzle game cult classics such as Super Mario 64 and Banjo Kazooie.",
+        "fulltext": [
+          "Skyflower is a third person platforming game heavily inspired by 3D puzzle game cult classics such as Super Mario 64 and Banjo Kazooie. This was part of a game development course at Blekinge Institute of Technology. I was working full-time on this in a team of seven for one semester.",
+          "The game was written completely from scratch. The engine was written in C++. I was the lead graphics programmer for this project, and the graphics engine was written from scratch with DirectX 11.",
+          "I had the opportunity to play around with a lot of cool rendering techniques, such as skeletal animation, particle systems, depth of field, anti-aliasing , and much more!"
+        ],
+        "images": [
+          {
+            "label": "Skyflower promotion image",
+            "path": "images/skyflower.png"
+          },
+          {
+            "label": "First level overview",
+            "path": "images/skyflower2.png"
+          },
+          {
+            "label": "A platform with enemies, event button and floating balloon platform",
+            "path": "images/skyflower3.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/Skyflower",
+        "thumbnail": "images/skyflower3_2.png"
+      },
+      {
+        "id": 2,
+        "name": "Fancy Title",
+        "desc": "Fancy Title is a first person shooter deathmatch game heavily influenced by games such as Quake and Unreal Tournament.",
+        "fulltext": [
+          "Fancy Title is a first person shooter deathmatch game heavily influenced by games such as Quake and Unreal Tournament. The game is set in space, and involves killing other players to get a score that is as high as possible. Players can host their own server and let others connect."
+        ],
+        "images": [
+          {
+            "label": "Player model",
+            "path": "images/fancytitle.png"
+          },
+          {
+            "label": "A platform used in the game",
+            "path": "images/fancytitle2.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/GameProject",
+        "thumbnail": "images/fancytitle_2.png"
+      },
+      {
+        "id": 3,
+        "name": "Physically-based fluid particle system using DirectCompute",
+        "desc": "This is a GPGPU project that stems from my Bachelor's thesis; research about different fluid particle system methods and evaluate them.",
+        "fulltext": [
+          "This is a GPGPU project that stems from my Bachelor's thesis; research about different fluid particle system methods and evaluate them.",
+          "At the time of writing this thesis, GPGPU calculations had started to get real hot within games. What I wanted to prove with this thesis, is that water simulations on the GPGPU is feasible for real-time applications such as games. As I saw a huge lackluster in games when it comes to water simulations, I just had to prove this!",
+          "The result the thesis was that I had found two methods: The Discrete Element Method and Smoothed Particle Hydrodynamics, with the latter resulting in a more realistic fluid simulation.",
+          "The following image presents the pseudo code for SPH:",
+          "I managed to simulate up to one million particles on the GPU before falling below a framerate of 60 frames per second. I also found that the number of particles scales really well on the GPU.",
+          "The project was written from scratch in C++, particles were rendered in DirectX 11 and simulated in DirectCompute shaders.",
+          "The following is an excerpt of the abstract of the thesis:",
+          "Context: Fluid-particle systems are seldom used in games, the apparent performance costs of simulating a fluid-particle system discourages the developer to implement a system of such. The processing power delivered by a modern GPU enables the developer to implement complex particle systems such as fluid-particle systems. Writing efficient fluid-particle systems is the key when striving for real-time fluid-particle simulations with good scalability.",
+          "Objectives: This thesis ultimately tries to provide the reader with a well-performing and scalable fluid-particle system simulated in real-time using a great number of particles. The fluid-particle system implements two different fluid physics models for diversity and comparison purposes. The fluid-particle system will then be measured for each fluid physics model and provide results to educate the reader on how well the performance of a fluid-particle system might scale with the increase of active particles in the simulation. Finally, a performance comparison of the particle scalability is made by completely excluding the fluid physics calculations and simulate the particles using only gravity as an affecting force to be able to demonstrate how taxing the fluid physics calculations are on the GPU.",
+          "Methods: The fluid-particle system has been run using different simulation scenarios, where each scenario is defined by the amount of particles being active and the dimensions of our fluid particle simulation space. The performance results from each scenario has then been saved and put into a collection of results for a given simulation space.",
+          "Results: The results presented demonstrate how well the fluid-particle system actually scales being run on a modern GPU. The system reached over a million particles while still running at an acceptable frame rate, for both of the fluid physics models. The results also shows that the performance is greatly reduced by simulating the particle system as a fluid-particle one, instead of only running it with gravity applied.",
+          "Conclusions: With the results presented, we are able to conclude that fluid-particle systems scale well with the number of particles being active, while being run on a modern GPU. There are many optimizations to be done to be able to achieve a well-performing fluid-particle system, when developing fluid-particle system you should be wary of the many performance pitfalls that comes with it.",
+          "Keywords: Fluid-particle system, GPGPU, DirectCompute, fluid physics model"
+        ],
+        "images": [
+          {
+            "label": "Fluid particle system",
+            "path": "images/fluidparticlesystem.png"
+          },
+          {
+            "label": "Pseudo code SPH",
+            "path": "images/pseudo-code_SPH.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/BachelorsThesis",
+        "thumbnail": "images/fluidparticlesystem_2.png"
+      },
+      {
+        "id": 4,
+        "name": "Artificial Intelligence using Genetic Algorithm",
+        "desc": "This project was part of a Machine Learning course I took at Uppsala University.",
+        "fulltext": [
+          "This project was part of a Machine Learning course I took at Uppsala University.",
+          "The following is the abstract of the paper we wrote as part of the course:",
+          "We have implemented a simple 2D shooter game using real-world physics, and tied it together with a genetic algorithm library in order to evolve artificial intelligence capable of competing in the game. We have experimented with different versions of genetic algorithms coupled with different types of crossover, selection, and mutation schemes and found combinations particularly well suited for the problem at hand."
+        ],
+        "images": [
+          {
+            "label": "Genetic Algorithm game",
+            "path": "images/GAGame.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/ML_Project",
+        "thumbnail": "images/GAGame_400x400.png"
+      },
+      {
+        "id": 5,
+        "name": "Epoch Fight",
+        "desc": "This project is a prototype of an RTS game with a twist.",
+        "fulltext": [
+          "This project is a prototype of an RTS game with a twist. The project is made in Unity and features:",
+          "Unit combat and task system",
+          "Worker unit resource collection system",
+          "Unit navigation system using NavMesh and NavMeshAgents",
+          "Scriptable touch and drag task bar",
+          "And more!",
+          "Everything is scripted in C#."
+        ],
+        "images": [
+          {
+            "label": "Main menu",
+            "path": "images/epochFight_newGfx.png"
+          },
+          {
+            "label": "GUI",
+            "path": "images/epochFight_2.png"
+          },
+          {
+            "label": "Two armies fighting!",
+            "path": "images/epochFight_3.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/EpochFight",
+        "thumbnail": "images/epochFight_newGfx_400x400.png"
+      },
+      {
+        "id": 6, 
+        "name": "Space Adventure",
+        "desc": "Oh boy is this an old project! This is one of the first games I ever created.",
+        "fulltext": [
+          "Oh boy is this an old project! This is one of the first games I ever created.",
+          "The game was part of a project course I took in high school.",
+          "Space Adventure is about the adventures of Benny Barfighter; a fighter pilot with a drinking problem. You play the game by navigating in space and visit different planets. You also have to watch out for enemy ships and asteroids!",
+          "The game was written in C++ and uses the Allegro framework for basic tasks such as creating the window, processing user input, drawing the graphics, and more.",
+          "Overall, I was pretty proud of this game as it was one of my first low-level game implementations."
+        ],
+        "images": [
+          {
+            "label": "Space Adventure GUI",
+            "path": "images/SpaceAdventureGUI.png"
+          },
+          {
+            "label": "Space Adventure Menu",
+            "path": "images/SpaceAdventureMeny.PNG"
+          },
+          {
+            "label": "A drawback of being a beginner in a low-level programming environment is the bugs and the inability to debug properly",
+            "path": "images/SpaceAdventureBug.png"
+          }
+        ],
+        "source": null,
+        "thumbnail": "images/SpaceAdventureGUI_2.png"
+      },
+      {
+        "id": 7,
+        "name": "DirectX 12 Test",
+        "desc": null,
+        "fulltext": null,
+        "images": [
+          {
+            "label": "Rotating cubes and a spinning sphere",
+            "path": "images/DirectX12Test_window.PNG"
+          }
+        ],
+        "source": "https://github.com/hyzor/DirectX12Test",
+        "thumbnail": "images/DirectX12Test_400x400.PNG"
+      },
+      {
+        "id": 8,
+        "name": "Master's thesis - Debugger",
+        "desc": null,
+        "fulltext": [
+          "The following is an excerpt from the abstract of the thesis:",
+          "Debugging is a fundamental tool for software developers, it is therefore included in the majority of modern integrated development environments available today. When the capabilities of such debuggers are to be implemented in a debugging tool for a clustered, real-time stream processing system, the task becomes very complex. Knowledge on how to build debuggers for such systems is missing, and there is a need for these types of tools in the emerging real-time data stream processing industry.",
+          "This thesis explores ways to implement and find usages of a debugging tool in a clustered, real-time processing environment. In previous research two papers were of particular interest as to form a basis for this thesis. However, these papers do not target real-time stream processing systems, so the knowledge gap still persists. It was found that these types of systems have extended requirements in addition to the functionality debuggers of today that has to be fulfilled.",
+          "The first requirement found was that shared states has to be represented in some way in the tool, and multiple solutions were proposed. The second problem found was that the real-time data stream had to be integrated into the tool in one or more ways. This thesis has brought up two ways to solve it; stream generation and stream sampling. The last problem brought up came from the need for users to be able to debug fatal bugs that has crashed the system. Three solutions were proposed, and the concluded Monte Carlo solution builds upon the previous two problems.",
+          "The thesis presents a special debugging protocol and a blueprint of a debugging tool, with implementation details included, for others to take inspiration from. Thus it fills in the missing knowledge gap and successfully achieves the goal of answering the question of how to implement a debugging tool for a clustered, real-time data stream processing system."
+        ],
+        "images": [
+          {
+            "label": "Debugger front-end",
+            "path": "images/debugger.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/MastersThesis",
+        "thumbnail": "images/debugger_400x400.png"
+      },
+      {
+        "id": 9,
+        "name": "Grid Pathfinder",
+        "desc": "This project is a pathfinding implementation in C++ based on A*.",
+        "fulltext": [
+          "This project is a pathfinding implementation in C++ based on A*.",
+          "The project was part of an interview assignment for Paradox Interactive."
+        ],
+        "images": [
+          {
+            "label": "Grid Pathfinder",
+            "path": "images/GridPathfinder.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/PathfinderGrid",
+        "thumbnail": "images/GridPathfinder_400x400.png"
+      }
+    ]
+  }
+}

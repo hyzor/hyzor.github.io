@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import thunkMiddleware from 'redux-thunk';
-import getReduxDevTools from './getReduxDevTools';
-import rootReducer from './modules';
+import getReduxDevTools from 'store/getReduxDevTools';
+import rootReducer from 'store/modules';
 
 const middlewares = [thunkMiddleware, axiosMiddleware(axios)];
 
@@ -11,7 +11,10 @@ export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    compose(applyMiddleware(...middlewares), getReduxDevTools())
+    compose(
+      applyMiddleware(...middlewares),
+      getReduxDevTools()
+    )
   );
 
   // Enable Webpack hot module replacement for reducers
