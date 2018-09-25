@@ -9,6 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import projectsData from 'data/projects.json';
+import aboutData from 'data/about.json';
 import Projects from 'components/Projects';
 import Resume from 'components/Resume';
 import { hot } from 'react-hot-loader';
@@ -35,6 +36,10 @@ const styles = theme => ({
   },
   odd: {
     backgroundColor: theme.palette.primary.main,
+    paddingTop: 40,
+    paddingBottom: 40,
+  },
+  even: {
     paddingTop: 40,
     paddingBottom: 40,
   },
@@ -87,6 +92,17 @@ const HomePage = (props) => {
           >
             <Button color="inherit">Résumé</Button>
           </Link>
+          <Link
+            style={{ display: 'flex' }}
+            activeClass="active"
+            to="about"
+            spy
+            smooth
+            offset={-30}
+            duration={500}
+          >
+            <Button color="inherit">About</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <main>
@@ -104,11 +120,25 @@ const HomePage = (props) => {
         <Element name="projects">
           <Projects data={projectsData} />
         </Element>
-        <div className={classes.odd}>
-          <Element name="resume">
+        <Element name="resume">
+          <div className={classes.odd}>
             <Resume />
-          </Element>
-        </div>
+          </div>
+        </Element>
+        <Element name="about">
+          <div style={{ marginLeft: 100, marginRight: 100 }} className={classes.even}>
+            <Typography className={classes.title} variant="display1" gutterBottom>
+              About
+            </Typography>
+            {aboutData.data
+              ? aboutData.data.about.map(text => (
+                <Typography key={text} variant="subheading" style={{ marginTop: 10 }}>
+                  {text}
+                </Typography>
+              ))
+              : null}
+          </div>
+        </Element>
       </main>
     </React.Fragment>
   );

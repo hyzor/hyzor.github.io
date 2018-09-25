@@ -94,25 +94,20 @@ class ProjectModal extends React.Component {
           >
             {project.name}
           </Typography>
-          {project.fulltext
-            ? project.fulltext.map(text => (
-              <Typography
-                className={classes.title}
-                key={text}
-                variant="body1"
-                style={{ marginTop: 10 }}
-              >
-                {text}
-              </Typography>
-            ))
-            : null}
-
+          <div style={{ marginLeft: 50, marginRight: 50 }}>
+            {project.fulltext
+              ? project.fulltext.map(text => (
+                <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
+                  {text}
+                </Typography>
+              ))
+              : null}
+          </div>
           {project.source && (
-            <Typography variant="body1" className={classes.caption}>
+            <Typography variant="body2" className={classes.title} style={{ marginTop: 5 }}>
               <a href={project.source}>Source code</a>
             </Typography>
           )}
-
           <SwipeableViews
             style={{ marginTop: 20 }}
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
