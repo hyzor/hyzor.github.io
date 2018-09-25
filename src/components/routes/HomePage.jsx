@@ -65,16 +65,28 @@ const HomePage = (props) => {
           <Typography variant="title" color="inherit" className={classes.grow}>
             Home
           </Typography>
-          <Button color="inherit">
-            <Link activeClass="active" to="projects" spy smooth offset={50} duration={500}>
-              Projects
-            </Link>
-          </Button>
-          <Button color="inherit">
-            <Link activeClass="active" to="resume" spy smooth offset={50} duration={500}>
-              Résumé
-            </Link>
-          </Button>
+          <Link
+            style={{ display: 'flex' }}
+            activeClass="active"
+            to="projects"
+            spy
+            smooth
+            offset={50}
+            duration={500}
+          >
+            <Button color="inherit">Projects</Button>
+          </Link>
+          <Link
+            style={{ display: 'flex' }}
+            activeClass="active"
+            to="resume"
+            spy
+            smooth
+            offset={50}
+            duration={500}
+          >
+            <Button color="inherit">Résumé</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <main>
