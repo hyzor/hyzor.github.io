@@ -14,8 +14,7 @@ import { hot } from 'react-hot-loader';
 const styles = theme => ({
   card: {
     height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    width: '100%',
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 6}px 0`,
@@ -63,9 +62,9 @@ class Projects extends React.Component {
         </Typography>
         <Grid container spacing={40}>
           {data.data.projects.map(project => (
-            <Grid item key={project.id} sm={6} md={4} lg={3}>
-              <Card className={classes.card}>
-                <CardActionArea onClick={this.handleClick(project)}>
+            <Grid item key={project.id} sm={6} md={4} lg={4}>
+              <CardActionArea className={classes.card} onClick={this.handleClick(project)}>
+                <Card style={{ height: '100%' }}>
                   <CardMedia
                     className={classes.cardMedia}
                     image={project.thumbnail}
@@ -77,8 +76,8 @@ class Projects extends React.Component {
                     </Typography>
                     <Typography>{project.desc}</Typography>
                   </CardContent>
-                </CardActionArea>
-              </Card>
+                </Card>
+              </CardActionArea>
               <ProjectModal
                 project={project}
                 openProject={openProject}

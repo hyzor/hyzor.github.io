@@ -11,6 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import projectsData from 'data/projects.json';
