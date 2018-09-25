@@ -19,6 +19,9 @@ const styles = {
     textAlign: 'center',
     color: '#fff',
   },
+  title: {
+    textAlign: 'center',
+  },
   bottomLeft: {
     position: 'absolute',
     left: 0,
