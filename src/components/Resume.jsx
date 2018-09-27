@@ -14,7 +14,7 @@ const options = {
   cMapPacked: true,
 };
 
-const styles = {
+const styles = theme => ({
   titleWhite: {
     textAlign: 'center',
     color: '#fff',
@@ -38,7 +38,12 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
-};
+  paper: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  },
+});
 
 class Resume extends React.Component {
   state = {
@@ -72,7 +77,7 @@ class Resume extends React.Component {
           Résumé
         </Typography>
         <div className={classes.centerFlex}>
-          <Paper elevation={8} style={{ position: 'relative' }}>
+          <Paper className={classes.paper} elevation={8} style={{ position: 'relative' }}>
             <Document
               file="documents/JHF_cv.pdf"
               onLoadSuccess={this.onDocumentLoad}
@@ -110,4 +115,4 @@ Resume.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
-export default hot(module)(withStyles(styles)(Resume));
+export default hot(module)(withStyles(styles, { withTheme: true })(Resume));

@@ -14,6 +14,9 @@ import Projects from 'components/Projects';
 import Resume from 'components/Resume';
 import { hot } from 'react-hot-loader';
 import { Link, Element, animateScroll as scroll } from 'react-scroll';
+import Publications from 'components/Publications';
+import publicationsData from 'data/publications.json';
+import classNames from 'classnames';
 
 const styles = theme => ({
   menuButton: {
@@ -48,6 +51,16 @@ const styles = theme => ({
     marginRight: 'auto',
     display: 'flex',
     justifyContent: 'center',
+  },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   },
 });
 
@@ -103,6 +116,17 @@ const HomePage = (props) => {
           >
             <Button color="inherit">About</Button>
           </Link>
+          <Link
+            style={{ display: 'flex' }}
+            activeClass="active"
+            to="publications"
+            spy
+            smooth
+            offset={-30}
+            duration={500}
+          >
+            <Button color="inherit">Publications</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <main>
@@ -126,7 +150,7 @@ const HomePage = (props) => {
           </div>
         </Element>
         <Element name="about">
-          <div style={{ marginLeft: 100, marginRight: 100 }} className={classes.even}>
+          <div className={classNames(classes.even, classes.layout)}>
             <Typography className={classes.title} variant="display1" gutterBottom>
               About
             </Typography>
@@ -137,6 +161,11 @@ const HomePage = (props) => {
                 </Typography>
               ))
               : null}
+          </div>
+        </Element>
+        <Element name="publications">
+          <div className={classes.odd}>
+            <Publications data={publicationsData.data} />
           </div>
         </Element>
       </main>
