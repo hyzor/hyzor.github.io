@@ -83,63 +83,53 @@ class Publications extends React.Component {
         <Typography className={classes.titleWhite} variant="display1" gutterBottom>
           Publications
         </Typography>
-        <div className={classes.layout}>
-          <Paper elevation={8} className={classes.paper}>
-            <SwipeableViews
-              style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}
-              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-              index={activeStep}
-              onChangeIndex={this.handleChangeStep}
-              enableMouseEvents
-            >
-              {data.publications.map(pub => (
-                <React.Fragment key={pub.title}>
-                  <Typography variant="title" className={classes.title}>
-                    {data.publications[activeStep].title}
+        <Paper elevation={8} className={classes.paper}>
+          <SwipeableViews
+            style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={activeStep}
+            onChangeIndex={this.handleChangeStep}
+            enableMouseEvents
+          >
+            {data.publications.map(pub => (
+              <React.Fragment key={pub.title}>
+                <Typography variant="title" className={classes.title}>
+                  {data.publications[activeStep].title}
+                </Typography>
+                <Typography variant="subheading" className={classes.title} style={{ marginTop: 5 }}>
+                  {data.publications[activeStep].publisher}
+                </Typography>
+                <Typography variant="subheading" className={classes.title} style={{ marginTop: 2 }}>
+                  {data.publications[activeStep].type}
+                </Typography>
+                {pub.desc.map(desc => (
+                  <Typography key={desc} variant="body1" style={{ marginTop: 10 }}>
+                    {desc}
                   </Typography>
-                  <Typography
-                    variant="subheading"
-                    className={classes.title}
-                    style={{ marginTop: 5 }}
-                  >
-                    {data.publications[activeStep].publisher}
-                  </Typography>
-                  <Typography
-                    variant="subheading"
-                    className={classes.title}
-                    style={{ marginTop: 2 }}
-                  >
-                    {data.publications[activeStep].type}
-                  </Typography>
-                  {pub.desc.map(desc => (
-                    <Typography key={desc} variant="body1" style={{ marginTop: 10 }}>
-                      {desc}
-                    </Typography>
-                  ))}
-                </React.Fragment>
-              ))}
-            </SwipeableViews>
-            <Typography variant="caption" className={classes.caption}>
-              {data.publications[activeStep].title}
-            </Typography>
-            <MobileStepper
-              steps={numSteps}
-              position="static"
-              activeStep={activeStep}
-              className={classes.mobileStepper}
-              nextButton={(
-                <IconButton onClick={this.handleNext}>
-                  <KeyboardArrowRight />
-                </IconButton>
+                ))}
+              </React.Fragment>
+            ))}
+          </SwipeableViews>
+          <Typography variant="caption" className={classes.caption}>
+            {data.publications[activeStep].title}
+          </Typography>
+          <MobileStepper
+            steps={numSteps}
+            position="static"
+            activeStep={activeStep}
+            className={classes.mobileStepper}
+            nextButton={(
+              <IconButton onClick={this.handleNext}>
+                <KeyboardArrowRight />
+              </IconButton>
 )}
-              backButton={(
-                <IconButton onClick={this.handleBack}>
-                  <KeyboardArrowLeft />
-                </IconButton>
+            backButton={(
+              <IconButton onClick={this.handleBack}>
+                <KeyboardArrowLeft />
+              </IconButton>
 )}
-            />
-          </Paper>
-        </div>
+          />
+        </Paper>
       </React.Fragment>
     );
   }

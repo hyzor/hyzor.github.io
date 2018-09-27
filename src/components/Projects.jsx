@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -22,16 +21,6 @@ const styles = theme => ({
   cardMedia: {
     //paddingTop: '56.25%', // 16:9
     paddingTop: '100%',
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
   },
   title: {
     textAlign: 'center',
@@ -56,7 +45,7 @@ class Projects extends React.Component {
     const { openProject } = this.state;
 
     return (
-      <div className={classNames(classes.layout, classes.cardGrid)}>
+      <div className={classes.cardGrid}>
         <Typography className={classes.title} variant="display1" gutterBottom>
           Projects
         </Typography>

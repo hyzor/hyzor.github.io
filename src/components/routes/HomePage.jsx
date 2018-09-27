@@ -17,6 +17,7 @@ import { Link, Element, animateScroll as scroll } from 'react-scroll';
 import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
 import classNames from 'classnames';
+import Contact from 'components/Contact';
 
 const styles = theme => ({
   menuButton: {
@@ -127,6 +128,17 @@ const HomePage = (props) => {
           >
             <Button color="inherit">Publications</Button>
           </Link>
+          <Link
+            style={{ display: 'flex' }}
+            activeClass="active"
+            to="publications"
+            spy
+            smooth
+            offset={-30}
+            duration={500}
+          >
+            <Button color="inherit">Contact</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <main>
@@ -142,11 +154,15 @@ const HomePage = (props) => {
           </div>
         </div>
         <Element name="projects">
-          <Projects data={projectsData} />
+          <div className={classes.layout}>
+            <Projects data={projectsData} />
+          </div>
         </Element>
         <Element name="resume">
           <div className={classes.odd}>
-            <Resume />
+            <div className={classes.layout}>
+              <Resume />
+            </div>
           </div>
         </Element>
         <Element name="about">
@@ -165,7 +181,16 @@ const HomePage = (props) => {
         </Element>
         <Element name="publications">
           <div className={classes.odd}>
-            <Publications data={publicationsData.data} />
+            <div className={classes.layout}>
+              <Publications data={publicationsData.data} />
+            </div>
+          </div>
+        </Element>
+        <Element name="contact">
+          <div className={classes.even}>
+            <div className={classes.layout}>
+              <Contact />
+            </div>
           </div>
         </Element>
       </main>
