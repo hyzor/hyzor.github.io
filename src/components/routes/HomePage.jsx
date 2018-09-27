@@ -18,7 +18,7 @@ import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
 import classNames from 'classnames';
 import Contact from 'components/Contact';
-import { Facebook, Linkedin, Twitter, Instagram } from 'mdi-material-ui';
+import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
@@ -238,6 +238,13 @@ const HomePage = (props) => {
               aria-label="Instagram"
             >
               <Instagram />
+            </IconButton>
+            <IconButton
+              href="https://github.com/hyzor"
+              className={classes.white}
+              aria-label="GitHub"
+            >
+              <GithubBox />
             </IconButton>
           </div>
           <Typography className={classes.white} variant="subheading" align="center" gutterBottom>
