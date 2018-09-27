@@ -22,9 +22,6 @@ const styles = theme => ({
     //paddingTop: '56.25%', // 16:9
     paddingTop: '100%',
   },
-  title: {
-    textAlign: 'center',
-  },
 });
 
 class Projects extends React.Component {
@@ -46,7 +43,7 @@ class Projects extends React.Component {
 
     return (
       <div className={classes.cardGrid}>
-        <Typography className={classes.title} variant="display1" gutterBottom>
+        <Typography align="center" variant="display1" gutterBottom>
           Projects
         </Typography>
         <Grid container spacing={40}>

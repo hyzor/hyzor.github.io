@@ -11,11 +11,7 @@ import { withStyles } from '@material-ui/core';
 import { hot } from 'react-hot-loader';
 
 const styles = theme => ({
-  title: {
-    textAlign: 'center',
-  },
   titleWhite: {
-    textAlign: 'center',
     color: '#fff',
   },
   caption: {
@@ -80,7 +76,7 @@ class Publications extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography className={classes.titleWhite} variant="display1" gutterBottom>
+        <Typography className={classes.titleWhite} align="center" variant="display1" gutterBottom>
           Publications
         </Typography>
         <Paper elevation={8} className={classes.paper}>
@@ -93,13 +89,13 @@ class Publications extends React.Component {
           >
             {data.publications.map(pub => (
               <React.Fragment key={pub.title}>
-                <Typography variant="title" className={classes.title}>
+                <Typography variant="title" align="center">
                   {data.publications[activeStep].title}
                 </Typography>
-                <Typography variant="subheading" className={classes.title} style={{ marginTop: 5 }}>
+                <Typography variant="subheading" align="center" style={{ marginTop: 5 }}>
                   {data.publications[activeStep].publisher}
                 </Typography>
-                <Typography variant="subheading" className={classes.title} style={{ marginTop: 2 }}>
+                <Typography variant="subheading" align="center" style={{ marginTop: 2 }}>
                   {data.publications[activeStep].type}
                 </Typography>
                 {pub.desc.map(desc => (

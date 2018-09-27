@@ -18,18 +18,16 @@ import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
 import classNames from 'classnames';
 import Contact from 'components/Contact';
+import { Facebook, Linkedin, Twitter, Instagram } from 'mdi-material-ui';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
   },
-  titleWhite: {
-    textAlign: 'center',
+  white: {
     color: '#fff',
-  },
-  title: {
-    textAlign: 'center',
   },
   avatar: {
     marginLeft: 'auto',
@@ -62,6 +60,19 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+  },
+  footer: {
+    backgroundColor: theme.palette.secondary.main,
+    marginTop: theme.spacing.unit * 8,
+    height: 200,
+  },
+  columnFlex: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  rowFlex: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 });
 
@@ -144,11 +155,11 @@ const HomePage = (props) => {
       <main>
         <div style={{ paddingTop: 120 }} className={classes.odd}>
           <Avatar src="images/ProfilePic.png" className={classes.avatar} />
-          <div className={classes.titleWhite}>
-            <Typography color="inherit" variant="display3">
+          <div className={classes.white}>
+            <Typography align="center" color="inherit" variant="display3">
               Jesper Hansson Falkenby
             </Typography>
-            <Typography color="inherit" variant="display1" gutterBottom>
+            <Typography align="center" color="inherit" variant="display1" gutterBottom>
               Programmer - Gaming Enthusiast - Tech Freak
             </Typography>
           </div>
@@ -167,7 +178,7 @@ const HomePage = (props) => {
         </Element>
         <Element name="about">
           <div className={classNames(classes.even, classes.layout)}>
-            <Typography className={classes.title} variant="display1" gutterBottom>
+            <Typography align="center" variant="display1" gutterBottom>
               About
             </Typography>
             {aboutData.data
@@ -194,6 +205,46 @@ const HomePage = (props) => {
           </div>
         </Element>
       </main>
+      <footer className={classes.footer}>
+        <div className={classes.columnFlex}>
+          <div
+            className={classes.rowFlex}
+            style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
+          >
+            <IconButton
+              href="https://www.facebook.com/jesper.hansson.f"
+              className={classes.white}
+              aria-label="Facebook"
+            >
+              <Facebook />
+            </IconButton>
+            <IconButton
+              href="https://www.linkedin.com/in/jesperhf92/"
+              className={classes.white}
+              aria-label="Linkedin"
+            >
+              <Linkedin />
+            </IconButton>
+            <IconButton
+              href="https://twitter.com/JesperFalkenby"
+              className={classes.white}
+              aria-label="Twitter"
+            >
+              <Twitter />
+            </IconButton>
+            <IconButton
+              href="https://www.instagram.com/jesperfalkenby/"
+              className={classes.white}
+              aria-label="Instagram"
+            >
+              <Instagram />
+            </IconButton>
+          </div>
+          <Typography className={classes.white} variant="subheading" align="center" gutterBottom>
+            Copyright © Jesper Hansson Falkenby 2018
+          </Typography>
+        </div>
+      </footer>
     </React.Fragment>
   );
 };

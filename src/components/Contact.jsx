@@ -11,9 +11,6 @@ import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
 
 const styles = theme => ({
-  title: {
-    textAlign: 'center',
-  },
   textField: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -98,7 +95,7 @@ class Contact extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography className={classes.title} variant="display1" gutterBottom>
+        <Typography align="center" variant="display1" gutterBottom>
           Contact
         </Typography>
         <Paper elevation={8} className={classes.paper}>
