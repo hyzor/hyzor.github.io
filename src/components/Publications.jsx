@@ -93,7 +93,7 @@ class Publications extends React.Component {
               enableMouseEvents
             >
               {data.publications.map(pub => (
-                <React.Fragment>
+                <React.Fragment key={pub.title}>
                   <Typography variant="title" className={classes.title}>
                     {data.publications[activeStep].title}
                   </Typography>
@@ -148,7 +148,9 @@ class Publications extends React.Component {
 Publications.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.shape({
+    publications: PropTypes.array,
+  }).isRequired,
 };
 
 export default hot(module)(withStyles(styles, { withTheme: true })(Publications));
