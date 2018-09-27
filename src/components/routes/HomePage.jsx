@@ -142,7 +142,7 @@ const HomePage = (props) => {
           <Link
             style={{ display: 'flex' }}
             activeClass="active"
-            to="publications"
+            to="contact"
             spy
             smooth
             offset={-30}
