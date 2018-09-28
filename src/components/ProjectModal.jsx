@@ -17,6 +17,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
+    overflow: 'auto',
+    maxHeight: 1000,
   },
   img: {
     height: 360,
