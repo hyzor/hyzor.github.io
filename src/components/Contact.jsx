@@ -78,12 +78,10 @@ class Contact extends React.Component {
     this.setState({ sendingMsg: true });
 
     emailjs.send('gmail', 'template_BPrxTrft', this.state).then(
-      (response) => {
-        console.log('SUCCESS!', response.status, response.text);
+      () => {
         this.setState(Contact.initialState);
       },
-      (error) => {
-        console.log('FAILED...', error);
+      () => {
         this.setState({ sendingMsg: false });
       }
     );
