@@ -83,7 +83,7 @@ class Resume extends React.Component {
               onLoadSuccess={this.onDocumentLoad}
               options={options}
             >
-              <Page pageNumber={pageNumber} />
+              <Page pageNumber={pageNumber} scale={1.22} />
             </Document>
             <IconButton
               style={{ zIndex: 1 }}
