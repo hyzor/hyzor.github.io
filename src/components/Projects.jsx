@@ -7,10 +7,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import ProjectModal from 'components/ProjectModal';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
+import { Trail } from 'react-spring';
 
 const styles = theme => ({
+  white: {
+    color: '#fff',
+  },
   card: {
     height: '100%',
     width: '100%',
@@ -40,37 +44,64 @@ class Projects extends React.Component {
   render() {
     const { data, classes } = this.props;
     const { openProject } = this.state;
+    const { projects } = data.data;
 
     return (
       <div className={classes.cardGrid}>
-        <Typography align="center" variant="display1" gutterBottom>
-          Projects
-        </Typography>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Trail
+            items={['Pro', 'jec', 'ts']}
+            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+            delay={1500}
+          >
+            {item => props => (
+              <Typography
+                className={classes.white}
+                align="center"
+                color="inherit"
+                style={props}
+                variant="h2"
+                gutterBottom
+              >
+                {item}
+              </Typography>
+            )}
+          </Trail>
+        </div>
         <Grid container spacing={40}>
-          {data.data.projects.map(project => (
-            <Grid item key={project.id} sm={6} md={4} lg={4}>
-              <CardActionArea className={classes.card} onClick={this.handleClick(project)}>
-                <Card style={{ height: '100%' }}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={project.thumbnail}
-                    title={project.name}
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="headline" component="h2">
-                      {project.name}
-                    </Typography>
-                    <Typography>{project.desc}</Typography>
-                  </CardContent>
-                </Card>
-              </CardActionArea>
-              <ProjectModal
-                project={project}
-                openProject={openProject}
-                handleClose={this.handleClose}
-              />
-            </Grid>
-          ))}
+          <Trail
+            items={projects}
+            keys={item => item.id}
+            from={{ opacity: 0, transform: 'translate3d(0, -300px, 0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0, 0px, 0)' }}
+            delay={1500}
+          >
+            {item => props => (
+              <Grid style={props} item key={item.id} sm={6} md={4} lg={4}>
+                <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
+                  <Card style={{ height: '100%' }}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={item.thumbnail}
+                      title={item.name}
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {item.name}
+                      </Typography>
+                      <Typography variant="body2">{item.desc}</Typography>
+                    </CardContent>
+                  </Card>
+                </CardActionArea>
+                <ProjectModal
+                  project={item}
+                  openProject={openProject}
+                  handleClose={this.handleClose}
+                />
+              </Grid>
+            )}
+          </Trail>
         </Grid>
       </div>
     );

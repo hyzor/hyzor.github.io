@@ -2,7 +2,7 @@ const path = require('path');
 const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -20,7 +20,6 @@ const stylesLoaders = [
   {
     loader: 'css-loader',
     options: {
-      minimize: production,
       modules: true,
       localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
     },
@@ -71,7 +70,7 @@ const rules = [
 
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
-  new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
+  new WebappWebpackPlugin(SETTINGS.FAVICONS),
   new BundleAnalyzerPlugin({ analyzerMode: analizer ? 'server' : 'disabled' }),
   new webpack.DefinePlugin({
     'process.env': {

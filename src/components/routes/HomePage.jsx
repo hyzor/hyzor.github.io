@@ -13,13 +13,14 @@ import aboutData from 'data/about.json';
 import Projects from 'components/Projects';
 import Resume from 'components/Resume';
 import { hot } from 'react-hot-loader';
-import { Link, Element, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
-import classNames from 'classnames';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
+import { Trail, Transition, animated } from 'react-spring';
+import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+import { Link, Element, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 const styles = theme => ({
   menuButton: {
@@ -33,17 +34,8 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     marginBottom: 20,
-    width: 200,
-    height: 200,
-  },
-  odd: {
-    backgroundColor: theme.palette.primary.main,
-    paddingTop: 40,
-    paddingBottom: 40,
-  },
-  even: {
-    paddingTop: 40,
-    paddingBottom: 40,
+    width: 256,
+    height: 256,
   },
   centerFlex: {
     marginLeft: 'auto',
@@ -52,6 +44,8 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   layout: {
+    paddingTop: 120,
+    paddingBottom: 120,
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
@@ -63,7 +57,6 @@ const styles = theme => ({
   },
   footer: {
     backgroundColor: theme.palette.secondary.main,
-    marginTop: theme.spacing.unit * 8,
     height: 200,
   },
   columnFlex: {
@@ -89,13 +82,13 @@ class HomePage extends React.Component {
     scrollSpy.update();
   }
 
-  handleSetActive = (to) => {
+  handleSetActive = to => {
     this.setState({
       activeScroll: to,
     });
   };
 
-  handleSetInactive = (to) => {
+  handleSetInactive = to => {
     const { activeScroll } = this.state;
 
     if (activeScroll === to) {
@@ -108,7 +101,7 @@ class HomePage extends React.Component {
   render() {
     const { classes } = this.props;
     const { activeScroll } = this.state;
-    const linkOffset = -100;
+    const linkOffset = 80;
 
     return (
       <React.Fragment>
@@ -117,7 +110,7 @@ class HomePage extends React.Component {
           <Toolbar>
             <div style={{ flexGrow: 1 }}>
               <Button onClick={this.scrollToTop} color="inherit">
-                <Typography variant="title" color="inherit">
+                <Typography variant="h6" color="inherit">
                   Home
                 </Typography>
               </Button>
@@ -134,7 +127,7 @@ class HomePage extends React.Component {
               onSetInactive={this.handleSetInactive}
             >
               <Button
-                variant={activeScroll === 'projects' ? 'raised' : 'text'}
+                variant={activeScroll === 'projects' ? 'contained' : 'text'}
                 color={activeScroll === 'projects' ? 'primary' : 'inherit'}
               >
                 Projects
@@ -152,7 +145,7 @@ class HomePage extends React.Component {
               onSetInactive={this.handleSetInactive}
             >
               <Button
-                variant={activeScroll === 'resume' ? 'raised' : 'text'}
+                variant={activeScroll === 'resume' ? 'contained' : 'text'}
                 color={activeScroll === 'resume' ? 'primary' : 'inherit'}
               >
                 Résumé
@@ -170,7 +163,7 @@ class HomePage extends React.Component {
               onSetInactive={this.handleSetInactive}
             >
               <Button
-                variant={activeScroll === 'about' ? 'raised' : 'text'}
+                variant={activeScroll === 'about' ? 'contained' : 'text'}
                 color={activeScroll === 'about' ? 'primary' : 'inherit'}
               >
                 About
@@ -188,7 +181,7 @@ class HomePage extends React.Component {
               onSetInactive={this.handleSetInactive}
             >
               <Button
-                variant={activeScroll === 'publications' ? 'raised' : 'text'}
+                variant={activeScroll === 'publications' ? 'contained' : 'text'}
                 color={activeScroll === 'publications' ? 'primary' : 'inherit'}
               >
                 Publications
@@ -206,7 +199,7 @@ class HomePage extends React.Component {
               onSetInactive={this.handleSetInactive}
             >
               <Button
-                variant={activeScroll === 'contact' ? 'raised' : 'text'}
+                variant={activeScroll === 'contact' ? 'contained' : 'text'}
                 color={activeScroll === 'contact' ? 'primary' : 'inherit'}
               >
                 Contact
@@ -215,105 +208,211 @@ class HomePage extends React.Component {
           </Toolbar>
         </AppBar>
         <main>
-          <div style={{ paddingTop: 120 }} className={classes.odd}>
-            <Avatar src="images/ProfilePic.png" className={classes.avatar} />
-            <div className={classes.white}>
-              <Typography align="center" color="inherit" variant="display3">
-                Jesper Hansson Falkenby
-              </Typography>
-              <Typography align="center" color="inherit" variant="display1" gutterBottom>
-                Programmer - Gaming Enthusiast - Tech Freak
-              </Typography>
+          <ParallaxBanner
+            layers={[
+              {
+                image: 'images/bg.jpg',
+                amount: 0.1,
+                slowerScrollRate: false,
+              },
+            ]}
+            style={{ height: 'fit-content' }}
+          >
+            <Parallax offsetYMax={80} offsetYMin={0} slowerScrollRate>
+              <Avatar src="images/ProfilePic.png" className={classes.avatar} />
+            </Parallax>
+            <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
+              <Parallax offsetYMax={160} offsetYMin={0}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Trail
+                    items={['Jes', 'per ', 'Han', 'sson ', 'Fal', 'ken', 'by']}
+                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                    delay={500}
+                  >
+                    {item => props => (
+                      <Typography align="center" color="inherit" style={props} variant="h1">
+                        {item}
+                      </Typography>
+                    )}
+                  </Trail>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <Trail
+                    items={['Sys', 'tems ', 'dev', 'elo', 'per']}
+                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                    delay={1250}
+                  >
+                    {item => props => (
+                      <Typography align="center" color="inherit" style={props} variant="h4">
+                        {item}
+                      </Typography>
+                    )}
+                  </Trail>
+                </div>
+              </Parallax>
             </div>
-          </div>
-          <Element name="projects">
-            <div className={classes.layout}>
-              <Projects data={projectsData} />
-            </div>
-          </Element>
-          <Element name="resume">
-            <div className={classes.odd}>
+            <Element name="projects">
+              <div className={classes.layout}>
+                <Projects data={projectsData} />
+              </div>
+            </Element>
+          </ParallaxBanner>
+          <ParallaxBanner
+            layers={[
+              {
+                image: 'images/bg.jpg',
+                amount: 0.1,
+                slowerScrollRate: false,
+              },
+            ]}
+            style={{ height: 'fit-content' }}
+          >
+            <Element name="resume">
               <div className={classes.layout}>
                 <Resume />
               </div>
-            </div>
-          </Element>
-          <Element name="about">
-            <div className={classNames(classes.even, classes.layout)}>
-              <Typography align="center" variant="display1" gutterBottom>
-                About
-              </Typography>
-              {aboutData.data
-                ? aboutData.data.about.map(text => (
-                  <Typography key={text} variant="subheading" style={{ marginTop: 10 }}>
-                    {text}
-                  </Typography>
-                ))
-                : null}
-            </div>
-          </Element>
-          <Element name="publications">
-            <div className={classes.odd}>
+            </Element>
+            <Element name="about">
               <div className={classes.layout}>
-                <Publications data={publicationsData.data} />
+                <Trail
+                  items={['About']}
+                  from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  delay={1000}
+                >
+                  {item => props => (
+                    <Typography
+                      className={classes.white}
+                      style={props}
+                      align="center"
+                      variant="h2"
+                      gutterBottom
+                    >
+                      {item}
+                    </Typography>
+                  )}
+                </Trail>
+                <Trail
+                  items={aboutData.data.about}
+                  from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  delay={1500}
+                >
+                  {item => props => (
+                    <Typography
+                      className={classes.white}
+                      style={{ ...props, marginTop: 10 }}
+                      variant="subtitle1"
+                    >
+                      {item}
+                    </Typography>
+                  )}
+                </Trail>
+              </div>
+            </Element>
+          </ParallaxBanner>
+          <ParallaxBanner
+            layers={[
+              {
+                image: 'images/bg.jpg',
+                amount: 0.1,
+                slowerScrollRate: false,
+              },
+            ]}
+            style={{ height: 'fit-content' }}
+          >
+            <Element name="publications">
+              <div className={classes.layout}>
+                <Transition
+                  items={<Publications data={publicationsData.data} />}
+                  from={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
+                  enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  leave={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
+                  delay={1000}
+                >
+                  {item => props => <animated.div style={props}>{item}</animated.div>}
+                </Transition>
+              </div>
+            </Element>
+            <Element name="contact">
+              <div className={classes.layout}>
+                <Transition
+                  items={<Contact />}
+                  from={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
+                  enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  leave={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
+                  delay={1000}
+                >
+                  {item => props => <animated.div style={props}>{item}</animated.div>}
+                </Transition>
+              </div>
+            </Element>
+            <div className={classes.columnFlex}>
+              <div
+                className={classes.rowFlex}
+                style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
+              >
+                <IconButton
+                  href="https://www.facebook.com/jesper.hansson.f"
+                  className={classes.white}
+                  aria-label="Facebook"
+                >
+                  <Facebook />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/in/jesperhf92/"
+                  className={classes.white}
+                  aria-label="Linkedin"
+                >
+                  <Linkedin />
+                </IconButton>
+                <IconButton
+                  href="https://twitter.com/JesperFalkenby"
+                  className={classes.white}
+                  aria-label="Twitter"
+                >
+                  <Twitter />
+                </IconButton>
+                <IconButton
+                  href="https://www.instagram.com/jesperfalkenby/"
+                  className={classes.white}
+                  aria-label="Instagram"
+                >
+                  <Instagram />
+                </IconButton>
+                <IconButton
+                  href="https://github.com/hyzor"
+                  className={classes.white}
+                  aria-label="GitHub"
+                >
+                  <GithubBox />
+                </IconButton>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Trail
+                  items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2019']}
+                  from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                  delay={1000}
+                >
+                  {item => props => (
+                    <Typography
+                      style={props}
+                      className={classes.white}
+                      variant="subtitle1"
+                      align="center"
+                      gutterBottom
+                    >
+                      {item}
+                    </Typography>
+                  )}
+                </Trail>
               </div>
             </div>
-          </Element>
-          <Element name="contact">
-            <div className={classes.even}>
-              <div className={classes.layout}>
-                <Contact />
-              </div>
-            </div>
-          </Element>
+          </ParallaxBanner>
         </main>
-        <footer className={classes.footer}>
-          <div className={classes.columnFlex}>
-            <div
-              className={classes.rowFlex}
-              style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
-            >
-              <IconButton
-                href="https://www.facebook.com/jesper.hansson.f"
-                className={classes.white}
-                aria-label="Facebook"
-              >
-                <Facebook />
-              </IconButton>
-              <IconButton
-                href="https://www.linkedin.com/in/jesperhf92/"
-                className={classes.white}
-                aria-label="Linkedin"
-              >
-                <Linkedin />
-              </IconButton>
-              <IconButton
-                href="https://twitter.com/JesperFalkenby"
-                className={classes.white}
-                aria-label="Twitter"
-              >
-                <Twitter />
-              </IconButton>
-              <IconButton
-                href="https://www.instagram.com/jesperfalkenby/"
-                className={classes.white}
-                aria-label="Instagram"
-              >
-                <Instagram />
-              </IconButton>
-              <IconButton
-                href="https://github.com/hyzor"
-                className={classes.white}
-                aria-label="GitHub"
-              >
-                <GithubBox />
-              </IconButton>
-            </div>
-            <Typography className={classes.white} variant="subheading" align="center" gutterBottom>
-              Copyright © Jesper Hansson Falkenby 2018
-            </Typography>
-          </div>
-        </footer>
       </React.Fragment>
     );
   }

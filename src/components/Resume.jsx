@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import IconButton from '@material-ui/core/IconButton';
+import { Trail } from 'react-spring';
 
 const options = {
   cMapUrl: 'cmaps/',
@@ -15,8 +16,7 @@ const options = {
 };
 
 const styles = theme => ({
-  titleWhite: {
-    textAlign: 'center',
+  white: {
     color: '#fff',
   },
   title: {
@@ -73,11 +73,29 @@ class Resume extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography className={classes.titleWhite} variant="display1" gutterBottom>
-          Résumé
-        </Typography>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Trail
+            items={['Résumé']}
+            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+            delay={1500}
+          >
+            {item => props => (
+              <Typography
+                className={classes.white}
+                align="center"
+                color="inherit"
+                style={props}
+                variant="h2"
+                gutterBottom
+              >
+                {item}
+              </Typography>
+            )}
+          </Trail>
+        </div>
         <div className={classes.centerFlex}>
-          <Paper className={classes.paper} elevation={8} style={{ position: 'relative' }}>
+          <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>
             <Document
               file="documents/JHF_cv.pdf"
               onLoadSuccess={this.onDocumentLoad}
@@ -101,7 +119,7 @@ class Resume extends React.Component {
             >
               <KeyboardArrowRightIcon />
             </IconButton>
-            <Typography className={classes.title} variant="subheading" gutterBottom>
+            <Typography className={classes.title} variant="subtitle1" gutterBottom>
               {pageNumber} / {numPages}
             </Typography>
           </Paper>

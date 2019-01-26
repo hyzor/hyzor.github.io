@@ -7,7 +7,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 
 const styles = theme => ({
@@ -65,7 +65,7 @@ class Publications extends React.Component {
     }));
   };
 
-  handleChangeStep = (activeStep) => {
+  handleChangeStep = activeStep => {
     this.setState({ activeStep });
   };
 
@@ -76,10 +76,10 @@ class Publications extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography className={classes.titleWhite} align="center" variant="display1" gutterBottom>
+        <Typography className={classes.titleWhite} align="center" variant="h2" gutterBottom>
           Publications
         </Typography>
-        <Paper elevation={8} className={classes.paper}>
+        <Paper elevation={16} className={classes.paper}>
           <SwipeableViews
             style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -89,13 +89,13 @@ class Publications extends React.Component {
           >
             {data.publications.map(pub => (
               <React.Fragment key={pub.title}>
-                <Typography variant="title" align="center">
+                <Typography variant="h6" align="center">
                   {data.publications[activeStep].title}
                 </Typography>
-                <Typography variant="subheading" align="center" style={{ marginTop: 5 }}>
+                <Typography variant="subtitle1" align="center" style={{ marginTop: 5 }}>
                   {data.publications[activeStep].publisher}
                 </Typography>
-                <Typography variant="subheading" align="center" style={{ marginTop: 2 }}>
+                <Typography variant="subtitle1" align="center" style={{ marginTop: 2 }}>
                   {data.publications[activeStep].type}
                 </Typography>
                 {pub.desc.map(desc => (
@@ -114,16 +114,16 @@ class Publications extends React.Component {
             position="static"
             activeStep={activeStep}
             className={classes.mobileStepper}
-            nextButton={(
+            nextButton={
               <IconButton onClick={this.handleNext}>
                 <KeyboardArrowRight />
               </IconButton>
-)}
-            backButton={(
+            }
+            backButton={
               <IconButton onClick={this.handleBack}>
                 <KeyboardArrowLeft />
               </IconButton>
-)}
+            }
           />
         </Paper>
       </React.Fragment>

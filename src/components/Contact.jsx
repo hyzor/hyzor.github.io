@@ -6,11 +6,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
 
 const styles = theme => ({
+  titleWhite: {
+    color: '#fff',
+  },
   textField: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -68,7 +71,7 @@ class Contact extends React.Component {
 
   state = Contact.initialState;
 
-  handleChange = name => (event) => {
+  handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
@@ -93,10 +96,10 @@ class Contact extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography align="center" variant="display1" gutterBottom>
+        <Typography className={classes.titleWhite} align="center" variant="h2" gutterBottom>
           Contact
         </Typography>
-        <Paper elevation={8} className={classes.paper}>
+        <Paper elevation={16} className={classes.paper}>
           <div className={classes.center} style={{ width: '80%' }}>
             <div className={classes.columnFlex}>
               <TextField

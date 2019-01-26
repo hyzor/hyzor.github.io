@@ -1,29 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
 
-const styles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 100,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
-    overflow: 'auto',
-    maxHeight: 1000,
-  },
+const styles = () => ({
   img: {
     height: 360,
     maxWidth: 640,
-    overflow: 'hidden',
+    overflow: 'auto',
     width: '100%',
     display: 'block',
     marginLeft: 'auto',
@@ -67,7 +59,7 @@ class ProjectModal extends React.Component {
     }));
   };
 
-  handleChangePic = (activePic) => {
+  handleChangePic = activePic => {
     this.setState({ activePic });
   };
 
@@ -78,70 +70,64 @@ class ProjectModal extends React.Component {
     const numImages = project.images.length;
 
     return (
-      <Modal
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+      <Dialog
+        aria-labelledby="simple-dialog-title"
         open={openProject === project.id}
         onClose={this.handleClose}
+        maxWidth="md"
       >
-        <div
-          style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-          className={classes.paper}
-        >
-          <Typography
-            className={classes.title}
-            style={{ marginBottom: 10 }}
-            variant="headline"
-            id="modal-title"
-          >
-            {project.name}
-          </Typography>
-          <div style={{ marginLeft: 50, marginRight: 50 }}>
-            {project.fulltext
-              ? project.fulltext.map(text => (
-                <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
-                  {text}
-                </Typography>
+        <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
+          {project.name}
+        </DialogTitle>
+        <div style={{ marginLeft: 100, marginRight: 100 }}>
+          {project.fulltext
+            ? project.fulltext.map(text => (
+              <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
+                {text}
+              </Typography>
               ))
-              : null}
-          </div>
-          {project.source && (
-            <Typography variant="body2" className={classes.title} style={{ marginTop: 5 }}>
-              <a href={project.source}>Source code</a>
-            </Typography>
-          )}
-          <SwipeableViews
-            style={{ marginTop: 20 }}
-            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-            index={activePic}
-            onChangeIndex={this.handleChangePic}
-            enableMouseEvents
-          >
-            {project.images.map(image => (
-              <img key={image.label} className={classes.img} src={image.path} alt={image.label} />
-            ))}
-          </SwipeableViews>
-          <Typography variant="body1" className={classes.caption}>
-            {project.images[activePic].label}
-          </Typography>
-          <MobileStepper
-            steps={numImages}
-            position="static"
-            activeStep={activePic}
-            className={classes.mobileStepper}
-            nextButton={(
-              <IconButton onClick={this.handleNext}>
-                <KeyboardArrowRight />
-              </IconButton>
-)}
-            backButton={(
-              <IconButton onClick={this.handleBack}>
-                <KeyboardArrowLeft />
-              </IconButton>
-)}
-          />
+            : null}
         </div>
-      </Modal>
+        <SwipeableViews
+          style={{ marginTop: 20 }}
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={activePic}
+          onChangeIndex={this.handleChangePic}
+          enableMouseEvents
+        >
+          {project.images.map(image => (
+            <img key={image.label} className={classes.img} src={image.path} alt={image.label} />
+          ))}
+        </SwipeableViews>
+        <Typography variant="caption" className={classes.caption}>
+          {project.images[activePic].label}
+        </Typography>
+        <MobileStepper
+          steps={numImages}
+          position="static"
+          activeStep={activePic}
+          className={classes.mobileStepper}
+          nextButton={
+            <IconButton onClick={this.handleNext}>
+              <KeyboardArrowRight />
+            </IconButton>
+          }
+          backButton={
+            <IconButton onClick={this.handleBack}>
+              <KeyboardArrowLeft />
+            </IconButton>
+          }
+        />
+        {project.source && (
+          <Typography
+            variant="body2"
+            className={classes.title}
+            style={{ marginTop: 15, marginBottom: 15 }}
+          >
+            <a href={project.source}>Source code</a>
+          </Typography>
+        )}
+      </Dialog>
     );
   }
 }

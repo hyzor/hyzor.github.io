@@ -1,6 +1,6 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jest/recommended'],
+  extends: ['airbnb', 'plugin:jest/recommended', 'prettier'],
   plugins: ['jest'],
   env: {
     browser: true,
@@ -61,6 +61,9 @@ module.exports = {
     // this rule throws an error with imported prop-types
     // https://github.com/yannickcr/eslint-plugin-react/issues/1389
     'react/no-typos': 'off',
+
+    // avoid clashing with Airbnb style guide
+    'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
   },
 
   settings: {
