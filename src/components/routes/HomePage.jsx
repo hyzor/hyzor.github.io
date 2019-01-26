@@ -227,7 +227,7 @@ class HomePage extends React.Component {
                 slowerScrollRate: false,
               },
             ]}
-            style={{ height: 'fit-content' }}
+            style={{ height: '3055.390px' }}
           >
             <Parallax offsetYMax={80} offsetYMin={0} slowerScrollRate>
               <Avatar src="images/ProfilePic.png" className={classes.avatar} />
@@ -280,7 +280,7 @@ class HomePage extends React.Component {
                 slowerScrollRate: false,
               },
             ]}
-            style={{ height: 'fit-content' }}
+            style={{ height: '2219.590px' }}
           >
             <Element name="resume">
               <div className={classes.layout}>
@@ -340,7 +340,7 @@ class HomePage extends React.Component {
                 slowerScrollRate: false,
               },
             ]}
-            style={{ height: 'fit-content' }}
+            style={{ height: '2505.830px' }}
           >
             <Element name="publications">
               <div className={classes.layout}>
