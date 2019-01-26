@@ -75,10 +75,10 @@ class Resume extends React.Component {
       <React.Fragment>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Trail
-            items={['Résumé']}
+            items={['Rés', 'umé']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={1500}
+            delay={500}
           >
             {item => props => (
               <Typography

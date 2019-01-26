@@ -18,9 +18,10 @@ import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail, Transition, animated } from 'react-spring';
+import { Trail } from 'react-spring';
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import { Link, Element, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import TransitionReveal from 'components/TransitionReveal';
 
 const styles = theme => ({
   menuButton: {
@@ -72,6 +73,7 @@ const styles = theme => ({
 class HomePage extends React.Component {
   state = {
     activeScroll: 'home',
+    windowHeight: window.innerHeight,
   };
 
   scrollToTop = () => {
@@ -80,7 +82,16 @@ class HomePage extends React.Component {
 
   componentDidMount() {
     scrollSpy.update();
+    window.addEventListener('resize', this.handleResize);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    this.setState({ windowHeight: window.innerHeight });
+  };
 
   handleSetActive = to => {
     this.setState({
@@ -100,8 +111,8 @@ class HomePage extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { activeScroll } = this.state;
-    const linkOffset = 80;
+    const { activeScroll, windowHeight } = this.state;
+    const linkOffset = -30;
 
     return (
       <React.Fragment>
@@ -139,7 +150,7 @@ class HomePage extends React.Component {
               to="resume"
               spy
               smooth
-              offset={linkOffset - 100}
+              offset={linkOffset}
               duration={500}
               onSetActive={this.handleSetActive}
               onSetInactive={this.handleSetInactive}
@@ -157,7 +168,7 @@ class HomePage extends React.Component {
               to="about"
               spy
               smooth
-              offset={linkOffset - 200}
+              offset={linkOffset}
               duration={500}
               onSetActive={this.handleSetActive}
               onSetInactive={this.handleSetInactive}
@@ -175,7 +186,7 @@ class HomePage extends React.Component {
               to="publications"
               spy
               smooth
-              offset={linkOffset - 200}
+              offset={linkOffset}
               duration={500}
               onSetActive={this.handleSetActive}
               onSetInactive={this.handleSetInactive}
@@ -193,7 +204,7 @@ class HomePage extends React.Component {
               to="contact"
               spy
               smooth
-              offset={linkOffset - 450}
+              offset={windowHeight > 960 ? -(windowHeight / 2) + 245 : linkOffset}
               duration={500}
               onSetActive={this.handleSetActive}
               onSetInactive={this.handleSetInactive}
@@ -255,7 +266,9 @@ class HomePage extends React.Component {
             </div>
             <Element name="projects">
               <div className={classes.layout}>
-                <Projects data={projectsData} />
+                <TransitionReveal>
+                  <Projects data={projectsData} />
+                </TransitionReveal>
               </div>
             </Element>
           </ParallaxBanner>
@@ -271,45 +284,51 @@ class HomePage extends React.Component {
           >
             <Element name="resume">
               <div className={classes.layout}>
-                <Resume />
+                <TransitionReveal>
+                  <Resume />
+                </TransitionReveal>
               </div>
             </Element>
             <Element name="about">
               <div className={classes.layout}>
-                <Trail
-                  items={['About']}
-                  from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  delay={1000}
-                >
-                  {item => props => (
-                    <Typography
-                      className={classes.white}
-                      style={props}
-                      align="center"
-                      variant="h2"
-                      gutterBottom
+                <TransitionReveal>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Trail
+                      items={['Ab', 'out']}
+                      from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                      to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                      delay={500}
                     >
-                      {item}
-                    </Typography>
-                  )}
-                </Trail>
-                <Trail
-                  items={aboutData.data.about}
-                  from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  delay={1500}
-                >
-                  {item => props => (
-                    <Typography
-                      className={classes.white}
-                      style={{ ...props, marginTop: 10 }}
-                      variant="subtitle1"
-                    >
-                      {item}
-                    </Typography>
-                  )}
-                </Trail>
+                      {item => props => (
+                        <Typography
+                          className={classes.white}
+                          style={props}
+                          align="center"
+                          variant="h2"
+                          gutterBottom
+                        >
+                          {item}
+                        </Typography>
+                      )}
+                    </Trail>
+                  </div>
+                  <Trail
+                    items={aboutData.data.about}
+                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                    delay={1000}
+                  >
+                    {item => props => (
+                      <Typography
+                        className={classes.white}
+                        style={{ ...props, marginTop: 10 }}
+                        variant="subtitle1"
+                      >
+                        {item}
+                      </Typography>
+                    )}
+                  </Trail>
+                </TransitionReveal>
               </div>
             </Element>
           </ParallaxBanner>
@@ -325,28 +344,16 @@ class HomePage extends React.Component {
           >
             <Element name="publications">
               <div className={classes.layout}>
-                <Transition
-                  items={<Publications data={publicationsData.data} />}
-                  from={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
-                  enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  leave={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
-                  delay={1000}
-                >
-                  {item => props => <animated.div style={props}>{item}</animated.div>}
-                </Transition>
+                <TransitionReveal>
+                  <Publications data={publicationsData.data} />
+                </TransitionReveal>
               </div>
             </Element>
             <Element name="contact">
               <div className={classes.layout}>
-                <Transition
-                  items={<Contact />}
-                  from={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
-                  enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  leave={{ opacity: 0, transform: 'translate3d(0,0px,0)' }}
-                  delay={1000}
-                >
-                  {item => props => <animated.div style={props}>{item}</animated.div>}
-                </Transition>
+                <TransitionReveal>
+                  <Contact />
+                </TransitionReveal>
               </div>
             </Element>
             <div className={classes.columnFlex}>

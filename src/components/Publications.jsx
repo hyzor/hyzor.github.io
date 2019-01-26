@@ -9,9 +9,10 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
+import { Trail } from 'react-spring';
 
 const styles = theme => ({
-  titleWhite: {
+  white: {
     color: '#fff',
   },
   caption: {
@@ -76,9 +77,27 @@ class Publications extends React.Component {
 
     return (
       <React.Fragment>
-        <Typography className={classes.titleWhite} align="center" variant="h2" gutterBottom>
-          Publications
-        </Typography>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Trail
+            items={['Pub', 'lic', 'ati', 'ons']}
+            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+            delay={500}
+          >
+            {item => props => (
+              <Typography
+                className={classes.white}
+                align="center"
+                color="inherit"
+                style={props}
+                variant="h2"
+                gutterBottom
+              >
+                {item}
+              </Typography>
+            )}
+          </Trail>
+        </div>
         <Paper elevation={16} className={classes.paper}>
           <SwipeableViews
             style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}
