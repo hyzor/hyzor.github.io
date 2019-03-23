@@ -223,7 +223,7 @@ class HomePage extends React.Component {
           </Toolbar>
         </AppBar>
         <main>
-          <div style={{ height: '2000px', position: 'relative' }}>
+          <div style={{ height: '1750px', position: 'relative' }}>
             <Parallax
               pages={6}
               ref={ref => {
@@ -233,13 +233,12 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={0}
                 speed={0}
-                style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
-              >
-                <Avatar
-                  src="images/ProfilePic.png"
-                  className={classes.avatar}
-                  style={{ marginTop: 320 }}
-                />
+                style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
+              />
+              <ParallaxLayer offset={0.15} speed={0.3}>
+                <Avatar src="images/ProfilePic.png" className={classes.avatar} />
+              </ParallaxLayer>
+              <ParallaxLayer offset={0.25} speed={0.5}>
                 <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Trail
@@ -274,8 +273,9 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={1}
                 speed={0}
-                style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
-              >
+                style={{ background: 'url(images/bg2.jpg) center center no-repeat' }}
+              />
+              <ParallaxLayer offset={1} speed={0.3}>
                 <Element name="projects" className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -287,8 +287,9 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={2}
                 speed={0}
-                style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
-              >
+                style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
+              />
+              <ParallaxLayer offset={2} speed={0.3}>
                 <Element name="resume" className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -301,7 +302,8 @@ class HomePage extends React.Component {
                 offset={3}
                 speed={0}
                 style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
-              >
+              />
+              <ParallaxLayer offset={3} speed={0.3}>
                 <Element name="about" className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -348,8 +350,9 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={4}
                 speed={0}
-                style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
-              >
+                style={{ background: 'url(images/bg5.jpg) center center no-repeat' }}
+              />
+              <ParallaxLayer offset={4} speed={0.3}>
                 <Element name="publications" className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -361,77 +364,80 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={5}
                 speed={0}
-                style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
-              >
+                style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
+              />
+              <ParallaxLayer offset={5} speed={0.3}>
                 <Element name="contact" className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
                       <Contact />
                     </TransitionReveal>
                   </div>
-                  <div className={classes.columnFlex}>
-                    <div
-                      className={classes.rowFlex}
-                      style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
-                    >
-                      <IconButton
-                        href="https://www.facebook.com/jesper.hansson.f"
-                        className={classes.white}
-                        aria-label="Facebook"
-                      >
-                        <Facebook />
-                      </IconButton>
-                      <IconButton
-                        href="https://www.linkedin.com/in/jesperhf92/"
-                        className={classes.white}
-                        aria-label="Linkedin"
-                      >
-                        <Linkedin />
-                      </IconButton>
-                      <IconButton
-                        href="https://twitter.com/JesperFalkenby"
-                        className={classes.white}
-                        aria-label="Twitter"
-                      >
-                        <Twitter />
-                      </IconButton>
-                      <IconButton
-                        href="https://www.instagram.com/jesperfalkenby/"
-                        className={classes.white}
-                        aria-label="Instagram"
-                      >
-                        <Instagram />
-                      </IconButton>
-                      <IconButton
-                        href="https://github.com/hyzor"
-                        className={classes.white}
-                        aria-label="GitHub"
-                      >
-                        <GithubBox />
-                      </IconButton>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                      <Trail
-                        items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2019']}
-                        from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                        to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                        delay={1000}
-                      >
-                        {item => props => (
-                          <Typography
-                            style={props}
-                            className={classes.white}
-                            variant="subtitle1"
-                            align="center"
-                            gutterBottom
-                          >
-                            {item}
-                          </Typography>
-                        )}
-                      </Trail>
-                    </div>
-                  </div>
                 </Element>
+              </ParallaxLayer>
+              <ParallaxLayer offset={5.8} speed={0.4}>
+                <div className={classes.columnFlex}>
+                  <div
+                    className={classes.rowFlex}
+                    style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
+                  >
+                    <IconButton
+                      href="https://www.facebook.com/jesper.hansson.f"
+                      className={classes.white}
+                      aria-label="Facebook"
+                    >
+                      <Facebook />
+                    </IconButton>
+                    <IconButton
+                      href="https://www.linkedin.com/in/jesperhf92/"
+                      className={classes.white}
+                      aria-label="Linkedin"
+                    >
+                      <Linkedin />
+                    </IconButton>
+                    <IconButton
+                      href="https://twitter.com/JesperFalkenby"
+                      className={classes.white}
+                      aria-label="Twitter"
+                    >
+                      <Twitter />
+                    </IconButton>
+                    <IconButton
+                      href="https://www.instagram.com/jesperfalkenby/"
+                      className={classes.white}
+                      aria-label="Instagram"
+                    >
+                      <Instagram />
+                    </IconButton>
+                    <IconButton
+                      href="https://github.com/hyzor"
+                      className={classes.white}
+                      aria-label="GitHub"
+                    >
+                      <GithubBox />
+                    </IconButton>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Trail
+                      items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2019']}
+                      from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                      to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                      delay={1000}
+                    >
+                      {item => props => (
+                        <Typography
+                          style={props}
+                          className={classes.white}
+                          variant="subtitle1"
+                          align="center"
+                          gutterBottom
+                        >
+                          {item}
+                        </Typography>
+                      )}
+                    </Trail>
+                  </div>
+                </div>
               </ParallaxLayer>
             </Parallax>
           </div>
