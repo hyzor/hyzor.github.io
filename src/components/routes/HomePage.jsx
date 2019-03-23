@@ -18,7 +18,7 @@ import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail } from 'react-spring';
+import { Trail } from 'react-spring/renderprops';
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import { Link, Element, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import TransitionReveal from 'components/TransitionReveal';
@@ -222,18 +222,17 @@ class HomePage extends React.Component {
           <ParallaxBanner
             layers={[
               {
-                image: 'images/bg.jpg',
+                image: 'images/bg6.jpg',
                 amount: 0.1,
-                slowerScrollRate: false,
               },
             ]}
             style={{ height: '3055.390px' }}
           >
-            <Parallax offsetYMax={80} offsetYMin={0} slowerScrollRate>
+            <Parallax y={[0, 80]}>
               <Avatar src="images/ProfilePic.png" className={classes.avatar} />
             </Parallax>
             <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
-              <Parallax offsetYMax={160} offsetYMin={0}>
+              <Parallax y={[160, 0]}>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <Trail
                     items={['Jes', 'per ', 'Han', 'sson ', 'Fal', 'ken', 'by']}
@@ -277,7 +276,6 @@ class HomePage extends React.Component {
               {
                 image: 'images/bg.jpg',
                 amount: 0.1,
-                slowerScrollRate: false,
               },
             ]}
             style={{ height: '2219.590px' }}
@@ -337,7 +335,6 @@ class HomePage extends React.Component {
               {
                 image: 'images/bg.jpg',
                 amount: 0.1,
-                slowerScrollRate: false,
               },
             ]}
             style={{ height: '2505.830px' }}

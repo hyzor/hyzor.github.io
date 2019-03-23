@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
-import { Trail } from 'react-spring';
+import { Trail } from 'react-spring/renderprops';
 
 const styles = theme => ({
   white: {

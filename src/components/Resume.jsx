@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail } from 'react-spring';
+import { Trail } from 'react-spring/renderprops';
 
 const options = {
   cMapUrl: 'cmaps/',

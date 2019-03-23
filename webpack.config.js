@@ -101,7 +101,9 @@ const developmentPlugins = [
 ];
 
 const productionPlugins = [
-  new CleanWebpackPlugin([SETTINGS.PUBLIC_PATH]),
+  new CleanWebpackPlugin({
+    cleanOnceBeforeBuildPatterns: [SETTINGS.PUBLIC_PATH],
+  }),
   ...pluginsBase,
   new LodashModuleReplacementPlugin(),
   new ExtractTextPlugin('[name].css'),

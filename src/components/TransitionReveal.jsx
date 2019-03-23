@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
-import Waypoint from 'react-waypoint';
-import { Transition, animated } from 'react-spring';
+import { Waypoint } from 'react-waypoint';
+import { Transition, animated } from 'react-spring/renderprops';
 
 class TransitionReveal extends React.Component {
   state = {

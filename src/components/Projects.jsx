@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ProjectModal from 'components/ProjectModal';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
-import { Trail } from 'react-spring';
+import { Trail } from 'react-spring/renderprops';
 
 const styles = theme => ({
   white: {

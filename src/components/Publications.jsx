@@ -9,7 +9,7 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
-import { Trail } from 'react-spring';
+import { Trail } from 'react-spring/renderprops';
 
 const styles = theme => ({
   white: {
