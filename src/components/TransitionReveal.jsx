@@ -24,7 +24,7 @@ class TransitionReveal extends React.Component {
             items={isVisible}
             from={{ opacity: 0, transform: 'translate3d(0,160px,0)' }}
             enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={200}
+            delay={100}
           >
             {_isVisible =>
               _isVisible && (props => <animated.div style={props}>{children}</animated.div>)

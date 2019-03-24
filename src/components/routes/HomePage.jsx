@@ -20,7 +20,6 @@ import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-
 import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import { Link, Element, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import TransitionReveal from 'components/TransitionReveal';
 
 const styles = theme => ({
@@ -75,48 +74,14 @@ const styles = theme => ({
 });
 
 class HomePage extends React.Component {
-  state = {
-    activeScroll: 'home',
-    windowHeight: window.innerHeight,
-  };
+  parallax = React.createRef();
 
-  scrollToTop = () => {
-    scroll.scrollToTop();
-  };
-
-  componentDidMount() {
-    scrollSpy.update();
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleResize = () => {
-    this.setState({ windowHeight: window.innerHeight });
-  };
-
-  handleSetActive = to => {
-    this.setState({
-      activeScroll: to,
-    });
-  };
-
-  handleSetInactive = to => {
-    const { activeScroll } = this.state;
-
-    if (activeScroll === to) {
-      this.setState({
-        activeScroll: null,
-      });
-    }
+  parallaxScroll = to => () => {
+    this.parallax.current.scrollTo(to);
   };
 
   render() {
     const { classes } = this.props;
-    const { activeScroll, windowHeight } = this.state;
-    const linkOffset = -30;
 
     return (
       <React.Fragment>
@@ -124,112 +89,57 @@ class HomePage extends React.Component {
         <AppBar color="secondary">
           <Toolbar>
             <div style={{ flexGrow: 1 }}>
-              <Button onClick={this.scrollToTop} color="inherit">
+              <Button onClick={this.parallaxScroll(0)} color="inherit">
                 <Typography variant="h6" color="inherit">
                   Home
                 </Typography>
               </Button>
             </div>
-            <Link
+            <Button
+              onClick={this.parallaxScroll(0.975)}
               style={{ display: 'flex' }}
-              activeClass="active"
-              to="projects"
-              spy
-              smooth
-              offset={linkOffset}
-              duration={500}
-              onSetActive={this.handleSetActive}
-              onSetInactive={this.handleSetInactive}
+              variant="text"
+              color="inherit"
             >
-              <Button
-                variant={activeScroll === 'projects' ? 'contained' : 'text'}
-                color={activeScroll === 'projects' ? 'primary' : 'inherit'}
-              >
-                Projects
-              </Button>
-            </Link>
-            <Link
+              Projects
+            </Button>
+            <Button
+              onClick={this.parallaxScroll(2.075)}
               style={{ display: 'flex' }}
-              activeClass="active"
-              to="resume"
-              spy
-              smooth
-              offset={linkOffset}
-              duration={500}
-              onSetActive={this.handleSetActive}
-              onSetInactive={this.handleSetInactive}
+              variant="text"
+              color="inherit"
             >
-              <Button
-                variant={activeScroll === 'resume' ? 'contained' : 'text'}
-                color={activeScroll === 'resume' ? 'primary' : 'inherit'}
-              >
-                Résumé
-              </Button>
-            </Link>
-            <Link
+              Résumé
+            </Button>
+            <Button
+              onClick={this.parallaxScroll(3.2)}
               style={{ display: 'flex' }}
-              activeClass="active"
-              to="about"
-              spy
-              smooth
-              offset={linkOffset}
-              duration={500}
-              onSetActive={this.handleSetActive}
-              onSetInactive={this.handleSetInactive}
+              variant="text"
+              color="inherit"
             >
-              <Button
-                variant={activeScroll === 'about' ? 'contained' : 'text'}
-                color={activeScroll === 'about' ? 'primary' : 'inherit'}
-              >
-                About
-              </Button>
-            </Link>
-            <Link
+              About
+            </Button>
+            <Button
+              onClick={this.parallaxScroll(4.125)}
               style={{ display: 'flex' }}
-              activeClass="active"
-              to="publications"
-              spy
-              smooth
-              offset={linkOffset}
-              duration={500}
-              onSetActive={this.handleSetActive}
-              onSetInactive={this.handleSetInactive}
+              variant="text"
+              color="inherit"
             >
-              <Button
-                variant={activeScroll === 'publications' ? 'contained' : 'text'}
-                color={activeScroll === 'publications' ? 'primary' : 'inherit'}
-              >
-                Publications
-              </Button>
-            </Link>
-            <Link
+              Publications
+            </Button>
+            <Button
+              onClick={this.parallaxScroll(5)}
               style={{ display: 'flex' }}
-              activeClass="active"
-              to="contact"
-              spy
-              smooth
-              offset={windowHeight > 960 ? -(windowHeight / 2) + 245 : linkOffset}
-              duration={500}
-              onSetActive={this.handleSetActive}
-              onSetInactive={this.handleSetInactive}
+              variant="text"
+              color="inherit"
             >
-              <Button
-                variant={activeScroll === 'contact' ? 'contained' : 'text'}
-                color={activeScroll === 'contact' ? 'primary' : 'inherit'}
-              >
-                Contact
-              </Button>
-            </Link>
+              Contact
+            </Button>
           </Toolbar>
         </AppBar>
         <main>
           <div style={{ height: '1750px', position: 'relative' }}>
-            <Parallax
-              pages={6}
-              ref={ref => {
-                this.parallax = ref;
-              }}
-            >
+            <Parallax pages={6} ref={this.parallax}>
               <ParallaxLayer
                 offset={0}
                 speed={0}
@@ -276,13 +186,11 @@ class HomePage extends React.Component {
                 style={{ background: 'url(images/bg2.jpg) center center no-repeat' }}
               />
               <ParallaxLayer offset={1} speed={0.3}>
-                <Element name="projects" className={classes.pageParent}>
+                <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal>
-                      <Projects data={projectsData} />
-                    </TransitionReveal>
+                    <Projects data={projectsData} />
                   </div>
-                </Element>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={2}
@@ -290,13 +198,13 @@ class HomePage extends React.Component {
                 style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
               />
               <ParallaxLayer offset={2} speed={0.3}>
-                <Element name="resume" className={classes.pageParent}>
+                <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
                       <Resume />
                     </TransitionReveal>
                   </div>
-                </Element>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={3}
@@ -304,7 +212,7 @@ class HomePage extends React.Component {
                 style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
               />
               <ParallaxLayer offset={3} speed={0.3}>
-                <Element name="about" className={classes.pageParent}>
+                <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
                       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -345,7 +253,7 @@ class HomePage extends React.Component {
                       </Trail>
                     </TransitionReveal>
                   </div>
-                </Element>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={4}
@@ -353,29 +261,27 @@ class HomePage extends React.Component {
                 style={{ background: 'url(images/bg5.jpg) center center no-repeat' }}
               />
               <ParallaxLayer offset={4} speed={0.3}>
-                <Element name="publications" className={classes.pageParent}>
+                <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
                       <Publications data={publicationsData.data} />
                     </TransitionReveal>
                   </div>
-                </Element>
+                </div>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={5}
                 speed={0}
                 style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={5} speed={0.3}>
-                <Element name="contact" className={classes.pageParent}>
-                  <div className={classes.page}>
-                    <TransitionReveal>
-                      <Contact />
-                    </TransitionReveal>
-                  </div>
-                </Element>
+              <ParallaxLayer offset={5.1} speed={0.3}>
+                <div className={classes.page}>
+                  <TransitionReveal>
+                    <Contact />
+                  </TransitionReveal>
+                </div>
               </ParallaxLayer>
-              <ParallaxLayer offset={5.8} speed={0.4}>
+              <ParallaxLayer offset={5.4} speed={0.4}>
                 <div className={classes.columnFlex}>
                   <div
                     className={classes.rowFlex}

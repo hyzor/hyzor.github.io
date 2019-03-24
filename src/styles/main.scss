@@ -15,4 +15,14 @@ body {
   line-height: 1.6;
   color: $color-black;
   font-family: $font-family;
+  overflow: hidden;
+}
+
+div {
+  overflow: -moz-scrollbar-none;
+  -ms-overflow-style: none;
+}
+
+div::-webkit-scrollbar {
+  width: 0 !important;
 }
