@@ -188,7 +188,9 @@ class HomePage extends React.Component {
               <ParallaxLayer offset={1} speed={0.3}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <Projects data={projectsData} />
+                    <TransitionReveal>
+                      <Projects data={projectsData} />
+                    </TransitionReveal>
                   </div>
                 </div>
               </ParallaxLayer>

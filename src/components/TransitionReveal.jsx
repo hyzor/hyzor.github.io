@@ -18,13 +18,13 @@ class TransitionReveal extends React.Component {
     const { isVisible } = this.state;
 
     return (
-      <Waypoint onEnter={this.handleWaypointEnter} topOffset={200} bottomOffset={200}>
+      <Waypoint debug onEnter={this.handleWaypointEnter} topOffset={400} bottomOffset={400}>
         <div>
           <Transition
             items={isVisible}
-            from={{ opacity: 0, transform: 'translate3d(0,160px,0)' }}
+            from={{ opacity: 0, transform: 'translate3d(0,200px,0)' }}
             enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={100}
+            trail={200}
           >
             {_isVisible =>
               _isVisible && (props => <animated.div style={props}>{children}</animated.div>)

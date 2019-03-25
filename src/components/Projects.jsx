@@ -11,16 +11,13 @@ import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import { Trail } from 'react-spring/renderprops';
 
-const styles = theme => ({
+const styles = () => ({
   white: {
     color: '#fff',
   },
   card: {
     height: '100%',
     width: '100%',
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 6}px 0`,
   },
   cardMedia: {
     //paddingTop: '56.25%', // 16:9
@@ -47,7 +44,7 @@ class Projects extends React.Component {
     const { projects } = data.data;
 
     return (
-      <div className={classes.cardGrid}>
+      <React.Fragment>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Trail
             items={['Pro', 'jec', 'ts']}
@@ -103,7 +100,7 @@ class Projects extends React.Component {
             )}
           </Trail>
         </Grid>
-      </div>
+      </React.Fragment>
     );
   }
 }
