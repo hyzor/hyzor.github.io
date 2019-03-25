@@ -6,7 +6,6 @@ const stylesLoaders = [
   {
     loader: 'css-loader',
     options: {
-      minimize: false,
       modules: true,
       localIdentName: '[path]__[local]--[hash:base64:5]',
     },
