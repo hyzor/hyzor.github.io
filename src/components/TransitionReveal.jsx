@@ -18,7 +18,7 @@ class TransitionReveal extends React.Component {
     const { isVisible } = this.state;
 
     return (
-      <Waypoint debug onEnter={this.handleWaypointEnter} topOffset={400} bottomOffset={400}>
+      <Waypoint onEnter={this.handleWaypointEnter} topOffset={400} bottomOffset={400}>
         <div>
           <Transition
             items={isVisible}
