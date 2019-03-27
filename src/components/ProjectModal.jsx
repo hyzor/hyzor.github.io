@@ -13,13 +13,19 @@ import Dialog from '@material-ui/core/Dialog';
 
 const styles = () => ({
   img: {
-    height: 360,
+    maxHeight: 640,
     maxWidth: 640,
     overflow: 'auto',
-    width: '100%',
     display: 'block',
     marginLeft: 'auto',
     marginRight: 'auto',
+  },
+  imgDiv: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    display: 'flex',
+    height: '100%',
   },
   title: {
     textAlign: 'center',
@@ -79,7 +85,7 @@ class ProjectModal extends React.Component {
         <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
           {project.name}
         </DialogTitle>
-        <div style={{ marginLeft: 100, marginRight: 100 }}>
+        <div style={{ marginLeft: 100, marginRight: 100, maxHeight: 480, overflowY: 'auto' }}>
           {project.fulltext
             ? project.fulltext.map(text => (
               <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
@@ -89,15 +95,19 @@ class ProjectModal extends React.Component {
             : null}
         </div>
         <SwipeableViews
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20, overflow: 'hidden' }}
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activePic}
           onChangeIndex={this.handleChangePic}
           enableMouseEvents
         >
-          {project.images.map(image => (
-            <img key={image.label} className={classes.img} src={image.path} alt={image.label} />
-          ))}
+          {project.images.map(image => {
+            return (
+              <div key={image.label} className={classes.imgDiv}>
+                <img key={image.label} className={classes.img} src={image.path} alt={image.label} />
+              </div>
+            );
+          })}
         </SwipeableViews>
         <Typography variant="caption" className={classes.caption}>
           {project.images[activePic].label}

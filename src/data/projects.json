@@ -197,6 +197,26 @@
         ],
         "source": "https://github.com/hyzor/PathfinderGrid",
         "thumbnail": "images/GridPathfinder_400x400.png"
+      },
+      {
+        "id": 10,
+        "name": "E-mail app",
+        "desc": "This is a very basic Android e-mail app using Android 9.0 API 28.",
+        "fulltext": [
+          "This is my very first Android app and is developed for educational purposes only!"
+        ],
+        "images": [
+          {
+            "label": "Home page",
+            "path": "images/EmailApp_1.png"
+          },
+          {
+            "label": "New e-mail page",
+            "path": "images/EmailApp_2.png"
+          }
+        ],
+        "source": "https://github.com/hyzor/EmailApp",
+        "thumbnail": "images/EmailApp_400x400.png"
       }
     ]
   }

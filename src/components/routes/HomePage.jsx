@@ -139,7 +139,7 @@ class HomePage extends React.Component {
         </AppBar>
         <main>
           <div style={{ height: '1750px', position: 'relative' }}>
-            <Parallax pages={6} ref={this.parallax}>
+            <Parallax pages={6} ref={this.parallax} style={{ overflow: 'hidden' }}>
               <ParallaxLayer
                 offset={0}
                 speed={0}
@@ -239,9 +239,9 @@ class HomePage extends React.Component {
                       </div>
                       <Trail
                         items={aboutData.data.about}
-                        from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                        from={{ opacity: 0, transform: 'translate3d(0,120px,0)' }}
                         to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                        delay={1000}
+                        delay={0}
                       >
                         {item => props => (
                           <Typography

@@ -59,6 +59,7 @@
     "react-router-prop-types": "1.0.4",
     "react-spring": "^8.0.18",
     "react-swipeable-views": "^0.13.1",
+    "react-swipeable-views-utils": "^0.13.1",
     "react-waypoint": "^9.0.1",
     "redux": "^4.0.1",
     "redux-axios-middleware": "^4.0.0",
