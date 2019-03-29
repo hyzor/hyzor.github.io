@@ -101,14 +101,15 @@ class Projects extends React.Component {
         </div>
         <AutoPlaySwipeableViews
           style={{ overflow: 'hidden' }}
-          ignoreNativeScroll
+          slideStyle={{ overflow: 'hidden' }}
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeGrid}
           onChangeIndex={this.handleChangeGrid}
+          interval={5000}
         >
           {projectChunks.map((chunk, _index) => {
             return (
-              <Grid key={_index} container spacing={40}>
+              <Grid key={_index} container spacing={40} style={{ overflow: 'hidden' }}>
                 <Trail
                   items={chunk}
                   keys={item => item.id}
@@ -117,7 +118,14 @@ class Projects extends React.Component {
                   delay={0}
                 >
                   {item => props => (
-                    <Grid style={props} item key={item.id} sm={6} md={4} lg={4}>
+                    <Grid
+                      style={{ ...props, ...{ overflow: 'hidden' } }}
+                      item
+                      key={item.id}
+                      sm={6}
+                      md={4}
+                      lg={4}
+                    >
                       <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
                         <Card style={{ height: '100%' }}>
                           <CardMedia
@@ -145,7 +153,7 @@ class Projects extends React.Component {
             );
           })}
         </AutoPlaySwipeableViews>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ marginTop: 16, display: 'flex', justifyContent: 'center' }}>
           <Pagination dots={numChunks} index={activeGrid} onChangeIndex={this.handleChangeGrid} />
         </div>
       </React.Fragment>

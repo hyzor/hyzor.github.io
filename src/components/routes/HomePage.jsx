@@ -21,6 +21,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const styles = theme => ({
   menuButton: {
@@ -138,7 +139,7 @@ class HomePage extends React.Component {
           </Toolbar>
         </AppBar>
         <main>
-          <div style={{ height: '1750px', position: 'relative' }}>
+          <Scrollbars style={{ height: 1750, position: 'relative' }}>
             <Parallax pages={6} ref={this.parallax} style={{ overflow: 'hidden' }}>
               <ParallaxLayer
                 offset={0}
@@ -348,7 +349,7 @@ class HomePage extends React.Component {
                 </div>
               </ParallaxLayer>
             </Parallax>
-          </div>
+          </Scrollbars>
         </main>
       </React.Fragment>
     );

@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const styles = () => ({
   img: {
@@ -81,62 +82,70 @@ class ProjectModal extends React.Component {
         open={openProject === project.id}
         onClose={this.handleClose}
         maxWidth="md"
+        style={{ minHeight: 768 }}
       >
-        <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
-          {project.name}
-        </DialogTitle>
-        <div style={{ marginLeft: 100, marginRight: 100, maxHeight: 480, overflowY: 'auto' }}>
-          {project.fulltext
-            ? project.fulltext.map(text => (
-              <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
-                {text}
-              </Typography>
-              ))
-            : null}
-        </div>
-        <SwipeableViews
-          style={{ marginTop: 20, overflowX: 'hidden', overflowY: 'scroll' }}
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={activePic}
-          onChangeIndex={this.handleChangePic}
-          enableMouseEvents
-        >
-          {project.images.map(image => {
-            return (
-              <div key={image.label} className={classes.imgDiv}>
-                <img key={image.label} className={classes.img} src={image.path} alt={image.label} />
-              </div>
-            );
-          })}
-        </SwipeableViews>
-        <Typography variant="caption" className={classes.caption}>
-          {project.images[activePic].label}
-        </Typography>
-        <MobileStepper
-          steps={numImages}
-          position="static"
-          activeStep={activePic}
-          className={classes.mobileStepper}
-          nextButton={
-            <IconButton onClick={this.handleNext}>
-              <KeyboardArrowRight />
-            </IconButton>
-          }
-          backButton={
-            <IconButton onClick={this.handleBack}>
-              <KeyboardArrowLeft />
-            </IconButton>
-          }
-        />
-        {project.source && (
-          <Typography
-            variant="body2"
-            className={classes.title}
-            style={{ marginTop: 15, marginBottom: 15 }}
+        <Scrollbars autoHeight autoHeightMax={768}>
+          <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
+            {project.name}
+          </DialogTitle>
+          <div style={{ marginLeft: 100, marginRight: 100 }}>
+            {project.fulltext
+              ? project.fulltext.map(text => (
+                <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
+                  {text}
+                </Typography>
+                ))
+              : null}
+          </div>
+          <SwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={activePic}
+            onChangeIndex={this.handleChangePic}
+            enableMouseEvents
+            style={{ marginTop: 16 }}
           >
-            <a href={project.source}>Source code</a>
+            {project.images.map(image => {
+              return (
+                <div key={image.label} className={classes.imgDiv}>
+                  <img
+                    key={image.label}
+                    className={classes.img}
+                    src={image.path}
+                    alt={image.label}
+                  />
+                </div>
+              );
+            })}
+          </SwipeableViews>
+          <Typography variant="caption" className={classes.caption}>
+            {project.images[activePic].label}
           </Typography>
-        )}
+          <MobileStepper
+            steps={numImages}
+            position="static"
+            activeStep={activePic}
+            className={classes.mobileStepper}
+            nextButton={
+              <IconButton onClick={this.handleNext}>
+                <KeyboardArrowRight />
+              </IconButton>
+            }
+            backButton={
+              <IconButton onClick={this.handleBack}>
+                <KeyboardArrowLeft />
+              </IconButton>
+            }
+          />
+          {project.source && (
+            <Typography
+              variant="body2"
+              className={classes.title}
+              style={{ marginTop: 15, marginBottom: 15 }}
+            >
+              <a href={project.source}>Source code</a>
+            </Typography>
+          )}
+        </Scrollbars>
       </Dialog>
     );
   }
