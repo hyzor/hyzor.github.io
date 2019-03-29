@@ -203,16 +203,30 @@
         "name": "E-mail app",
         "desc": "This is a very basic Android e-mail app using Android 9.0 API 28.",
         "fulltext": [
-          "This is my very first Android app and is developed for educational purposes only!"
+          "This is my very first Android app and is developed for educational purposes only!",
+          "Firebase is used as the authentication framework for Google authentication and e-mails are sent using the Gmail API.",
+          "Uses Firebase UI to reduce the amount of boilerplate code."
         ],
         "images": [
           {
-            "label": "Home page",
+            "label": "Start page",
             "path": "images/EmailApp_1.png"
           },
           {
-            "label": "New e-mail page",
+            "label": "Google authentication",
             "path": "images/EmailApp_2.png"
+          },
+          {
+            "label": "Inbox page",
+            "path": "images/EmailApp_3.png"
+          },
+          {
+            "label": "New message text",
+            "path": "images/EmailApp_4.png"
+          },
+          {
+            "label": "E-mail successfully sent!",
+            "path": "images/EmailApp_5.png"
           }
         ],
         "source": "https://github.com/hyzor/EmailApp",

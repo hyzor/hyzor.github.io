@@ -95,7 +95,7 @@ class ProjectModal extends React.Component {
             : null}
         </div>
         <SwipeableViews
-          style={{ marginTop: 20, overflow: 'hidden' }}
+          style={{ marginTop: 20, overflowX: 'hidden', overflowY: 'scroll' }}
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activePic}
           onChangeIndex={this.handleChangePic}
