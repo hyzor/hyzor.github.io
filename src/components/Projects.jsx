@@ -31,17 +31,31 @@ const styles = () => ({
 });
 
 class Projects extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   state = {
     openProject: null,
     activeGrid: 0,
   };
 
+  handleModalOpen = open => {
+    const { handleModalOpen } = this.props;
+    handleModalOpen(open);
+  };
+
   handleClick = project => () => {
     this.setState({ openProject: project.id });
+    this.handleModalOpen(true);
   };
 
   handleClose = () => {
     this.setState({ openProject: null });
+    this.handleModalOpen(false);
   };
 
   handleChangeGrid = activeGrid => {
@@ -118,35 +132,37 @@ class Projects extends React.Component {
                   delay={0}
                 >
                   {item => props => (
-                    <Grid
-                      style={{ ...props, ...{ overflow: 'hidden' } }}
-                      item
-                      key={item.id}
-                      sm={6}
-                      md={4}
-                      lg={4}
-                    >
-                      <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
-                        <Card style={{ height: '100%' }}>
-                          <CardMedia
-                            className={classes.cardMedia}
-                            image={item.thumbnail}
-                            title={item.name}
-                          />
-                          <CardContent className={classes.cardContent}>
-                            <Typography gutterBottom variant="h5" component="h2">
-                              {item.name}
-                            </Typography>
-                            <Typography variant="body2">{item.desc}</Typography>
-                          </CardContent>
-                        </Card>
-                      </CardActionArea>
+                    <React.Fragment>
+                      <Grid
+                        style={{ ...props, ...{ overflow: 'hidden' } }}
+                        item
+                        key={item.id}
+                        sm={6}
+                        md={4}
+                        lg={4}
+                      >
+                        <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
+                          <Card style={{ height: '100%' }}>
+                            <CardMedia
+                              className={classes.cardMedia}
+                              image={item.thumbnail}
+                              title={item.name}
+                            />
+                            <CardContent className={classes.cardContent}>
+                              <Typography gutterBottom variant="h5" component="h2">
+                                {item.name}
+                              </Typography>
+                              <Typography variant="body2">{item.desc}</Typography>
+                            </CardContent>
+                          </Card>
+                        </CardActionArea>
+                      </Grid>
                       <ProjectModal
                         project={item}
                         openProject={openProject}
                         handleClose={this.handleClose}
                       />
-                    </Grid>
+                    </React.Fragment>
                   )}
                 </Trail>
               </Grid>
@@ -165,6 +181,7 @@ Projects.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   data: PropTypes.objectOf(PropTypes.object).isRequired,
+  handleModalOpen: PropTypes.func.isRequired,
 };
 
 export default hot(module)(withStyles(styles, { withTheme: true })(Projects));

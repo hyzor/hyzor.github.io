@@ -38,6 +38,7 @@
     "@storybook/react": "^5.0.5",
     "@storybook/theming": "^5.0.5",
     "axios": "^0.18.0",
+    "body-scroll-lock": "^2.6.1",
     "classnames": "^2.2.6",
     "emailjs-com": "^2.3.2",
     "enzyme": "^3.8.0",

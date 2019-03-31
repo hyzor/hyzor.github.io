@@ -21,7 +21,6 @@ import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 const styles = theme => ({
   menuButton: {
@@ -75,7 +74,26 @@ const styles = theme => ({
 });
 
 class HomePage extends React.Component {
-  parallax = React.createRef();
+  state = {
+    scroll: true,
+    scrollModifier: 1,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.parallax = React.createRef();
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+  }
+
+  handleModalOpen = open => {
+    if (open) {
+      this.setState({ scrollModifier: 0 });
+    } else {
+      this.setState({ scrollModifier: 1 });
+    }
+  };
 
   parallaxScroll = to => () => {
     this.parallax.current.scrollTo(to);
@@ -83,6 +101,7 @@ class HomePage extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { scroll, scrollModifier } = this.state;
 
     return (
       <React.Fragment>
@@ -139,17 +158,22 @@ class HomePage extends React.Component {
           </Toolbar>
         </AppBar>
         <main>
-          <Scrollbars style={{ height: 1750, position: 'relative' }}>
-            <Parallax pages={6} ref={this.parallax} style={{ overflow: 'hidden' }}>
+          <div style={{ height: 1750, position: 'relative', overflow: 'hidden' }}>
+            <Parallax
+              pages={6}
+              scrolling={scroll}
+              ref={this.parallax}
+              style={{ overflow: 'hidden' }}
+            >
               <ParallaxLayer
                 offset={0}
                 speed={0}
                 style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={0.15} speed={0.3}>
+              <ParallaxLayer offset={0.15} speed={0.3 * scrollModifier}>
                 <Avatar src="images/ProfilePic.png" className={classes.avatar} />
               </ParallaxLayer>
-              <ParallaxLayer offset={0.25} speed={0.5}>
+              <ParallaxLayer offset={0.25} speed={0.5 * scrollModifier}>
                 <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Trail
@@ -186,11 +210,11 @@ class HomePage extends React.Component {
                 speed={0}
                 style={{ background: 'url(images/bg2.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={1} speed={0.3}>
+              <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
-                      <Projects data={projectsData} />
+                      <Projects data={projectsData} handleModalOpen={this.handleModalOpen} />
                     </TransitionReveal>
                   </div>
                 </div>
@@ -200,7 +224,7 @@ class HomePage extends React.Component {
                 speed={0}
                 style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={2} speed={0.3}>
+              <ParallaxLayer offset={2} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -214,7 +238,7 @@ class HomePage extends React.Component {
                 speed={0}
                 style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={3} speed={0.3}>
+              <ParallaxLayer offset={3} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -263,7 +287,7 @@ class HomePage extends React.Component {
                 speed={0}
                 style={{ background: 'url(images/bg5.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={4} speed={0.3}>
+              <ParallaxLayer offset={4} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
@@ -277,14 +301,14 @@ class HomePage extends React.Component {
                 speed={0}
                 style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
               />
-              <ParallaxLayer offset={5.1} speed={0.3}>
+              <ParallaxLayer offset={5.1} speed={0.3 * scrollModifier}>
                 <div className={classes.page}>
                   <TransitionReveal>
                     <Contact />
                   </TransitionReveal>
                 </div>
               </ParallaxLayer>
-              <ParallaxLayer offset={5.4} speed={0.4}>
+              <ParallaxLayer offset={5.4} speed={0.4 * scrollModifier}>
                 <div className={classes.columnFlex}>
                   <div
                     className={classes.rowFlex}
@@ -349,7 +373,7 @@ class HomePage extends React.Component {
                 </div>
               </ParallaxLayer>
             </Parallax>
-          </Scrollbars>
+          </div>
         </main>
       </React.Fragment>
     );

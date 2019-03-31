@@ -43,6 +43,12 @@ class ProjectModal extends React.Component {
     activePic: 0,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.handleClose = this.handleClose.bind(this);
+  }
+
   handleClose = () => {
     const { handleClose } = this.props;
     handleClose();
@@ -70,6 +76,10 @@ class ProjectModal extends React.Component {
     this.setState({ activePic });
   };
 
+  handleRef = ref => {
+    this.ref = ref;
+  };
+
   render() {
     const { project, classes, openProject, theme } = this.props;
     const { activePic } = this.state;
@@ -83,6 +93,7 @@ class ProjectModal extends React.Component {
         onClose={this.handleClose}
         maxWidth="md"
         style={{ minHeight: 768 }}
+        scroll="paper"
       >
         <Scrollbars autoHeight autoHeightMax={768}>
           <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
