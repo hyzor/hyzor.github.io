@@ -171,7 +171,7 @@ class HomePage extends React.Component {
                 style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
               />
               <ParallaxLayer offset={0.15} speed={0.3 * scrollModifier}>
-                <Avatar src="images/ProfilePic.png" className={classes.avatar} />
+                <Avatar src="images/ProfilePic_v2.png" className={classes.avatar} />
               </ParallaxLayer>
               <ParallaxLayer offset={0.25} speed={0.5 * scrollModifier}>
                 <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
