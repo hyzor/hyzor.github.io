@@ -6,8 +6,10 @@ const stylesLoaders = [
   {
     loader: 'css-loader',
     options: {
-      modules: true,
-      localIdentName: '[path]__[local]--[hash:base64:5]',
+      modules: {
+        mode: 'local',
+        localIdentName: '[path]__[local]--[hash:base64:5]',
+      },
     },
   },
   'postcss-loader',

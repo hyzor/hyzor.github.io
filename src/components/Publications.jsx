@@ -25,9 +25,9 @@ const styles = theme => ({
   },
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(1100 + theme.spacing(3) * 2)]: {
       width: 1100,
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -35,8 +35,8 @@ const styles = theme => ({
   },
   paper: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
     width: '21cm',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -125,9 +125,9 @@ class Publications extends React.Component {
               </React.Fragment>
             ))}
           </SwipeableViews>
-          <Typography variant="caption" className={classes.caption}>
-            {data.publications[activeStep].title}
-          </Typography>
+          <div className={classes.caption}>
+            <Typography variant="caption">{data.publications[activeStep].title}</Typography>
+          </div>
           <MobileStepper
             steps={numSteps}
             position="static"

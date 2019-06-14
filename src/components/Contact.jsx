@@ -22,8 +22,8 @@ const styles = theme => ({
   },
   paper: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
     width: '21cm',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -42,7 +42,7 @@ const styles = theme => ({
     alignItems: 'center',
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(),
   },
   progress: {
     position: 'absolute',

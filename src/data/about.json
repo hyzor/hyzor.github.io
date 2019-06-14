@@ -1,13 +1,15 @@
 {
   "data": {
     "about": [
-      "Born in 1992 in Gothenburg, Sweden. Growing up, computers have always been in my presence; it all started with the legendary Amiga.",
-      "My passion for games got me into programming in high school. There, I studied subjects like most high school students do. I also got the opportunity to study programming and game development subjects, which I took in a heartbeat. Here, I got introduced to both high level and low level programming languages such as Java and C++, and got to develop some games written in these languages.",
-      "After high school I ventured on to study for a Bachelor's degree in Computer Science, at Blekinge Institute of Technology in Karlskrona, Sweden. Here, I got the opportunity to learn all of the fundamentals of software development; software architecture and design, agile software development such as SCRUM, programming, testing, and so on. Towards the end I was put in a team of seven to develop a large scale game for a game project course, where I got the role as the lead graphics programmer.",
-      "When I finished my Bachelor's degree in Karlskrona, I was hungry for more knowledge; especially outside the field of game development. So I moved to Uppsala where I started my Master's degree in computer science at Uppsala University.",
-      "This opened up a whole new world for me; I discovered so many other fields within computer science, such as machine learning, artificial intelligence and concurrent- and parallel programming. Towards the end, I got the opportunity to study abroad for one semester which I did not hesitate to take. I ended up in South Korea to study Computer Science at Seoul National University--this was truly an incredible experience.",
-      "When I came back from South Korea all I had left was to write my Master's thesis, and after some rigorous search I found an opportunity at the company King in Stockholm.",
-      "At the time of this writing, I have finished my thesis and work at King, and left school behind me. I am currently on my next adventure working full-time as a Systems developer at Retriever!"
+      "Born 1992 in Gothenburg, Sweden. Computers have always been in my presence, and it all started with the legendary Amiga.",
+      "My passion for video games got me into programming in high school. There, I chose to study programming and game development, and that's when I was introduced to programming languages such as Java and C++.",
+      "After high school I ventured on to study for a Bachelor's degree in Computer Science at Blekinge Institute of Technology in Karlskrona, Sweden. Here, I was taught all the fundamentals of software development; software architecture and design, agile software development (SCRUM, etc.), advanced programming, code testing, and more. In the final year, I and six others were to develop a big scale game for a course. I got the role as the lead graphics programmer.",
+      "When I completed my studies in Karlskrona, I felt that I needed a broader knowledge of Computer Science. So that's when I moved to Uppsala to start my Master's degree in Computer Science at Uppsala University.",
+      "There I discovered many other fields within Computer Science such as Machine Learning, Artificial Intelligence and Parallel Programming. The second year, I had the opportunity to study abroad for one semester which I did not hesitate to take. I chose South Korea, to study Computer Science at Seoul National University, and this was an incredible experience.",
+      "After my semester in South Korea, I had to spend my last semester writing my Master's thesis, and that's when I found an opportunity at the company King (makers of Candy Crush, and more) in Stockholm.",
+      "Finishing my thesis at King was a lot of hard work, but in the end I got my degree after all, and left education behind me.",
+      "In my professional life I have been working full-time as a Systems Developer at Retriever, in Stockholm, for little over a year.",
+      "I am currently looking for the next big opportunity, to find equally passionate and compassionate people."
     ]
   }
 }

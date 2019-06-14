@@ -123,7 +123,7 @@ class Projects extends React.Component {
         >
           {projectChunks.map((chunk, _index) => {
             return (
-              <Grid key={_index} container spacing={40} style={{ overflow: 'hidden' }}>
+              <Grid key={_index} container spacing={4} style={{ overflow: 'hidden' }}>
                 <Trail
                   items={chunk}
                   keys={item => item.id}

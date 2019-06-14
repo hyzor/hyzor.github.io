@@ -4,11 +4,7 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "browsers": [
-            "last 2 versions"
-          ]
-        },
+        "targets": {},
         "modules": false
       }
     ]
@@ -54,11 +50,7 @@
         [
           "@babel/preset-env",
           {
-            "targets": {
-              "browsers": [
-                "last 2 versions"
-              ]
-            }
+            "targets": {}
           }
         ]
       ],

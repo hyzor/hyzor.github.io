@@ -128,9 +128,9 @@ class ProjectModal extends React.Component {
               );
             })}
           </SwipeableViews>
-          <Typography variant="caption" className={classes.caption}>
-            {project.images[activePic].label}
-          </Typography>
+          <div className={classes.caption}>
+            <Typography variant="caption">{project.images[activePic].label}</Typography>
+          </div>
           <MobileStepper
             steps={numImages}
             position="static"

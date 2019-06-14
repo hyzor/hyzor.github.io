@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -20,8 +20,10 @@ const stylesLoaders = [
   {
     loader: 'css-loader',
     options: {
-      modules: true,
-      localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
+      modules: {
+        mode: 'local',
+        localIdentName: production ? '[hash:base64:7]' : '[path]__[local]--[hash:base64:5]',
+      },
     },
   },
   'postcss-loader',
