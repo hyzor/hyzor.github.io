@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 
 const bluebird = require('bluebird');
 const publish = bluebird.promisify(require('gh-pages').publish);
@@ -14,4 +15,5 @@ rimraf(SETTINGS.PUBLIC_PATH)
   .then(() => publish(SETTINGS.PUBLIC_PATH))
   .then(() => console.log(chalk.green.bold`✔ Successfully deployed to Github pages!`))
   .catch(error =>
-    console.error(chalk.red.bold`✗ Error occured while deploying to Github Pages:`, '\n', error));
+    console.error(chalk.red.bold`✗ Error occured while deploying to Github Pages:`, '\n', error)
+  );
