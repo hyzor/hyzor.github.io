@@ -116,7 +116,7 @@ class HomePage extends React.Component {
               </Button>
             </div>
             <Button
-              onClick={this.parallaxScroll(0.975)}
+              onClick={this.parallaxScroll(1.075)}
               style={{ display: 'flex' }}
               variant="text"
               color="inherit"
