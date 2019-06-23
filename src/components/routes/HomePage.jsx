@@ -243,7 +243,7 @@ class HomePage extends React.Component {
                 offset={1}
                 speed={0.1}
                 style={{
-                  backgroundImage: 'url(/images/trianglify.svg)',
+                  backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: '100%',
                 }}
               />
@@ -269,7 +269,7 @@ class HomePage extends React.Component {
                 offset={3}
                 speed={0.1}
                 style={{
-                  backgroundImage: 'url(/images/trianglify.svg)',
+                  backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: '100%',
                 }}
               />
@@ -330,7 +330,7 @@ class HomePage extends React.Component {
                 offset={5}
                 speed={0.1}
                 style={{
-                  backgroundImage: 'url(/images/trianglify.svg)',
+                  backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: '100%',
                 }}
               />
