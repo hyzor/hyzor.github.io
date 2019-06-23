@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const path = require('path');
 const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
@@ -14,7 +16,7 @@ const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
 const pagesBuild = process.env.BUILD === 'pages';
-const analizer = process.env.ANALYZE === '1';
+const analyzer = process.env.ANALYZE === '1';
 
 const stylesLoaders = [
   {
@@ -53,7 +55,7 @@ const rules = [
   },
 
   {
-    // do not load styles as css modules from other direcroies (e.g. node_modules) but src
+    // do not load styles as css modules from other directories (e.g. node_modules) but src
     test: /\.(css)$/,
     loaders: production
       ? ExtractTextPlugin.extract({
@@ -73,7 +75,7 @@ const rules = [
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
   new WebappWebpackPlugin(SETTINGS.FAVICONS),
-  new BundleAnalyzerPlugin({ analyzerMode: analizer ? 'server' : 'disabled' }),
+  new BundleAnalyzerPlugin({ analyzerMode: analyzer ? 'server' : 'disabled' }),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),

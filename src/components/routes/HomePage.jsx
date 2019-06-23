@@ -18,7 +18,7 @@ import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail } from 'react-spring/renderprops';
+import { Trail, Transition } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
 import Particles from 'react-particles-js';
@@ -72,6 +72,13 @@ const styles = theme => ({
   rowFlex: {
     display: 'flex',
     flexDirection: 'row',
+  },
+  particles: {
+    right: 0,
+    left: 0,
+    bottom: 0,
+    zIndex: -1,
+    position: 'fixed',
   },
 });
 
@@ -175,13 +182,26 @@ class HomePage extends React.Component {
                   background:
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
-              >
-                <Particles className="particles" params={particlesData} height={pageHeight} />
+              />
+              <ParallaxLayer offset={0} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
               </ParallaxLayer>
-              <ParallaxLayer offset={0.15} speed={0.3 * scrollModifier}>
-                <Avatar src="images/ProfilePic_v2.png" className={classes.avatar} />
+              <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
+                <Transition
+                  items={<Avatar src="images/ProfilePic_v2.png" className={classes.avatar} />}
+                  from={{ opacity: 0 }}
+                  enter={{ opacity: 1 }}
+                  leave={{ opacity: 0 }}
+                  delay={500}
+                >
+                  {item => props => <div style={props}>{item}</div>}
+                </Transition>
               </ParallaxLayer>
-              <ParallaxLayer offset={0.25} speed={0.5 * scrollModifier}>
+              <ParallaxLayer offset={0.325} speed={0.55 * scrollModifier}>
                 <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Trail
@@ -199,10 +219,21 @@ class HomePage extends React.Component {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Trail
-                      items={['Sys', 'tems ', 'dev', 'elo', 'per']}
+                      items={[
+                        'Pro',
+                        'gra',
+                        'mmer ',
+                        '★ Gam',
+                        'ing',
+                        ' Enth',
+                        'usi',
+                        'ast ★',
+                        ' Ge',
+                        'ek',
+                      ]}
                       from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                       to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                      delay={1250}
+                      delay={750}
                     >
                       {item => props => (
                         <Typography align="center" color="inherit" style={props} variant="h4">
@@ -221,6 +252,13 @@ class HomePage extends React.Component {
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
               />
+              <ParallaxLayer offset={1} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
+              </ParallaxLayer>
               <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
@@ -238,6 +276,13 @@ class HomePage extends React.Component {
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
               />
+              <ParallaxLayer offset={2} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
+              </ParallaxLayer>
               <ParallaxLayer offset={2} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
@@ -255,6 +300,13 @@ class HomePage extends React.Component {
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
               />
+              <ParallaxLayer offset={3} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
+              </ParallaxLayer>
               <ParallaxLayer offset={3} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
@@ -307,6 +359,13 @@ class HomePage extends React.Component {
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
               />
+              <ParallaxLayer offset={4} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
+              </ParallaxLayer>
               <ParallaxLayer offset={4} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
@@ -324,6 +383,13 @@ class HomePage extends React.Component {
                     'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
                 }}
               />
+              <ParallaxLayer offset={5} speed={0.1 * scrollModifier}>
+                <Particles
+                  className={classes.particles}
+                  params={particlesData}
+                  height={pageHeight}
+                />
+              </ParallaxLayer>
               <ParallaxLayer offset={5.1} speed={0.3 * scrollModifier}>
                 <div className={classes.page}>
                   <TransitionReveal>
