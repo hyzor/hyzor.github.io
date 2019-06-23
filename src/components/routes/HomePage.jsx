@@ -21,6 +21,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
+import Particles from 'react-particles-js';
+import particlesData from 'data/particles.json';
 
 const styles = theme => ({
   menuButton: {
@@ -102,6 +104,7 @@ class HomePage extends React.Component {
   render() {
     const { classes } = this.props;
     const { scroll, scrollModifier } = this.state;
+    const pageHeight = 1750;
 
     return (
       <React.Fragment>
@@ -158,7 +161,7 @@ class HomePage extends React.Component {
           </Toolbar>
         </AppBar>
         <main>
-          <div style={{ height: 1750, position: 'relative', overflow: 'hidden' }}>
+          <div style={{ height: pageHeight, position: 'relative', overflow: 'hidden' }}>
             <Parallax
               pages={6}
               scrolling={scroll}
@@ -168,8 +171,13 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={0}
                 speed={0}
-                style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
-              />
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
+              >
+                <Particles className="particles" params={particlesData} height={pageHeight} />
+              </ParallaxLayer>
               <ParallaxLayer offset={0.15} speed={0.3 * scrollModifier}>
                 <Avatar src="images/ProfilePic_v2.png" className={classes.avatar} />
               </ParallaxLayer>
@@ -208,7 +216,10 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={1}
                 speed={0}
-                style={{ background: 'url(images/bg2.jpg) center center no-repeat' }}
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
               />
               <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
@@ -222,7 +233,10 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={2}
                 speed={0}
-                style={{ background: 'url(images/bg3.jpg) center center no-repeat' }}
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
               />
               <ParallaxLayer offset={2} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
@@ -236,7 +250,10 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={3}
                 speed={0}
-                style={{ background: 'url(images/bg4.jpg) center center no-repeat' }}
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
               />
               <ParallaxLayer offset={3} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
@@ -285,7 +302,10 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={4}
                 speed={0}
-                style={{ background: 'url(images/bg5.jpg) center center no-repeat' }}
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
               />
               <ParallaxLayer offset={4} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
@@ -299,7 +319,10 @@ class HomePage extends React.Component {
               <ParallaxLayer
                 offset={5}
                 speed={0}
-                style={{ background: 'url(images/bg1.jpg) center center no-repeat' }}
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)',
+                }}
               />
               <ParallaxLayer offset={5.1} speed={0.3 * scrollModifier}>
                 <div className={classes.page}>
