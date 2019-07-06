@@ -94,7 +94,7 @@ class Projects extends React.Component {
       <React.Fragment>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Trail
-            items={['Pro', 'jec', 'ts']}
+            items={['Pro', 'jec', 'ts 📁']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={500}

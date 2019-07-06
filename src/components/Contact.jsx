@@ -99,7 +99,7 @@ class Contact extends React.Component {
       <React.Fragment>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Trail
-            items={['Con', 'tact']}
+            items={['Con', 'tact 💌']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={500}

@@ -218,11 +218,11 @@ class HomePage extends React.Component {
                         'Pro',
                         'gra',
                         'mmer ',
-                        '★ Gam',
+                        '⭐ Gam',
                         'ing',
                         ' Enth',
                         'usi',
-                        'ast ★',
+                        'ast ⭐',
                         ' Ge',
                         'ek',
                       ]}
@@ -279,7 +279,7 @@ class HomePage extends React.Component {
                     <TransitionReveal>
                       <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <Trail
-                          items={['Ab', 'out']}
+                          items={['Ab', 'out me 👋']}
                           from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                           delay={500}
