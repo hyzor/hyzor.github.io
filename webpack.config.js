@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const path = require('path');
-const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
@@ -15,7 +14,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
-const pagesBuild = process.env.BUILD === 'pages';
 const analyzer = process.env.ANALYZE === '1';
 
 const stylesLoaders = [
@@ -134,7 +132,7 @@ module.exports = {
   output: {
     path: SETTINGS.PUBLIC_PATH,
     filename: 'bundle.js',
-    publicPath: pagesBuild ? `/${getRepositoryName()}/` : '/',
+    publicPath: '/',
     globalObject: 'this',
   },
 
