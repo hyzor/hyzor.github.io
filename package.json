@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Personal website build with React.",
+  "description": "Personal website built with React and Material-UI.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
