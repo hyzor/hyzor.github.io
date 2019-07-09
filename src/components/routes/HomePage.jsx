@@ -36,8 +36,8 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     marginBottom: 20,
-    width: 256,
-    height: 256,
+    width: 320,
+    height: 320,
   },
   centerFlex: {
     marginLeft: 'auto',
