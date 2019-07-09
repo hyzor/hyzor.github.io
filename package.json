@@ -1,7 +1,7 @@
 {
-  "name": "react-pages-boilerplate",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
+  "description": "Personal website build with React.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtivital/react-pages-boilerplate.git"
+    "url": "git+https://github.com/hyzor/Portfolio.git"
   },
-  "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
+  "author": "Jesper Hansson Falkenby",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rtivital/react-pages-boilerplate/issues"
+    "url": "https://github.com/hyzor/Portfolio/issues"
   },
-  "homepage": "https://github.com/rtivital/react-pages-boilerplate#readme",
+  "homepage": "https://github.com/hyzor/Portfolio#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@hot-loader/react-dom": "^16.8.6",
