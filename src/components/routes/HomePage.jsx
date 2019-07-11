@@ -187,7 +187,9 @@ class HomePage extends React.Component {
             >
               <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
                 <Transition
-                  items={<Avatar src="images/ProfilePic_v2.png" className={classes.avatar} />}
+                  items={
+                    <Avatar src="images/DSC_0035_resized_1024.png" className={classes.avatar} />
+                  }
                   from={{ opacity: 0 }}
                   enter={{ opacity: 1 }}
                   leave={{ opacity: 0 }}
