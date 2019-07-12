@@ -81,7 +81,7 @@ class Contact extends React.Component {
   handleClick = () => {
     this.setState({ sendingMsg: true });
 
-    emailjs.send('gmail', 'template_BPrxTrft', this.state).then(
+    emailjs.send('jesperfalkenby_com', 'template_BPrxTrft', this.state).then(
       () => {
         this.setState(Contact.initialState);
       },
