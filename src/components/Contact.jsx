@@ -67,7 +67,7 @@ class Contact extends React.Component {
     name: '',
     email: '',
     message: '',
-    sendingMsg: true,
+    sendingMsg: false,
   };
 
   state = Contact.initialState;
