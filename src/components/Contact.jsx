@@ -48,8 +48,8 @@ const styles = theme => ({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    marginTop: -13,
-    marginLeft: -16,
+    marginTop: -15,
+    marginLeft: -15,
   },
   wrapper: {
     position: 'relative',
@@ -67,7 +67,7 @@ class Contact extends React.Component {
     name: '',
     email: '',
     message: '',
-    sendingMsg: false,
+    sendingMsg: true,
   };
 
   state = Contact.initialState;
