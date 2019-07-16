@@ -26,10 +26,6 @@ import particlesData from 'data/particles.json';
 import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
   white: {
     color: '#fff',
   },
@@ -39,12 +35,6 @@ const styles = theme => ({
     marginBottom: 20,
     width: 320,
     height: 320,
-  },
-  centerFlex: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
   },
   pageParent: {
     height: '100%',
@@ -65,14 +55,6 @@ const styles = theme => ({
   footer: {
     backgroundColor: theme.palette.secondary.main,
     height: 200,
-  },
-  columnFlex: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  rowFlex: {
-    display: 'flex',
-    flexDirection: 'row',
   },
   particles: {
     right: 0,
@@ -280,7 +262,7 @@ class HomePage extends React.Component {
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
                     <TransitionReveal>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
+                      <Box display="flex" justifyContent="center">
                         <Trail
                           items={['Ab', 'out me 👋']}
                           from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -289,9 +271,9 @@ class HomePage extends React.Component {
                         >
                           {item => props => (
                             <Typography
-                              className={classes.white}
                               style={props}
                               align="center"
+                              color="textSecondary"
                               variant="h2"
                               gutterBottom
                             >
@@ -299,7 +281,7 @@ class HomePage extends React.Component {
                             </Typography>
                           )}
                         </Trail>
-                      </div>
+                      </Box>
                       <Trail
                         items={aboutData.data.about}
                         from={{ opacity: 0, transform: 'translate3d(0,120px,0)' }}
@@ -308,7 +290,7 @@ class HomePage extends React.Component {
                       >
                         {item => props => (
                           <Typography
-                            className={classes.white}
+                            color="textSecondary"
                             style={{ ...props, marginTop: 10 }}
                             variant="subtitle1"
                           >
@@ -345,9 +327,10 @@ class HomePage extends React.Component {
                 </div>
               </ParallaxLayer>
               <ParallaxLayer offset={5.4} speed={0.4 * scrollModifier}>
-                <div className={classes.columnFlex}>
-                  <div
-                    className={classes.rowFlex}
+                <Box display="flex" flexDirection="column">
+                  <Box
+                    display="flex"
+                    flexDirection="row"
                     style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
                   >
                     <IconButton
@@ -385,8 +368,8 @@ class HomePage extends React.Component {
                     >
                       <GithubBox />
                     </IconButton>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  </Box>
+                  <Box display="flex" justifyContent="center">
                     <Trail
                       items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2019']}
                       from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -396,7 +379,7 @@ class HomePage extends React.Component {
                       {item => props => (
                         <Typography
                           style={props}
-                          className={classes.white}
+                          color="textSecondary"
                           variant="subtitle1"
                           align="center"
                           gutterBottom
@@ -405,8 +388,8 @@ class HomePage extends React.Component {
                         </Typography>
                       )}
                     </Trail>
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </ParallaxLayer>
             </Parallax>
           </div>

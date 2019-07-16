@@ -17,9 +17,6 @@ const options = {
 };
 
 const styles = theme => ({
-  white: {
-    color: '#fff',
-  },
   title: {
     textAlign: 'center',
   },
@@ -32,12 +29,6 @@ const styles = theme => ({
     position: 'absolute',
     right: 0,
     bottom: 0,
-  },
-  centerFlex: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
   },
   paper: {
     ...theme.mixins.gutters(),
@@ -83,9 +74,8 @@ class Resume extends React.Component {
           >
             {item => props => (
               <Typography
-                className={classes.white}
                 align="center"
-                color="inherit"
+                color="textSecondary"
                 style={props}
                 variant="h2"
                 gutterBottom
@@ -95,7 +85,7 @@ class Resume extends React.Component {
             )}
           </Trail>
         </Box>
-        <div className={classes.centerFlex}>
+        <Box display="flex" justifyContent="center" marginLeft="auto" marginRight="auto">
           <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>
             <Document
               file="documents/JHF_cv_v3.pdf"
@@ -124,7 +114,7 @@ class Resume extends React.Component {
               {pageNumber} / {numPages}
             </Typography>
           </Paper>
-        </div>
+        </Box>
       </React.Fragment>
     );
   }

@@ -10,11 +10,9 @@ import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
 import { Trail } from 'react-spring/renderprops';
+import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
-  white: {
-    color: '#fff',
-  },
   textField: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -27,10 +25,6 @@ const styles = theme => ({
     width: '21cm',
     marginLeft: 'auto',
     marginRight: 'auto',
-  },
-  columnFlex: {
-    display: 'flex',
-    flexDirection: 'column',
   },
   center: {
     marginLeft: 'auto',
@@ -97,7 +91,7 @@ class Contact extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Box display="flex" justifyContent="center">
           <Trail
             items={['Con', 'tact 💌']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -106,9 +100,8 @@ class Contact extends React.Component {
           >
             {item => props => (
               <Typography
-                className={classes.white}
                 align="center"
-                color="inherit"
+                color="textSecondary"
                 style={props}
                 variant="h2"
                 gutterBottom
@@ -117,10 +110,10 @@ class Contact extends React.Component {
               </Typography>
             )}
           </Trail>
-        </div>
+        </Box>
         <Paper elevation={16} className={classes.paper}>
           <div className={classes.center} style={{ width: '80%' }}>
-            <div className={classes.columnFlex}>
+            <Box display="flex" flexDirection="column">
               <TextField
                 id="input-name"
                 label="Name"
@@ -147,7 +140,7 @@ class Contact extends React.Component {
                 multiline
                 rows="6"
               />
-            </div>
+            </Box>
             <div className={classes.actions}>
               <div className={classes.wrapper}>
                 <Button
