@@ -151,8 +151,10 @@
       {
         "id": 7,
         "name": "DirectX 12 Test",
-        "desc": null,
-        "fulltext": null,
+        "desc": "A very simple DirectX 12 environment with a rotating cube and sphere with lighting effects.",
+        "fulltext": [
+          "A very simple DirectX 12 environment with a rotating cube and sphere with lighting effects."
+        ],
         "images": [
           {
             "label": "Rotating cubes and a spinning sphere",
@@ -165,7 +167,7 @@
       {
         "id": 8,
         "name": "Master's thesis - Debugger",
-        "desc": null,
+        "desc": "Debugging is a fundamental tool for software developers, it is therefore included in the majority of modern integrated development environments available today.",
         "fulltext": [
           "Debugging is a fundamental tool for software developers, it is therefore included in the majority of modern integrated development environments available today. When the capabilities of such debuggers are to be implemented in a debugging tool for a clustered, real-time stream processing system, the task becomes very complex. Knowledge on how to build debuggers for such systems is missing, and there is a need for these types of tools in the emerging real-time data stream processing industry.",
           "This thesis explores ways to implement and find usages of a debugging tool in a clustered, real-time processing environment. In previous research two papers were of particular interest as to form a basis for this thesis. However, these papers do not target real-time stream processing systems, so the knowledge gap still persists. It was found that these types of systems have extended requirements in addition to the functionality debuggers of today that has to be fulfilled.",

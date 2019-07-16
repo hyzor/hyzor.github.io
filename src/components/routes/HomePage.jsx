@@ -23,6 +23,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
 import Particles from 'react-particles-js';
 import particlesData from 'data/particles.json';
+import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
   menuButton: {
@@ -127,46 +128,48 @@ class HomePage extends React.Component {
                 </Typography>
               </Button>
             </div>
-            <Button
-              onClick={this.parallaxScroll(1.075)}
-              style={{ display: 'flex' }}
-              variant="text"
-              color="inherit"
-            >
-              Projects
-            </Button>
-            <Button
-              onClick={this.parallaxScroll(2.075)}
-              style={{ display: 'flex' }}
-              variant="text"
-              color="inherit"
-            >
-              Résumé
-            </Button>
-            <Button
-              onClick={this.parallaxScroll(3.2)}
-              style={{ display: 'flex' }}
-              variant="text"
-              color="inherit"
-            >
-              About
-            </Button>
-            <Button
-              onClick={this.parallaxScroll(4.125)}
-              style={{ display: 'flex' }}
-              variant="text"
-              color="inherit"
-            >
-              Publications
-            </Button>
-            <Button
-              onClick={this.parallaxScroll(5)}
-              style={{ display: 'flex' }}
-              variant="text"
-              color="inherit"
-            >
-              Contact
-            </Button>
+            <Box display="flex" flexWrap="wrap">
+              <Button
+                onClick={this.parallaxScroll(1.075)}
+                style={{ display: 'flex' }}
+                variant="text"
+                color="inherit"
+              >
+                Projects
+              </Button>
+              <Button
+                onClick={this.parallaxScroll(2.075)}
+                style={{ display: 'flex' }}
+                variant="text"
+                color="inherit"
+              >
+                Résumé
+              </Button>
+              <Button
+                onClick={this.parallaxScroll(3.2)}
+                style={{ display: 'flex' }}
+                variant="text"
+                color="inherit"
+              >
+                About
+              </Button>
+              <Button
+                onClick={this.parallaxScroll(4.125)}
+                style={{ display: 'flex' }}
+                variant="text"
+                color="inherit"
+              >
+                Publications
+              </Button>
+              <Button
+                onClick={this.parallaxScroll(5)}
+                style={{ display: 'flex' }}
+                variant="text"
+                color="inherit"
+              >
+                Contact
+              </Button>
+            </Box>
           </Toolbar>
         </AppBar>
         <main>
@@ -199,54 +202,52 @@ class HomePage extends React.Component {
                 </Transition>
               </ParallaxLayer>
               <ParallaxLayer offset={0.325} speed={0.55 * scrollModifier}>
-                <div className={classes.white} style={{ marginTop: 32, marginBottom: 128 }}>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Trail
-                      items={['Jes', 'per ', 'Han', 'sson ', 'Fal', 'ken', 'by']}
-                      from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                      to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                      delay={500}
-                    >
-                      {item => props => (
-                        <Typography align="center" color="inherit" style={props} variant="h1">
-                          {item}
-                        </Typography>
-                      )}
-                    </Trail>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Trail
-                      items={[
-                        'Pro',
-                        'gra',
-                        'mmer ',
-                        '⭐ Gam',
-                        'ing',
-                        ' Enth',
-                        'usi',
-                        'ast ⭐',
-                        ' Ge',
-                        'ek',
-                      ]}
-                      from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                      to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                      delay={750}
-                    >
-                      {item => props => (
-                        <Typography align="center" color="inherit" style={props} variant="h4">
-                          {item}
-                        </Typography>
-                      )}
-                    </Trail>
-                  </div>
-                </div>
+                <Box display="flex" flexWrap="wrap" justifyContent="center">
+                  <Trail
+                    items={['Jes', 'per ', 'Han', 'sson ', 'Fal', 'ken', 'by']}
+                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                    delay={500}
+                  >
+                    {item => props => (
+                      <Typography align="center" color="textSecondary" style={props} variant="h1">
+                        {item}
+                      </Typography>
+                    )}
+                  </Trail>
+                </Box>
+                <Box display="flex" flexWrap="wrap" justifyContent="center">
+                  <Trail
+                    items={[
+                      'Pro',
+                      'gra',
+                      'mmer ',
+                      '⭐ Gam',
+                      'ing',
+                      ' Enth',
+                      'usi',
+                      'ast ⭐',
+                      ' Ge',
+                      'ek',
+                    ]}
+                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
+                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
+                    delay={750}
+                  >
+                    {item => props => (
+                      <Typography align="center" color="textSecondary" style={props} variant="h4">
+                        {item}
+                      </Typography>
+                    )}
+                  </Trail>
+                </Box>
               </ParallaxLayer>
               <ParallaxLayer
                 offset={1}
                 speed={0.1}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: '100%',
+                  backgroundSize: 'cover',
                 }}
               />
               <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
@@ -272,7 +273,7 @@ class HomePage extends React.Component {
                 speed={0.1}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: '100%',
+                  backgroundSize: 'cover',
                 }}
               />
               <ParallaxLayer offset={3} speed={0.3 * scrollModifier}>
@@ -333,7 +334,7 @@ class HomePage extends React.Component {
                 speed={0.1}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: '100%',
+                  backgroundSize: 'cover',
                 }}
               />
               <ParallaxLayer offset={5.1} speed={0.3 * scrollModifier}>

@@ -13,13 +13,11 @@ import { Trail } from 'react-spring/renderprops';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from 'components/external/Pagination';
+import Box from '@material-ui/core/Box';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const styles = () => ({
-  white: {
-    color: '#fff',
-  },
   card: {
     height: '100%',
     width: '100%',
@@ -92,7 +90,7 @@ class Projects extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Box display="flex" justifyContent="center">
           <Trail
             items={['Pro', 'jec', 'ts 📁']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -101,9 +99,8 @@ class Projects extends React.Component {
           >
             {item => props => (
               <Typography
-                className={classes.white}
                 align="center"
-                color="inherit"
+                color="textSecondary"
                 style={props}
                 variant="h2"
                 gutterBottom
@@ -112,7 +109,7 @@ class Projects extends React.Component {
               </Typography>
             )}
           </Trail>
-        </div>
+        </Box>
         <AutoPlaySwipeableViews
           style={{ overflow: 'hidden' }}
           slideStyle={{ overflow: 'hidden' }}

@@ -10,11 +10,9 @@ import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import { Trail } from 'react-spring/renderprops';
+import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
-  white: {
-    color: '#fff',
-  },
   caption: {
     textAlign: 'center',
     marginTop: 15,
@@ -77,7 +75,7 @@ class Publications extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Box display="flex" justifyContent="center">
           <Trail
             items={['Pub', 'lic', 'ati', 'ons 🔬']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -86,9 +84,8 @@ class Publications extends React.Component {
           >
             {item => props => (
               <Typography
-                className={classes.white}
                 align="center"
-                color="inherit"
+                color="textSecondary"
                 style={props}
                 variant="h2"
                 gutterBottom
@@ -97,7 +94,7 @@ class Publications extends React.Component {
               </Typography>
             )}
           </Trail>
-        </div>
+        </Box>
         <Paper elevation={16} className={classes.paper}>
           <SwipeableViews
             style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}

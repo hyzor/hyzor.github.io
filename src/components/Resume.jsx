@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
+import Box from '@material-ui/core/Box';
 
 const options = {
   cMapUrl: 'cmaps/',
@@ -73,7 +74,7 @@ class Resume extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Box display="flex" justifyContent="center">
           <Trail
             items={['Rés', 'umé 👔']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
@@ -93,7 +94,7 @@ class Resume extends React.Component {
               </Typography>
             )}
           </Trail>
-        </div>
+        </Box>
         <div className={classes.centerFlex}>
           <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>
             <Document
