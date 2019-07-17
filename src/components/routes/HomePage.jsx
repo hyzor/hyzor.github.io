@@ -82,9 +82,9 @@ class HomePage extends React.Component {
 
   handleModalOpen = open => {
     if (open) {
-      this.setState({ scrollModifier: 0, scroll: false });
+      this.setState({ scrollModifier: 0 });
     } else {
-      this.setState({ scrollModifier: 1, scroll: true });
+      this.setState({ scrollModifier: 1 });
     }
   };
 
@@ -213,7 +213,7 @@ class HomePage extends React.Component {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={1}
-                speed={0.1}
+                speed={0.1 * scrollModifier}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: 'cover',
@@ -239,7 +239,7 @@ class HomePage extends React.Component {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={3}
-                speed={0.1}
+                speed={0.1 * scrollModifier}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: 'cover',
@@ -300,7 +300,7 @@ class HomePage extends React.Component {
               </ParallaxLayer>
               <ParallaxLayer
                 offset={5}
-                speed={0.1}
+                speed={0.1 * scrollModifier}
                 style={{
                   backgroundImage: 'url(images/trianglify.svg)',
                   backgroundSize: 'cover',
