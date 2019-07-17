@@ -18,7 +18,7 @@ import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail, Transition } from 'react-spring/renderprops';
+import { Trail, Spring } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
 import Particles from 'react-particles-js';
@@ -171,22 +171,20 @@ class HomePage extends React.Component {
               style={{ overflow: 'hidden' }}
             >
               <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
-                <Transition
-                  items={
-                    <Avatar src="images/DSC_0035_resized_512.png" className={classes.avatar} />
-                  }
-                  from={{ opacity: 0 }}
-                  enter={{ opacity: 1 }}
-                  leave={{ opacity: 0 }}
-                  delay={500}
-                >
-                  {item => props => <div style={props}>{item}</div>}
-                </Transition>
+                <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={500}>
+                  {props => (
+                    <Avatar
+                      style={props}
+                      src="images/DSC_0035_resized_512.png"
+                      className={classes.avatar}
+                    />
+                  )}
+                </Spring>
               </ParallaxLayer>
               <ParallaxLayer offset={0.325} speed={0.55 * scrollModifier}>
                 <Box display="flex" flexWrap="wrap" justifyContent="center">
                   <Trail
-                    items={['Jes', 'per ', 'Han', 'sson ', 'Fal', 'ken', 'by']}
+                    items={['Jesper ', 'Hansson ', 'Falkenby']}
                     from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={500}
@@ -200,18 +198,7 @@ class HomePage extends React.Component {
                 </Box>
                 <Box display="flex" flexWrap="wrap" justifyContent="center">
                   <Trail
-                    items={[
-                      'Pro',
-                      'gra',
-                      'mmer ',
-                      '⭐ Gam',
-                      'ing',
-                      ' Enth',
-                      'usi',
-                      'ast ⭐',
-                      ' Ge',
-                      'ek',
-                    ]}
+                    items={['Programmer ', '⭐ Gaming', ' Enthusiast ⭐', ' Geek']}
                     from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={750}
@@ -264,7 +251,7 @@ class HomePage extends React.Component {
                     <TransitionReveal>
                       <Box display="flex" justifyContent="center">
                         <Trail
-                          items={['Ab', 'out me 👋']}
+                          items={['About', ' me ', '👋']}
                           from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                           delay={500}

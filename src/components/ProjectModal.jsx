@@ -99,7 +99,7 @@ class ProjectModal extends React.Component {
           <DialogTitle style={{ textAlign: 'center' }} id="simple-dialog-title">
             {project.name}
           </DialogTitle>
-          <div style={{ marginLeft: 100, marginRight: 100 }}>
+          <div style={{ marginLeft: '10%', marginRight: '10%' }}>
             {project.fulltext
               ? project.fulltext.map(text => (
                 <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
