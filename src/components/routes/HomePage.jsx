@@ -82,9 +82,9 @@ class HomePage extends React.Component {
 
   handleModalOpen = open => {
     if (open) {
-      this.setState({ scrollModifier: 0 });
+      this.setState({ scrollModifier: 0, scroll: false });
     } else {
-      this.setState({ scrollModifier: 1 });
+      this.setState({ scrollModifier: 1, scroll: true });
     }
   };
 
