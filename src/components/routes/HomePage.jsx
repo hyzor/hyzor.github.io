@@ -44,6 +44,7 @@ const styles = theme => ({
   page: {
     position: 'relative',
     width: 'auto',
+    height: 'auto',
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
     [theme.breakpoints.up(1100 + theme.spacing(3) * 2)]: {
@@ -211,18 +212,22 @@ class HomePage extends React.Component {
                   </Trail>
                 </Box>
               </ParallaxLayer>
-              <ParallaxLayer
-                offset={1}
-                speed={0.1 * scrollModifier}
-                style={{
-                  backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: 'cover',
-                }}
-              />
+              <ParallaxLayer offset={1} speed={0.1 * scrollModifier}>
+                <TransitionReveal delay={1000} topOffset={1000} bottomOffset={1000}>
+                  <div
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      backgroundImage: 'url(images/trianglify.svg)',
+                      backgroundSize: 'cover',
+                    }}
+                  />
+                </TransitionReveal>
+              </ParallaxLayer>
               <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal>
+                    <TransitionReveal topOffset={700} bottomOffset={700}>
                       <Projects data={projectsData} handleModalOpen={this.handleModalOpen} />
                     </TransitionReveal>
                   </div>
@@ -231,24 +236,28 @@ class HomePage extends React.Component {
               <ParallaxLayer offset={2} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal>
+                    <TransitionReveal topOffset={700} bottomOffset={700}>
                       <Resume />
                     </TransitionReveal>
                   </div>
                 </div>
               </ParallaxLayer>
-              <ParallaxLayer
-                offset={3}
-                speed={0.1 * scrollModifier}
-                style={{
-                  backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: 'cover',
-                }}
-              />
+              <ParallaxLayer offset={3} speed={0.1 * scrollModifier}>
+                <TransitionReveal delay={1000} topOffset={1000} bottomOffset={1000}>
+                  <div
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      backgroundImage: 'url(images/trianglify.svg)',
+                      backgroundSize: 'cover',
+                    }}
+                  />
+                </TransitionReveal>
+              </ParallaxLayer>
               <ParallaxLayer offset={3} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal>
+                    <TransitionReveal topOffset={700} bottomOffset={700}>
                       <Box display="flex" justifyContent="center">
                         <Trail
                           items={['About', ' me ', '👋']}
@@ -292,23 +301,27 @@ class HomePage extends React.Component {
               <ParallaxLayer offset={4} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal>
+                    <TransitionReveal topOffset={700} bottomOffset={700}>
                       <Publications data={publicationsData.data} />
                     </TransitionReveal>
                   </div>
                 </div>
               </ParallaxLayer>
-              <ParallaxLayer
-                offset={5}
-                speed={0.1 * scrollModifier}
-                style={{
-                  backgroundImage: 'url(images/trianglify.svg)',
-                  backgroundSize: 'cover',
-                }}
-              />
+              <ParallaxLayer offset={5} speed={0.1 * scrollModifier}>
+                <TransitionReveal delay={1000} topOffset={1000} bottomOffset={1000}>
+                  <div
+                    style={{
+                      height: '100%',
+                      width: '100%',
+                      backgroundImage: 'url(images/trianglify.svg)',
+                      backgroundSize: 'cover',
+                    }}
+                  />
+                </TransitionReveal>
+              </ParallaxLayer>
               <ParallaxLayer offset={5.1} speed={0.3 * scrollModifier}>
                 <div className={classes.page}>
-                  <TransitionReveal>
+                  <TransitionReveal topOffset={700} bottomOffset={700}>
                     <Contact />
                   </TransitionReveal>
                 </div>

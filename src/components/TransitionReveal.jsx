@@ -14,20 +14,29 @@ class TransitionReveal extends React.Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, topOffset, bottomOffset, wrapperHeight, delay } = this.props;
     const { isVisible } = this.state;
 
     return (
-      <Waypoint onEnter={this.handleWaypointEnter} topOffset={500} bottomOffset={500}>
-        <div>
+      <Waypoint
+        onEnter={this.handleWaypointEnter}
+        topOffset={topOffset || 500}
+        bottomOffset={bottomOffset || 500}
+      >
+        <div style={{ height: wrapperHeight || '100%', width: '100%' }}>
           <Transition
             items={isVisible}
             from={{ opacity: 0, transform: 'translate3d(0,200px,0)' }}
             enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            trail={0}
+            trail={delay || 0}
           >
             {_isVisible =>
-              _isVisible && (props => <animated.div style={props}>{children}</animated.div>)
+              _isVisible &&
+              (props => (
+                <animated.div style={{ ...props, ...{ height: '100%', width: '100%' } }}>
+                  {children}
+                </animated.div>
+              ))
             }
           </Transition>
         </div>
@@ -38,6 +47,10 @@ class TransitionReveal extends React.Component {
 
 TransitionReveal.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  topOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  bottomOffset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  wrapperHeight: PropTypes.number,
+  delay: PropTypes.number,
 };
 
 export default hot(module)(TransitionReveal);

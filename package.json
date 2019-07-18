@@ -68,7 +68,7 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "storybook-router": "^0.3.4",
-    "typeface-roboto": "^0.0.54",
+    "typeface-roboto": "^0.0.75",
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "devDependencies": {
