@@ -172,7 +172,7 @@ class HomePage extends React.Component {
               style={{ overflow: 'hidden' }}
             >
               <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
-                <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={500}>
+                <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={200}>
                   {props => (
                     <Avatar
                       style={props}
@@ -202,7 +202,7 @@ class HomePage extends React.Component {
                     items={['Programmer ', '⭐ Gaming', ' Enthusiast ⭐', ' Geek']}
                     from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                    delay={750}
+                    delay={800}
                   >
                     {item => props => (
                       <Typography align="center" color="textSecondary" style={props} variant="h4">
@@ -227,7 +227,7 @@ class HomePage extends React.Component {
               <ParallaxLayer offset={1} speed={0.3 * scrollModifier}>
                 <div className={classes.pageParent}>
                   <div className={classes.page}>
-                    <TransitionReveal topOffset={700} bottomOffset={700}>
+                    <TransitionReveal topOffset={600} bottomOffset={600}>
                       <Projects data={projectsData} handleModalOpen={this.handleModalOpen} />
                     </TransitionReveal>
                   </div>
@@ -263,7 +263,7 @@ class HomePage extends React.Component {
                           items={['About', ' me ', '👋']}
                           from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                          delay={500}
+                          delay={0}
                         >
                           {item => props => (
                             <Typography

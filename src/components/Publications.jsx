@@ -80,7 +80,7 @@ class Publications extends React.Component {
             items={['Publications ', '🔬']}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={500}
+            delay={0}
           >
             {item => props => (
               <Typography
