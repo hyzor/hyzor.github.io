@@ -108,6 +108,11 @@ class Publications extends React.Component {
                 <Typography variant="h6" align="center">
                   {data.publications[activeStep].title}
                 </Typography>
+                <div style={{ textAlign: 'center' }}>
+                  <Typography variant="caption" style={{ marginTop: 2 }}>
+                    {data.publications[activeStep].date}
+                  </Typography>
+                </div>
                 <Typography variant="subtitle1" align="center" style={{ marginTop: 5 }}>
                   {data.publications[activeStep].publisher}
                 </Typography>
@@ -122,9 +127,14 @@ class Publications extends React.Component {
               </React.Fragment>
             ))}
           </SwipeableViews>
-          <div className={classes.caption}>
+          <Box className={classes.caption} display="flex" flexDirection="column">
             <Typography variant="caption">{data.publications[activeStep].title}</Typography>
-          </div>
+            {data.publications[activeStep].url && (
+              <Typography variant="caption" style={{ marginTop: 10 }}>
+                <a href={data.publications[activeStep].url}>Download from archive</a>
+              </Typography>
+            )}
+          </Box>
           <MobileStepper
             steps={numSteps}
             position="static"
