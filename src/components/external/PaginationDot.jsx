@@ -34,7 +34,7 @@ class PaginationDot extends React.Component {
     let styleDot;
 
     if (active) {
-      styleDot = Object.assign({}, styles.dot, styles.active);
+      styleDot = { ...styles.dot, ...styles.active };
     } else {
       styleDot = styles.dot;
     }

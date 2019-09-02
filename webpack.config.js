@@ -30,8 +30,10 @@ const stylesLoaders = [
   {
     loader: 'sass-loader',
     options: {
-      data: '@import "styles/globals";',
-      includePaths: [path.join(__dirname, 'src')],
+      sassOptions: {
+        data: '@import "styles/globals";', // Seems to be broken as of now
+        includePaths: [path.join(__dirname, 'src')],
+      },
     },
   },
 ];

@@ -68,17 +68,17 @@ const styles = theme => ({
 });
 
 class HomePage extends React.Component {
-  state = {
-    scroll: true,
-    scrollModifier: 1,
-  };
-
   constructor(props) {
     super(props);
 
     this.parallax = React.createRef();
 
     this.handleModalOpen = this.handleModalOpen.bind(this);
+
+    this.state = {
+      scroll: true,
+      scrollModifier: 1,
+    };
   }
 
   handleModalOpen = open => {
@@ -100,7 +100,7 @@ class HomePage extends React.Component {
     const numPages = 6;
 
     return (
-      <React.Fragment>
+      <>
         <CssBaseline />
         <AppBar color="secondary">
           <Toolbar>
@@ -394,7 +394,7 @@ class HomePage extends React.Component {
             </Parallax>
           </div>
         </main>
-      </React.Fragment>
+      </>
     );
   }
 }

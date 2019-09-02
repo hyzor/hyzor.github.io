@@ -55,6 +55,8 @@ class Contact extends React.Component {
     super(props);
 
     emailjs.init('user_tIqLzLo7yif17N99xgsT5');
+
+    this.state = Contact.initialState;
   }
 
   static initialState = {
@@ -63,8 +65,6 @@ class Contact extends React.Component {
     message: '',
     sendingMsg: false,
   };
-
-  state = Contact.initialState;
 
   handleChange = name => event => {
     this.setState({
@@ -90,7 +90,7 @@ class Contact extends React.Component {
     const { name, email, message, sendingMsg } = this.state;
 
     return (
-      <React.Fragment>
+      <fragment>
         <Box display="flex" justifyContent="center">
           <Trail
             items={['Contact ', '💌']}
@@ -157,7 +157,7 @@ class Contact extends React.Component {
             </div>
           </div>
         </Paper>
-      </React.Fragment>
+      </fragment>
     );
   }
 }

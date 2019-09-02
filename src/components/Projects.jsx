@@ -34,12 +34,12 @@ class Projects extends React.Component {
 
     this.handleModalOpen = this.handleModalOpen.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  }
 
-  state = {
-    openProject: null,
-    activeGrid: 0,
-  };
+    this.state = {
+      openProject: null,
+      activeGrid: 0,
+    };
+  }
 
   handleModalOpen = open => {
     const { handleModalOpen } = this.props;
@@ -89,7 +89,7 @@ class Projects extends React.Component {
     const numChunks = projectChunks.length;
 
     return (
-      <React.Fragment>
+      <>
         <Box display="flex" justifyContent="center">
           <Trail
             items={['Projects ', '📁']}
@@ -169,7 +169,7 @@ class Projects extends React.Component {
         <div style={{ marginTop: 16, display: 'flex', justifyContent: 'center' }}>
           <Pagination dots={numChunks} index={activeGrid} onChangeIndex={this.handleChangeGrid} />
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

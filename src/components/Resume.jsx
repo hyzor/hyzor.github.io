@@ -38,10 +38,14 @@ const styles = theme => ({
 });
 
 class Resume extends React.Component {
-  state = {
-    numPages: null,
-    pageNumber: 1,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      numPages: null,
+      pageNumber: 1,
+    };
+  }
 
   onDocumentLoad = ({ numPages }) => {
     this.setState({ numPages });
@@ -64,7 +68,7 @@ class Resume extends React.Component {
     const { pageNumber, numPages } = this.state;
 
     return (
-      <React.Fragment>
+      <>
         <Box display="flex" justifyContent="center">
           <Trail
             items={['Résumé ', '👔']}
@@ -115,7 +119,7 @@ class Resume extends React.Component {
             </Typography>
           </Paper>
         </Box>
-      </React.Fragment>
+      </>
     );
   }
 }

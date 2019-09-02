@@ -5,9 +5,13 @@ import { Waypoint } from 'react-waypoint';
 import { Transition, animated } from 'react-spring/renderprops';
 
 class TransitionReveal extends React.Component {
-  state = {
-    isVisible: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isVisible: false,
+    };
+  }
 
   handleWaypointEnter = () => {
     this.setState({ isVisible: true });
@@ -36,8 +40,7 @@ class TransitionReveal extends React.Component {
                 <animated.div style={{ ...props, ...{ height: '100%', width: '100%' } }}>
                   {children}
                 </animated.div>
-              ))
-            }
+              ))}
           </Transition>
         </div>
       </Waypoint>

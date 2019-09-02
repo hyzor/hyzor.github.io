@@ -39,14 +39,14 @@ const styles = () => ({
 });
 
 class ProjectModal extends React.Component {
-  state = {
-    activePic: 0,
-  };
-
   constructor(props) {
     super(props);
 
     this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      activePic: 0,
+    };
   }
 
   handleClose = () => {

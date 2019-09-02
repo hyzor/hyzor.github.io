@@ -42,9 +42,13 @@ const styles = theme => ({
 });
 
 class Publications extends React.Component {
-  state = {
-    activeStep: 0,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeStep: 0,
+    };
+  }
 
   handleNext = () => {
     const { data } = this.props;
@@ -74,7 +78,7 @@ class Publications extends React.Component {
     const numSteps = data.publications.length;
 
     return (
-      <React.Fragment>
+      <>
         <Box display="flex" justifyContent="center">
           <Trail
             items={['Publications ', '🔬']}
@@ -152,7 +156,7 @@ class Publications extends React.Component {
             }
           />
         </Paper>
-      </React.Fragment>
+      </>
     );
   }
 }
