@@ -18,7 +18,7 @@ import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail, Spring } from 'react-spring/renderprops';
+import { Trail, Spring, Keyframes } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import TransitionReveal from 'components/TransitionReveal';
 import Particles from 'react-particles-js';
@@ -65,6 +65,28 @@ const styles = theme => ({
     zIndex: 0,
     position: 'absolute',
   },
+});
+
+const FadeLoopScript = Keyframes.Spring(async next => {
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    // eslint-disable-next-line no-await-in-loop
+    await next({
+      opacity: 1,
+      transform: 'translate3d(0,0px,0)',
+      from: { opacity: 0, transform: 'translate3d(0,-80px,0)' },
+      reset: true,
+      reverse: false,
+    });
+    // eslint-disable-next-line no-await-in-loop
+    await next({
+      opacity: 1,
+      transform: 'translate3d(0,0px,0)',
+      from: { opacity: 0, transform: 'translate3d(0,-80px,0)' },
+      reset: true,
+      reverse: true,
+    });
+  }
 });
 
 class HomePage extends React.Component {
@@ -222,6 +244,19 @@ class HomePage extends React.Component {
                       </Typography>
                     )}
                   </Trail>
+                </Box>
+              </ParallaxLayer>
+              <ParallaxLayer offset={0.65} speed={0.3 * scrollModifier}>
+                <Box display="flex" flexWrap="wrap" justifyContent="center">
+                  <FadeLoopScript>
+                    {props => (
+                      <Typography variant="h4" style={props}>
+                        <span role="img" aria-label="Pointing down">
+                          👇
+                        </span>
+                      </Typography>
+                    )}
+                  </FadeLoopScript>
                 </Box>
               </ParallaxLayer>
               <ParallaxLayer offset={1} speed={0.1 * scrollModifier}>
