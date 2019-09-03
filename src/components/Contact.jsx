@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */ // Weird issue where eslint suggests using 'fragment'
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
@@ -90,7 +91,7 @@ class Contact extends React.Component {
     const { name, email, message, sendingMsg } = this.state;
 
     return (
-      <fragment>
+      <React.Fragment>
         <Box display="flex" justifyContent="center">
           <Trail
             items={['Contact ', '💌']}
@@ -157,7 +158,7 @@ class Contact extends React.Component {
             </div>
           </div>
         </Paper>
-      </fragment>
+      </React.Fragment>
     );
   }
 }

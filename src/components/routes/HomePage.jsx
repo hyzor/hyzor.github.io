@@ -166,9 +166,9 @@ class HomePage extends React.Component {
           >
             <Particles className={classes.particles} params={particlesData} />
             <Parallax
+              ref={this.parallax}
               pages={numPages}
               scrolling={scroll}
-              ref={this.parallax}
               style={{ overflow: 'hidden' }}
             >
               <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
@@ -190,8 +190,14 @@ class HomePage extends React.Component {
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={500}
                   >
-                    {item => props => (
-                      <Typography align="center" color="textSecondary" style={props} variant="h1">
+                    {(item, i) => props => (
+                      <Typography
+                        key={i}
+                        align="center"
+                        color="textSecondary"
+                        style={props}
+                        variant="h1"
+                      >
                         {item}
                       </Typography>
                     )}
@@ -204,8 +210,14 @@ class HomePage extends React.Component {
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={800}
                   >
-                    {item => props => (
-                      <Typography align="center" color="textSecondary" style={props} variant="h4">
+                    {(item, i) => props => (
+                      <Typography
+                        key={i}
+                        align="center"
+                        color="textSecondary"
+                        style={props}
+                        variant="h4"
+                      >
                         {item}
                       </Typography>
                     )}
@@ -265,8 +277,9 @@ class HomePage extends React.Component {
                           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                           delay={0}
                         >
-                          {item => props => (
+                          {(item, i) => props => (
                             <Typography
+                              key={i}
                               style={props}
                               align="center"
                               color="textSecondary"
@@ -284,8 +297,9 @@ class HomePage extends React.Component {
                         to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                         delay={0}
                       >
-                        {item => props => (
+                        {(item, i) => props => (
                           <Typography
+                            key={i}
                             color="textSecondary"
                             style={{ ...props, marginTop: 10 }}
                             variant="subtitle1"
@@ -376,8 +390,9 @@ class HomePage extends React.Component {
                       to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                       delay={1000}
                     >
-                      {item => props => (
+                      {(item, i) => props => (
                         <Typography
+                          key={i}
                           style={props}
                           color="textSecondary"
                           variant="subtitle1"

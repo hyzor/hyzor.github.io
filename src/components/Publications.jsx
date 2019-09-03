@@ -86,8 +86,9 @@ class Publications extends React.Component {
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {item => props => (
+            {(item, i) => props => (
               <Typography
+                key={i}
                 align="center"
                 color="textSecondary"
                 style={props}

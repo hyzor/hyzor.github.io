@@ -6,10 +6,13 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { Document, Page } from 'react-pdf/dist/entry.webpack';
+import { pdfjs, Document, Page } from 'react-pdf';
 import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
+
+const pdfjsCdn = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsCdn;
 
 const options = {
   cMapUrl: 'cmaps/',
@@ -76,8 +79,9 @@ class Resume extends React.Component {
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {item => props => (
+            {(item, i) => props => (
               <Typography
+                key={i}
                 align="center"
                 color="textSecondary"
                 style={props}
