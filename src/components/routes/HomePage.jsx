@@ -248,7 +248,7 @@ class HomePage extends React.Component {
               </ParallaxLayer>
               <ParallaxLayer offset={0.65} speed={0.3 * scrollModifier}>
                 <Box display="flex" flexWrap="wrap" justifyContent="center">
-                  <FadeLoopScript>
+                  <FadeLoopScript delay={500}>
                     {props => (
                       <Typography variant="h4" style={props}>
                         <span role="img" aria-label="Pointing down">
