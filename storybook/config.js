@@ -1,4 +1,5 @@
 import { configure } from '@storybook/react';
+import 'storybook-addon-material-ui/register';
 
 const requireContext = require.context('../src', true, /.story.jsx/);
 
