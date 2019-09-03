@@ -96,7 +96,7 @@ class Resume extends React.Component {
         <Box display="flex" justifyContent="center" marginLeft="auto" marginRight="auto">
           <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>
             <Document
-              file="documents/JHF_cv_v3.pdf"
+              file="documents/Jesper_Resume_v4.pdf"
               onLoadSuccess={this.onDocumentLoad}
               options={options}
             >
