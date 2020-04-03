@@ -3,7 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebappWebpackPlugin = require('webapp-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -74,7 +74,7 @@ const rules = [
 
 const pluginsBase = [
   new HtmlWebpackPlugin({ template: 'template.ejs' }),
-  new WebappWebpackPlugin(SETTINGS.FAVICONS),
+  new FaviconsWebpackPlugin(SETTINGS.FAVICONS),
   new BundleAnalyzerPlugin({ analyzerMode: analyzer ? 'server' : 'disabled' }),
   new webpack.DefinePlugin({
     'process.env': {
