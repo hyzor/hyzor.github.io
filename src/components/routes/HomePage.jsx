@@ -25,7 +25,7 @@ import Particles from 'react-particles-js';
 import particlesData from 'data/particles.json';
 import Box from '@material-ui/core/Box';
 
-const styles = theme => ({
+const styles = (theme) => ({
   white: {
     color: '#fff',
   },
@@ -67,7 +67,7 @@ const styles = theme => ({
   },
 });
 
-const FadeLoopScript = Keyframes.Spring(async next => {
+const FadeLoopScript = Keyframes.Spring(async (next) => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     // eslint-disable-next-line no-await-in-loop
@@ -103,7 +103,7 @@ class HomePage extends React.Component {
     };
   }
 
-  handleModalOpen = open => {
+  handleModalOpen = (open) => {
     if (open) {
       this.setState({ scrollModifier: 0 });
     } else {
@@ -111,7 +111,7 @@ class HomePage extends React.Component {
     }
   };
 
-  parallaxScroll = to => () => {
+  parallaxScroll = (to) => () => {
     this.parallax.current.scrollTo(to);
   };
 
@@ -195,7 +195,7 @@ class HomePage extends React.Component {
             >
               <ParallaxLayer offset={0.2} speed={0.3 * scrollModifier}>
                 <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={200}>
-                  {props => (
+                  {(props) => (
                     <Avatar
                       style={props}
                       src="images/DSC_0035_resized_512.png"
@@ -212,7 +212,7 @@ class HomePage extends React.Component {
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={500}
                   >
-                    {(item, i) => props => (
+                    {(item, i) => (props) => (
                       <Typography
                         key={i}
                         align="center"
@@ -232,7 +232,7 @@ class HomePage extends React.Component {
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={800}
                   >
-                    {(item, i) => props => (
+                    {(item, i) => (props) => (
                       <Typography
                         key={i}
                         align="center"
@@ -249,7 +249,7 @@ class HomePage extends React.Component {
               <ParallaxLayer offset={0.65} speed={0.3 * scrollModifier}>
                 <Box display="flex" flexWrap="wrap" justifyContent="center">
                   <FadeLoopScript delay={500}>
-                    {props => (
+                    {(props) => (
                       <Typography variant="h4" style={props}>
                         <span role="img" aria-label="Pointing down">
                           👇
@@ -312,7 +312,7 @@ class HomePage extends React.Component {
                           to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                           delay={0}
                         >
-                          {(item, i) => props => (
+                          {(item, i) => (props) => (
                             <Typography
                               key={i}
                               style={props}
@@ -332,7 +332,7 @@ class HomePage extends React.Component {
                         to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                         delay={0}
                       >
-                        {(item, i) => props => (
+                        {(item, i) => (props) => (
                           <Typography
                             key={i}
                             color="textSecondary"
@@ -390,7 +390,7 @@ class HomePage extends React.Component {
                       <Facebook />
                     </IconButton>
                     <IconButton
-                      href="https://www.linkedin.com/in/jesperhf92/"
+                      href="https://www.linkedin.com/in/jesperfalkenby/"
                       className={classes.white}
                       aria-label="Linkedin"
                     >
@@ -420,12 +420,12 @@ class HomePage extends React.Component {
                   </Box>
                   <Box display="flex" justifyContent="center">
                     <Trail
-                      items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2019']}
+                      items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2020']}
                       from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                       to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                       delay={1000}
                     >
-                      {(item, i) => props => (
+                      {(item, i) => (props) => (
                         <Typography
                           key={i}
                           style={props}
