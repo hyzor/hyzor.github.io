@@ -19,7 +19,7 @@ const options = {
   cMapPacked: true,
 };
 
-const styles = theme => ({
+const styles = (theme) => ({
   title: {
     textAlign: 'center',
   },
@@ -79,7 +79,7 @@ class Resume extends React.Component {
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {(item, i) => props => (
+            {(item, i) => (props) => (
               <Typography
                 key={i}
                 align="center"
@@ -96,7 +96,7 @@ class Resume extends React.Component {
         <Box display="flex" justifyContent="center" marginLeft="auto" marginRight="auto">
           <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>
             <Document
-              file="documents/Jesper_Resume_v4.pdf"
+              file="documents/Jesper_Resume_v5.pdf"
               onLoadSuccess={this.onDocumentLoad}
               options={options}
             >
