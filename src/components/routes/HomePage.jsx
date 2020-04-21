@@ -16,7 +16,7 @@ import { hot } from 'react-hot-loader';
 import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
 import Contact from 'components/Contact';
-import { Facebook, Linkedin, Twitter, Instagram, GithubBox } from 'mdi-material-ui';
+import { Facebook, Linkedin, Twitter, Instagram, Github } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
 import { Trail, Spring, Keyframes } from 'react-spring/renderprops';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
@@ -415,7 +415,7 @@ class HomePage extends React.Component {
                       className={classes.white}
                       aria-label="GitHub"
                     >
-                      <GithubBox />
+                      <Github />
                     </IconButton>
                   </Box>
                   <Box display="flex" justifyContent="center">
