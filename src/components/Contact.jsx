@@ -13,7 +13,7 @@ import * as emailjs from 'emailjs-com';
 import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
 
-const styles = theme => ({
+const styles = (theme) => ({
   textField: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -49,6 +49,9 @@ const styles = theme => ({
   wrapper: {
     position: 'relative',
   },
+  inputLabel: {
+    color: '#000',
+  },
 });
 
 class Contact extends React.Component {
@@ -63,32 +66,36 @@ class Contact extends React.Component {
   static initialState = {
     name: '',
     email: '',
+    emailIsValid: false,
     message: '',
     sendingMsg: false,
   };
 
-  handleChange = name => event => {
+  handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value,
+    });
+  };
+
+  handleEmailChange = (event) => {
+    const emailValue = event.target.value;
+    this.setState({
+      email: emailValue,
+      emailIsValid: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(emailValue),
     });
   };
 
   handleClick = () => {
     this.setState({ sendingMsg: true });
 
-    emailjs.send('jesperfalkenby_com', 'template_BPrxTrft', this.state).then(
-      () => {
-        this.setState(Contact.initialState);
-      },
-      () => {
-        this.setState({ sendingMsg: false });
-      }
-    );
+    emailjs.send('gmail', 'template_BPrxTrft', this.state).then(() => {
+      this.setState(Contact.initialState);
+    });
   };
 
   render() {
     const { classes } = this.props;
-    const { name, email, message, sendingMsg } = this.state;
+    const { name, email, emailIsValid, message, sendingMsg } = this.state;
 
     return (
       <React.Fragment>
@@ -99,7 +106,7 @@ class Contact extends React.Component {
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {item => props => (
+            {(item) => (props) => (
               <Typography
                 align="center"
                 color="textSecondary"
@@ -122,14 +129,19 @@ class Contact extends React.Component {
                 value={name}
                 onChange={this.handleChange('name')}
                 margin="normal"
+                InputLabelProps={{ className: classes.inputLabel }}
               />
               <TextField
+                required
+                error={!emailIsValid}
                 id="input-email"
                 label="Email"
                 className={classes.textField}
                 value={email}
-                onChange={this.handleChange('email')}
+                onChange={this.handleEmailChange}
                 margin="normal"
+                helperText="Invalid email"
+                InputLabelProps={{ className: classes.inputLabel }}
               />
               <TextField
                 id="input-message"
@@ -139,7 +151,8 @@ class Contact extends React.Component {
                 onChange={this.handleChange('message')}
                 margin="normal"
                 multiline
-                rows="6"
+                rows="10"
+                InputLabelProps={{ className: classes.inputLabel }}
               />
             </Box>
             <div className={classes.actions}>
@@ -148,7 +161,7 @@ class Contact extends React.Component {
                   variant="contained"
                   color="primary"
                   onClick={this.handleClick}
-                  disabled={sendingMsg}
+                  disabled={!emailIsValid || sendingMsg}
                 >
                   Send
                   <Icon className={classes.rightIcon}>send</Icon>
