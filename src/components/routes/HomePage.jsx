@@ -170,7 +170,6 @@ class HomePage extends React.Component {
             </div>
           </Parallax>
           <Parallax y={[210, 110]}>
-            <Particles className={classes.particles} params={particlesData} />
             <Resume />
           </Parallax>
           <Parallax y={[425, 325]}>
@@ -216,7 +215,6 @@ class HomePage extends React.Component {
             </div>
           </Parallax>
           <Parallax y={[400, 300]}>
-            <Particles className={classes.particles} params={particlesData} />
             <Publications data={publicationsData.data} />
           </Parallax>
           <Parallax y={[700, 600]}>
