@@ -81,10 +81,9 @@ const pluginsBase = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || ''),
     },
   }),
-  new CopyWebpackPlugin([
-    { from: 'static/' },
-    { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
-  ]),
+  new CopyWebpackPlugin({
+    patterns: [{ from: 'static/' }, { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' }],
+  }),
 ];
 
 const developmentPlugins = [
