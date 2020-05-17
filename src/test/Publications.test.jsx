@@ -3,13 +3,13 @@ import { shallow } from 'enzyme';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from 'styles/theme';
 
-import Projects from './Projects';
+import Publications from '../components/Publications';
 
-describe('Projects component test with Enzyme', () => {
+describe('Publications component test with Enzyme', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
       <ThemeProvider theme={theme}>
-        <Projects data={null} />
+        <Publications data={null} />
       </ThemeProvider>
     );
 

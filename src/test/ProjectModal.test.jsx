@@ -5,7 +5,7 @@ import theme from 'styles/theme';
 
 import projectsData from 'data/projects.json';
 
-import ProjectModal from './ProjectModal';
+import ProjectModal from '../components/ProjectModal';
 
 describe('data/projects.json', () => {
   it('contains an array of objects matching intended shape', () => {

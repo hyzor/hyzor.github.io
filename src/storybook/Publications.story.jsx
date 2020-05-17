@@ -3,13 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
 import centered from '@storybook/addon-centered/react';
 import theme from 'styles/theme';
-import TransitionReveal from './TransitionReveal';
+import publicationsData from 'data/publications.json';
+import Publications from '../components/Publications';
 
-storiesOf('TransitionReveal', module)
+storiesOf('Publications', module)
   .addDecorator(muiTheme(theme))
   .addDecorator(centered)
-  .add('TransitionReveal', () => (
-    <TransitionReveal>
-      <span>Dummy text</span>
-    </TransitionReveal>
-  ));
+  .add('Publications', () => <Publications data={publicationsData.data} />);

@@ -3,12 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
 import centered from '@storybook/addon-centered/react';
 import theme from 'styles/theme';
-import projectsData from 'data/projects.json';
-import ProjectModal from './ProjectModal';
+import TransitionReveal from '../components/TransitionReveal';
 
-const project = projectsData.data.projects[0];
-
-storiesOf('ProjectModal', module)
+storiesOf('TransitionReveal', module)
   .addDecorator(muiTheme(theme))
   .addDecorator(centered)
-  .add('ProjectModal', () => <ProjectModal project={project} openProject={project.id} />);
+  .add('TransitionReveal', () => (
+    <TransitionReveal>
+      <span>Dummy text</span>
+    </TransitionReveal>
+  ));

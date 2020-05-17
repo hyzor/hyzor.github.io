@@ -3,15 +3,13 @@ import { shallow } from 'enzyme';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from 'styles/theme';
 
-import TransitionReveal from './TransitionReveal';
+import Resume from '../components/Resume';
 
-describe('TransitionReveal component test with Enzyme', () => {
+describe('Resume component test with Enzyme', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(
       <ThemeProvider theme={theme}>
-        <TransitionReveal>
-          <div />
-        </TransitionReveal>
+        <Resume />
       </ThemeProvider>
     );
 

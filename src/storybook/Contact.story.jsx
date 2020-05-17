@@ -3,10 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
 import centered from '@storybook/addon-centered/react';
 import theme from 'styles/theme';
-import publicationsData from 'data/publications.json';
-import Publications from './Publications';
+import Contact from '../components/Contact';
 
-storiesOf('Publications', module)
+storiesOf('Contact', module)
   .addDecorator(muiTheme(theme))
   .addDecorator(centered)
-  .add('Publications', () => <Publications data={publicationsData.data} />);
+  .add('Contact', () => <Contact />);
