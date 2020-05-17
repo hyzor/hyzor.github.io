@@ -24,8 +24,8 @@ class TransitionReveal extends React.Component {
     return (
       <Waypoint
         onEnter={this.handleWaypointEnter}
-        topOffset={topOffset || 500}
-        bottomOffset={bottomOffset || 500}
+        topOffset={topOffset || '33%'}
+        bottomOffset={bottomOffset || '33%'}
       >
         <div style={{ height: wrapperHeight || '100%', width: '100%' }}>
           <Transition
@@ -34,9 +34,9 @@ class TransitionReveal extends React.Component {
             enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             trail={delay || 0}
           >
-            {_isVisible =>
+            {(_isVisible) =>
               _isVisible &&
-              (props => (
+              ((props) => (
                 <animated.div style={{ ...props, ...{ height: '100%', width: '100%' } }}>
                   {children}
                 </animated.div>

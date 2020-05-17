@@ -15,7 +15,9 @@ body {
   line-height: 1.6;
   color: $color-black;
   font-family: $font-family;
-  overflow: hidden;
+  background-color: #7f5a83;
+  background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  height: 560rem;
 }
 
 .particles {

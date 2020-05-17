@@ -32,7 +32,6 @@ class Projects extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleModalOpen = this.handleModalOpen.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
@@ -41,33 +40,26 @@ class Projects extends React.Component {
     };
   }
 
-  handleModalOpen = open => {
-    const { handleModalOpen } = this.props;
-    handleModalOpen(open);
-  };
-
-  handleClick = project => () => {
+  handleClick = (project) => () => {
     this.setState({ openProject: project.id });
-    this.handleModalOpen(true);
   };
 
   handleClose = () => {
     this.setState({ openProject: null });
-    this.handleModalOpen(false);
   };
 
-  handleChangeGrid = activeGrid => {
+  handleChangeGrid = (activeGrid) => {
     this.setState({ activeGrid });
   };
 
-  handleNext = numChunks => () => {
-    this.setState(prevState => ({
+  handleNext = (numChunks) => () => {
+    this.setState((prevState) => ({
       activeGrid: prevState.activeGrid + 1 < numChunks ? prevState.activeGrid + 1 : 0,
     }));
   };
 
-  handleBack = numChunks => () => {
-    this.setState(prevState => ({
+  handleBack = (numChunks) => () => {
+    this.setState((prevState) => ({
       activeGrid: prevState.activeGrid - 1 >= 0 ? prevState.activeGrid - 1 : numChunks - 1,
     }));
   };
@@ -97,7 +89,7 @@ class Projects extends React.Component {
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {(item, i) => props => (
+            {(item, i) => (props) => (
               <Typography
                 key={i}
                 align="center"
@@ -116,7 +108,7 @@ class Projects extends React.Component {
           to={{ opacity: 1, transform: 'translate3d(0, 0px, 0)' }}
           delay={0}
         >
-          {props => (
+          {(props) => (
             <AutoPlaySwipeableViews
               style={{ ...props, ...{ overflow: 'hidden' } }}
               slideStyle={{ overflow: 'hidden' }}
@@ -128,7 +120,7 @@ class Projects extends React.Component {
               {projectChunks.map((chunk, _index) => {
                 return (
                   <Grid key={_index} container spacing={4} style={{ overflow: 'hidden' }}>
-                    {chunk.map(item => {
+                    {chunk.map((item) => {
                       return (
                         <Grid
                           style={{ overflow: 'hidden' }}
@@ -179,7 +171,6 @@ Projects.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   data: PropTypes.objectOf(PropTypes.object).isRequired,
-  handleModalOpen: PropTypes.func.isRequired,
 };
 
 export default hot(module)(withStyles(styles, { withTheme: true })(Projects));
