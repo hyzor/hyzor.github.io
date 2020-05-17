@@ -140,7 +140,7 @@ class Contact extends React.Component {
                 value={email}
                 onChange={this.handleEmailChange}
                 margin="normal"
-                helperText="Invalid email"
+                helperText={!email ? 'Required' : 'Invalid email'}
                 InputLabelProps={{ className: classes.inputLabel }}
               />
               <TextField

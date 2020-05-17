@@ -375,7 +375,7 @@ class HomePage extends React.Component {
                   </TransitionReveal>
                 </div>
               </ParallaxLayer>
-              <ParallaxLayer offset={5.4} speed={0.4 * scrollModifier}>
+              <ParallaxLayer offset={5.5} speed={0.4 * scrollModifier}>
                 <Box display="flex" flexDirection="column">
                   <Box
                     display="flex"
