@@ -7953,9 +7953,9 @@ http-proxy@1.15.2:
     requires-port "1.x.x"
 
 http-proxy@^1.17.0:
-  version "1.18.0"
-  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.0.tgz#dbe55f63e75a347db7f3d99974f2692a314a6a3a"
-  integrity sha512-84I2iJM/n1d4Hdgc6y2+qY5mDaz2PUVjlg9znE9byl+q0uC3DeByqBGReQu5tpLK0TAqTIXScRUV+dg7+bUPpQ==
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
+  integrity sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==
   dependencies:
     eventemitter3 "^4.0.0"
     follow-redirects "^1.0.0"
@@ -10024,9 +10024,9 @@ mdast-util-compact@^2.0.0:
     unist-util-visit "^2.0.0"
 
 mdi-material-ui@^6.14.0:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-6.14.0.tgz#509da75c0ea5c37d1bc3d3d89e98092f575544c9"
-  integrity sha512-S6Q0lk4BhPM5bi6TwTSktC1Gw3Pe3GsVSnQNrlIYokX4eQ8JNJISq2d1Y2O02R5fcBnK8j3+GZyJjbwP0VQxFw==
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-6.15.0.tgz#809ac24073b0265956c1ed482af626aac8e54d4e"
+  integrity sha512-7LJQdu4QP17bRdqVebvV/NiLMCLnCMEkSwzmPXGiQIK14SDYz9dNqvCbaYZEKzZXAEDmxkHYelDehzrPngbsWQ==
 
 mdn-data@2.0.4:
   version "2.0.4"
@@ -11697,9 +11697,9 @@ postcss-sass@^0.4.4:
     postcss "^7.0.21"
 
 postcss-scss@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-2.1.0.tgz#18d7019cf0a170368bb4020b974fbb3eb0515fc8"
-  integrity sha512-1AFpO7BcDH+F4HWyHmn/QAEbo6FsqsbwBHrIyfUcASp+m7GFWW9bbRgN4aajdD0KlU3s00oWggmJIejeoF3YqA==
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-2.1.1.tgz#ec3a75fa29a55e016b90bf3269026c53c1d2b383"
+  integrity sha512-jQmGnj0hSGLd9RscFw9LyuSVAa5Bl1/KBPqG1NQw9w8ND55nY4ZEsdlVuYJvLPpV+y0nwTV5v/4rHPzZRihQbA==
   dependencies:
     postcss "^7.0.6"
 
@@ -12429,6 +12429,14 @@ react-scroll-parallax@^2.3.2:
   integrity sha512-Ol9l1vboFAtQf9dyUiSefSipqbNRuFCkS0pSo74LkEKY1QId6nlPPc4PuhbHrvejcdUqn3E6eY+06LYsKUwFgQ==
   dependencies:
     prop-types "^15.5.10"
+
+react-scroll@^1.7.16:
+  version "1.7.16"
+  resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.7.16.tgz#814f0b97ed171aad1f27e45dad16a8444817fec8"
+  integrity sha512-f4M5AdL+3cw3MJ7c/T0hPMY2iHCeQLDXV13lRanAFQ6JIt9xyAdHCpTH9mLUQt9SQh4pRarD+Qc7KhU6qMx3Yg==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.5.8"
 
 react-sizeme@^2.6.7:
   version "2.6.12"

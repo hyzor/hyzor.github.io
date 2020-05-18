@@ -20,6 +20,10 @@ import Particles from 'react-particles-js';
 import particlesData from 'data/particles.json';
 import Box from '@material-ui/core/Box';
 import { Parallax } from 'react-scroll-parallax';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-scroll';
 
 const styles = (theme) => ({
   white: {
@@ -79,26 +83,54 @@ const FadeLoopScript = Keyframes.Spring(async (next) => {
   }
 });
 
-class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.parallax = React.createRef();
-  }
-
-  parallaxScroll = (to) => () => {
-    this.parallax.current.scrollTo(to);
-  };
-
-  render() {
-    const { classes } = this.props;
-
-    return (
-      <>
-        <CssBaseline />
-        <main>
-          <Particles className={classes.particles} params={particlesData} />
-          <Parallax y={[75, 100]}>
+const HomePage = ({ classes }) => {
+  return (
+    <>
+      <CssBaseline />
+      <AppBar color="secondary">
+        <Toolbar>
+          <div style={{ flexGrow: 1 }}>
+            <Link activeClass="active" to="home" spy smooth offset={0} duration={500}>
+              <Button color="inherit">
+                <Typography variant="h6" color="inherit">
+                  Home
+                </Typography>
+              </Button>
+            </Link>
+          </div>
+          <Box display="flex" flexWrap="wrap">
+            <Link activeClass="active" to="projects" spy smooth offset={125} duration={500}>
+              <Button style={{ display: 'flex' }} variant="text" color="inherit">
+                Projects
+              </Button>
+            </Link>
+            <Link activeClass="active" to="resume" spy smooth offset={-35} duration={500}>
+              <Button style={{ display: 'flex' }} variant="text" color="inherit">
+                Résumé
+              </Button>
+            </Link>
+            <Link activeClass="active" to="about" spy smooth offset={-25} duration={500}>
+              <Button style={{ display: 'flex' }} variant="text" color="inherit">
+                About
+              </Button>
+            </Link>
+            <Link activeClass="active" to="publications" spy smooth offset={50} duration={500}>
+              <Button style={{ display: 'flex' }} variant="text" color="inherit">
+                Publications
+              </Button>
+            </Link>
+            <Link activeClass="active" to="contact" spy smooth offset={50} duration={500}>
+              <Button style={{ display: 'flex' }} variant="text" color="inherit">
+                Contact
+              </Button>
+            </Link>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <main>
+        <Particles className={classes.particles} params={particlesData} />
+        <Box style={{ height: 1280 }} name="home">
+          <Parallax y={[50, 100]}>
             <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={200}>
               {(props) => (
                 <Avatar
@@ -109,7 +141,7 @@ class HomePage extends React.Component {
               )}
             </Spring>
           </Parallax>
-          <Parallax y={[300, 150]}>
+          <Parallax y={[250, 120]}>
             <Box display="flex" flexWrap="wrap" justifyContent="center">
               <Trail
                 items={['Jesper ', 'Hansson ', 'Falkenby']}
@@ -164,15 +196,21 @@ class HomePage extends React.Component {
               </FadeLoopScript>
             </Box>
           </Parallax>
-          <Parallax y={[150, 50]}>
+        </Box>
+        <Box style={{ height: 1500 }} name="projects">
+          <Parallax y={[50, 0]}>
             <div className={classes.page}>
               <Projects data={projectsData} />
             </div>
           </Parallax>
-          <Parallax y={[210, 110]}>
+        </Box>
+        <Box style={{ height: 1500 }} name="resume">
+          <Parallax y={[50, 0]}>
             <Resume />
           </Parallax>
-          <Parallax y={[425, 325]}>
+        </Box>
+        <Box style={{ height: 1024 }} name="about">
+          <Parallax y={[50, 0]}>
             <div className={classes.page}>
               <Box display="flex" justifyContent="center">
                 <Trail
@@ -214,13 +252,17 @@ class HomePage extends React.Component {
               </Trail>
             </div>
           </Parallax>
-          <Parallax y={[400, 300]}>
+        </Box>
+        <Box style={{ height: 1500 }} name="publications">
+          <Parallax y={[50, 0]}>
             <Publications data={publicationsData.data} />
           </Parallax>
-          <Parallax y={[700, 600]}>
+        </Box>
+        <Box style={{ height: 1280 }} name="contact">
+          <Parallax y={[50, 0]}>
             <Contact />
           </Parallax>
-          <Parallax y={[1900, 1900]}>
+          <Parallax y={[225, 175]}>
             <Box display="flex" flexDirection="column">
               <Box
                 display="flex"
@@ -286,11 +328,11 @@ class HomePage extends React.Component {
               </Box>
             </Box>
           </Parallax>
-        </main>
-      </>
-    );
-  }
-}
+        </Box>
+      </main>
+    </>
+  );
+};
 
 HomePage.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
