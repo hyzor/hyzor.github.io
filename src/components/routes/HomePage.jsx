@@ -24,6 +24,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, scrollSpy } from 'react-scroll';
+import EmojiToggle from 'components/EmojiToggle';
 
 const styles = (theme) => ({
   white: {
@@ -314,7 +315,7 @@ class HomePage extends React.Component {
               <div className={classes.page}>
                 <Box display="flex" justifyContent="center">
                   <Trail
-                    items={['About', ' me ', '👋']}
+                    items={['About', ' me ', <EmojiToggle emoji1="👋" emoji2="💁‍♂️" />]}
                     from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                     to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
                     delay={0}

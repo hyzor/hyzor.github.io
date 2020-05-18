@@ -14,6 +14,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from 'components/external/Pagination';
 import Box from '@material-ui/core/Box';
+import EmojiToggle from 'components/EmojiToggle';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -84,7 +85,7 @@ class Projects extends React.Component {
       <>
         <Box display="flex" justifyContent="center">
           <Trail
-            items={['Projects ', '📁']}
+            items={['Projects ', <EmojiToggle emoji1="📁" emoji2="📂" />]}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}

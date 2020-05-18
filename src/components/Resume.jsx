@@ -10,6 +10,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import IconButton from '@material-ui/core/IconButton';
 import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
+import EmojiToggle from 'components/EmojiToggle';
 
 const pdfjsCdn = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsCdn;
@@ -74,7 +75,7 @@ class Resume extends React.Component {
       <>
         <Box display="flex" justifyContent="center">
           <Trail
-            items={['Résumé ', '👔']}
+            items={['Résumé ', <EmojiToggle emoji1="👔" emoji2="📄" />]}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}

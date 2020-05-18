@@ -11,8 +11,9 @@ import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
+import EmojiToggle from 'components/EmojiToggle';
 
-const styles = theme => ({
+const styles = (theme) => ({
   caption: {
     textAlign: 'center',
     marginTop: 15,
@@ -54,7 +55,7 @@ class Publications extends React.Component {
     const { data } = this.props;
     const numSteps = data.publications.length;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       activeStep: prevState.activeStep + 1 < numSteps ? prevState.activeStep + 1 : 0,
     }));
   };
@@ -63,12 +64,12 @@ class Publications extends React.Component {
     const { data } = this.props;
     const numSteps = data.publications.length;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       activeStep: prevState.activeStep - 1 >= 0 ? prevState.activeStep - 1 : numSteps - 1,
     }));
   };
 
-  handleChangeStep = activeStep => {
+  handleChangeStep = (activeStep) => {
     this.setState({ activeStep });
   };
 
@@ -81,12 +82,12 @@ class Publications extends React.Component {
       <>
         <Box display="flex" justifyContent="center">
           <Trail
-            items={['Publications ', '🔬']}
+            items={['Publications ', <EmojiToggle emoji1="🔬" emoji2="🧪" />]}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
           >
-            {(item, i) => props => (
+            {(item, i) => (props) => (
               <Typography
                 key={i}
                 align="center"
@@ -108,7 +109,7 @@ class Publications extends React.Component {
             onChangeIndex={this.handleChangeStep}
             enableMouseEvents
           >
-            {data.publications.map(pub => (
+            {data.publications.map((pub) => (
               <React.Fragment key={pub.title}>
                 <Typography variant="h6" align="center">
                   {data.publications[activeStep].title}
@@ -124,7 +125,7 @@ class Publications extends React.Component {
                 <Typography variant="subtitle1" align="center" style={{ marginTop: 2 }}>
                   {data.publications[activeStep].type}
                 </Typography>
-                {pub.desc.map(desc => (
+                {pub.desc.map((desc) => (
                   <Typography key={desc} variant="body1" style={{ marginTop: 10 }}>
                     {desc}
                   </Typography>

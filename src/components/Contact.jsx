@@ -12,6 +12,7 @@ import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
 import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
+import EmojiToggle from 'components/EmojiToggle';
 
 const styles = (theme) => ({
   textField: {
@@ -101,7 +102,7 @@ class Contact extends React.Component {
       <React.Fragment>
         <Box display="flex" justifyContent="center">
           <Trail
-            items={['Contact ', '💌']}
+            items={['Contact ', <EmojiToggle emoji1="💌" emoji2="📩" />]}
             from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
             to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
             delay={0}
