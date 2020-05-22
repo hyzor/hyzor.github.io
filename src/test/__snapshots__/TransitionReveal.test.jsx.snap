@@ -95,15 +95,15 @@ exports[`TransitionReveal component test with Enzyme renders without crashing 1`
         },
         "primary": Object {
           "contrastText": "#fff",
-          "dark": "rgb(8, 108, 142)",
-          "light": "rgb(60, 175, 214)",
-          "main": "#0c9bcc",
+          "dark": "rgb(0, 107, 142)",
+          "light": "rgb(51, 173, 214)",
+          "main": "#0099cc",
         },
         "secondary": Object {
           "contrastText": "#fff",
-          "dark": "rgb(30, 43, 56)",
-          "light": "rgb(86, 100, 115)",
-          "main": "#2C3E50",
+          "dark": "rgb(35, 71, 107)",
+          "light": "rgb(91, 132, 173)",
+          "main": "#336699",
         },
         "success": Object {
           "contrastText": "rgba(0, 0, 0, 0.87)",
