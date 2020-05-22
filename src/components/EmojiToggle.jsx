@@ -17,7 +17,7 @@ class EmojiToggle extends React.Component {
   toggle = () => this.setState((state) => ({ toggle: !state.toggle }));
 
   componentDidMount() {
-    setInterval(this.toggle, 2500);
+    setInterval(this.toggle, 2000);
   }
 
   render() {

@@ -57,8 +57,8 @@ const styles = (theme) => ({
     left: 0,
     top: 0,
     bottom: 0,
-    zIndex: 0,
-    position: 'absolute',
+    zIndex: -1,
+    position: 'fixed',
   },
 });
 
