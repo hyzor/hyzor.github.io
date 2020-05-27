@@ -11,10 +11,7 @@ export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    compose(
-      applyMiddleware(...middlewares),
-      getReduxDevTools()
-    )
+    compose(applyMiddleware(...middlewares), getReduxDevTools())
   );
 
   // Enable Webpack hot module replacement for reducers

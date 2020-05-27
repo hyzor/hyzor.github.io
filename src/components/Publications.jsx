@@ -9,7 +9,6 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
-import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
 import EmojiToggle from 'components/EmojiToggle';
 
@@ -81,25 +80,16 @@ class Publications extends React.Component {
     return (
       <>
         <Box display="flex" justifyContent="center">
-          <Trail
-            items={['Publications ', <EmojiToggle emoji1="🔬" emoji2="🧪" />]}
-            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={0}
+          <Typography
+            style={{ marginRight: 8 }}
+            align="center"
+            color="textSecondary"
+            variant="h2"
+            gutterBottom
           >
-            {(item, i) => (props) => (
-              <Typography
-                key={i}
-                align="center"
-                color="textSecondary"
-                style={props}
-                variant="h2"
-                gutterBottom
-              >
-                {item}
-              </Typography>
-            )}
-          </Trail>
+            Publications
+          </Typography>
+          <EmojiToggle emoji1="🔬" emoji2="🧪" />
         </Box>
         <Paper elevation={16} className={classes.paper}>
           <SwipeableViews

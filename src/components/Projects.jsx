@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import ProjectModal from 'components/ProjectModal';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
-import { Trail, Spring } from 'react-spring/renderprops';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from 'components/external/Pagination';
@@ -84,82 +83,58 @@ class Projects extends React.Component {
     return (
       <>
         <Box display="flex" justifyContent="center">
-          <Trail
-            items={['Projects ', <EmojiToggle emoji1="📁" emoji2="📂" />]}
-            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={0}
+          <Typography
+            style={{ marginRight: 8 }}
+            align="center"
+            color="textSecondary"
+            variant="h2"
+            gutterBottom
           >
-            {(item, i) => (props) => (
-              <Typography
-                key={i}
-                align="center"
-                color="textSecondary"
-                style={props}
-                variant="h2"
-                gutterBottom
-              >
-                {item}
-              </Typography>
-            )}
-          </Trail>
+            Projects
+          </Typography>
+          <EmojiToggle emoji1="📁" emoji2="📂" />
         </Box>
-        <Spring
-          from={{ opacity: 0, transform: 'translate3d(0, 200px, 0)' }}
-          to={{ opacity: 1, transform: 'translate3d(0, 0px, 0)' }}
-          delay={0}
+        <AutoPlaySwipeableViews
+          style={{ overflow: 'hidden' }}
+          slideStyle={{ overflow: 'hidden' }}
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={activeGrid}
+          onChangeIndex={this.handleChangeGrid}
+          interval={7500}
         >
-          {(props) => (
-            <AutoPlaySwipeableViews
-              style={{ ...props, ...{ overflow: 'hidden' } }}
-              slideStyle={{ overflow: 'hidden' }}
-              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-              index={activeGrid}
-              onChangeIndex={this.handleChangeGrid}
-              interval={7500}
-            >
-              {projectChunks.map((chunk, _index) => {
-                return (
-                  <Grid key={_index} container spacing={4} style={{ overflow: 'hidden' }}>
-                    {chunk.map((item) => {
-                      return (
-                        <Grid
-                          style={{ overflow: 'hidden' }}
-                          item
-                          key={item.id}
-                          sm={6}
-                          md={4}
-                          lg={4}
-                        >
-                          <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
-                            <Card style={{ height: '100%' }}>
-                              <CardMedia
-                                className={classes.cardMedia}
-                                image={item.thumbnail}
-                                title={item.name}
-                              />
-                              <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                  {item.name}
-                                </Typography>
-                                <Typography variant="body2">{item.desc}</Typography>
-                              </CardContent>
-                            </Card>
-                          </CardActionArea>
-                          <ProjectModal
-                            project={item}
-                            openProject={openProject}
-                            handleClose={this.handleClose}
+          {projectChunks.map((chunk, _index) => {
+            return (
+              <Grid key={_index} container spacing={4} style={{ overflow: 'hidden' }}>
+                {chunk.map((item) => {
+                  return (
+                    <Grid style={{ overflow: 'hidden' }} item key={item.id} sm={6} md={4} lg={4}>
+                      <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
+                        <Card style={{ height: '100%' }}>
+                          <CardMedia
+                            className={classes.cardMedia}
+                            image={item.thumbnail}
+                            title={item.name}
                           />
-                        </Grid>
-                      );
-                    })}
-                  </Grid>
-                );
-              })}
-            </AutoPlaySwipeableViews>
-          )}
-        </Spring>
+                          <CardContent className={classes.cardContent}>
+                            <Typography gutterBottom variant="h5" component="h2">
+                              {item.name}
+                            </Typography>
+                            <Typography variant="body2">{item.desc}</Typography>
+                          </CardContent>
+                        </Card>
+                      </CardActionArea>
+                      <ProjectModal
+                        project={item}
+                        openProject={openProject}
+                        handleClose={this.handleClose}
+                      />
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            );
+          })}
+        </AutoPlaySwipeableViews>
         <div style={{ marginTop: 16, display: 'flex', justifyContent: 'center' }}>
           <Pagination dots={numChunks} index={activeGrid} onChangeIndex={this.handleChangeGrid} />
         </div>

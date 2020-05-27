@@ -58,7 +58,7 @@ class ProjectModal extends React.Component {
     const { project } = this.props;
     const numImages = project.images.length;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       activePic: prevState.activePic + 1 < numImages ? prevState.activePic + 1 : 0,
     }));
   };
@@ -67,16 +67,16 @@ class ProjectModal extends React.Component {
     const { project } = this.props;
     const numImages = project.images.length;
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       activePic: prevState.activePic - 1 >= 0 ? prevState.activePic - 1 : numImages - 1,
     }));
   };
 
-  handleChangePic = activePic => {
+  handleChangePic = (activePic) => {
     this.setState({ activePic });
   };
 
-  handleRef = ref => {
+  handleRef = (ref) => {
     this.ref = ref;
   };
 
@@ -101,10 +101,10 @@ class ProjectModal extends React.Component {
           </DialogTitle>
           <div style={{ marginLeft: '10%', marginRight: '10%' }}>
             {project.fulltext
-              ? project.fulltext.map(text => (
-                <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
-                  {text}
-                </Typography>
+              ? project.fulltext.map((text) => (
+                  <Typography key={text} variant="body1" style={{ marginTop: 10 }}>
+                    {text}
+                  </Typography>
                 ))
               : null}
           </div>
@@ -115,7 +115,7 @@ class ProjectModal extends React.Component {
             enableMouseEvents
             style={{ marginTop: 16 }}
           >
-            {project.images.map(image => {
+            {project.images.map((image) => {
               return (
                 <div key={image.label} className={classes.imgDiv}>
                   <img

@@ -107,6 +107,14 @@ class HomePage extends React.Component {
     const { classes } = this.props;
     const { active } = this.state;
 
+    const aboutText = aboutData.data.about.map((item, i) => {
+      return (
+        <Typography key={i} color="textSecondary" style={{ marginTop: 10 }} variant="subtitle1">
+          {item}
+        </Typography>
+      );
+    });
+
     return (
       <>
         <CssBaseline />
@@ -232,7 +240,7 @@ class HomePage extends React.Component {
           <Particles className={classes.particles} params={particlesData} />
           <Box style={{ height: 1280 }} name="home">
             <Parallax y={[50, 100]}>
-              <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={200}>
+              <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={500}>
                 {(props) => (
                   <Avatar
                     style={props}
@@ -248,7 +256,7 @@ class HomePage extends React.Component {
                   items={['Jesper ', 'Hansson ', 'Falkenby']}
                   from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                   to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  delay={500}
+                  delay={1000}
                 >
                   {(item, i) => (props) => (
                     <Typography
@@ -268,7 +276,7 @@ class HomePage extends React.Component {
                   items={['Programmer ', '⭐ Gaming', ' Enthusiast ⭐', ' Geek']}
                   from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
                   to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  delay={800}
+                  delay={1500}
                 >
                   {(item, i) => (props) => (
                     <Typography
@@ -314,43 +322,18 @@ class HomePage extends React.Component {
             <Parallax y={[50, 0]}>
               <div className={classes.page}>
                 <Box display="flex" justifyContent="center">
-                  <Trail
-                    items={['About', ' me ', <EmojiToggle emoji1="👋" emoji2="💁‍♂️" />]}
-                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                    delay={0}
+                  <Typography
+                    style={{ marginRight: 8 }}
+                    align="center"
+                    color="textSecondary"
+                    variant="h2"
+                    gutterBottom
                   >
-                    {(item, i) => (props) => (
-                      <Typography
-                        key={i}
-                        style={props}
-                        align="center"
-                        color="textSecondary"
-                        variant="h2"
-                        gutterBottom
-                      >
-                        {item}
-                      </Typography>
-                    )}
-                  </Trail>
+                    About me
+                  </Typography>
+                  <EmojiToggle emoji1="👋" emoji2="💁‍♂️" />
                 </Box>
-                <Trail
-                  items={aboutData.data.about}
-                  from={{ opacity: 0, transform: 'translate3d(0,120px,0)' }}
-                  to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                  delay={0}
-                >
-                  {(item, i) => (props) => (
-                    <Typography
-                      key={i}
-                      color="textSecondary"
-                      style={{ ...props, marginTop: 10 }}
-                      variant="subtitle1"
-                    >
-                      {item}
-                    </Typography>
-                  )}
-                </Trail>
+                {aboutText}
               </div>
             </Parallax>
           </Box>
@@ -407,25 +390,9 @@ class HomePage extends React.Component {
                   </IconButton>
                 </Box>
                 <Box display="flex" justifyContent="center">
-                  <Trail
-                    items={['Copyright ', '© ', 'Jesper ', 'Hansson ', 'Falkenby ', '2020']}
-                    from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-                    to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-                    delay={1000}
-                  >
-                    {(item, i) => (props) => (
-                      <Typography
-                        key={i}
-                        style={props}
-                        color="textSecondary"
-                        variant="subtitle1"
-                        align="center"
-                        gutterBottom
-                      >
-                        {item}
-                      </Typography>
-                    )}
-                  </Trail>
+                  <Typography color="textSecondary" variant="subtitle1" align="center" gutterBottom>
+                    Copyright © Jesper Hansson Falkenby 2020
+                  </Typography>
                 </Box>
               </Box>
             </Parallax>

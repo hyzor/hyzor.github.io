@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { pdfjs, Document, Page } from 'react-pdf';
 import IconButton from '@material-ui/core/IconButton';
-import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
 import EmojiToggle from 'components/EmojiToggle';
 
@@ -74,25 +73,16 @@ class Resume extends React.Component {
     return (
       <>
         <Box display="flex" justifyContent="center">
-          <Trail
-            items={['Résumé ', <EmojiToggle emoji1="👔" emoji2="📄" />]}
-            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={0}
+          <Typography
+            style={{ marginRight: 8 }}
+            align="center"
+            color="textSecondary"
+            variant="h2"
+            gutterBottom
           >
-            {(item, i) => (props) => (
-              <Typography
-                key={i}
-                align="center"
-                color="textSecondary"
-                style={props}
-                variant="h2"
-                gutterBottom
-              >
-                {item}
-              </Typography>
-            )}
-          </Trail>
+            Résumé
+          </Typography>
+          <EmojiToggle emoji1="👔" emoji2="📄" />
         </Box>
         <Box display="flex" justifyContent="center" marginLeft="auto" marginRight="auto">
           <Paper className={classes.paper} elevation={16} style={{ position: 'relative' }}>

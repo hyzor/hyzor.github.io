@@ -40,7 +40,8 @@ class TransitionReveal extends React.Component {
                 <animated.div style={{ ...props, ...{ height: '100%', width: '100%' } }}>
                   {children}
                 </animated.div>
-              ))}
+              ))
+            }
           </Transition>
         </div>
       </Waypoint>

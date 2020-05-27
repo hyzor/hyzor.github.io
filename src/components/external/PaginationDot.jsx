@@ -23,7 +23,7 @@ const styles = {
 };
 
 class PaginationDot extends React.Component {
-  handleClick = event => {
+  handleClick = (event) => {
     const { onClick, index } = this.props;
     onClick(event, index);
   };

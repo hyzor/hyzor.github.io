@@ -10,7 +10,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/styles';
 import { hot } from 'react-hot-loader';
 import * as emailjs from 'emailjs-com';
-import { Trail } from 'react-spring/renderprops';
 import Box from '@material-ui/core/Box';
 import EmojiToggle from 'components/EmojiToggle';
 
@@ -101,24 +100,16 @@ class Contact extends React.Component {
     return (
       <React.Fragment>
         <Box display="flex" justifyContent="center">
-          <Trail
-            items={['Contact ', <EmojiToggle emoji1="💌" emoji2="📩" />]}
-            from={{ opacity: 0, transform: 'translate3d(0,-120px,0)' }}
-            to={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
-            delay={0}
+          <Typography
+            style={{ marginRight: 8 }}
+            align="center"
+            color="textSecondary"
+            variant="h2"
+            gutterBottom
           >
-            {(item) => (props) => (
-              <Typography
-                align="center"
-                color="textSecondary"
-                style={props}
-                variant="h2"
-                gutterBottom
-              >
-                {item}
-              </Typography>
-            )}
-          </Trail>
+            Contact
+          </Typography>
+          <EmojiToggle emoji1="💌" emoji2="📩" />
         </Box>
         <Paper elevation={16} className={classes.paper}>
           <div className={classes.center} style={{ width: '80%' }}>

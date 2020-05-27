@@ -1,13 +1,20 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jest/recommended', 'prettier'],
-  plugins: ['jest'],
+  extends: ['airbnb', 'plugin:jest/recommended', 'prettier', 'prettier/react'],
+  plugins: ['jest', 'import', 'jsx-a11y'],
   env: {
     browser: true,
     node: true,
     'jest/globals': true,
+    es6: true,
   },
-
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   rules: {
     // disabled for condition && someFunc()
     'no-unused-expressions': 'off',
