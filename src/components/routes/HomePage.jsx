@@ -143,7 +143,7 @@ class HomePage extends React.Component {
                 to="projects"
                 spy
                 smooth
-                offset={70}
+                offset={0}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -162,7 +162,7 @@ class HomePage extends React.Component {
                 to="resume"
                 spy
                 smooth
-                offset={-70}
+                offset={0}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -200,7 +200,7 @@ class HomePage extends React.Component {
                 to="publications"
                 spy
                 smooth
-                offset={50}
+                offset={0}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -219,7 +219,7 @@ class HomePage extends React.Component {
                 to="contact"
                 spy
                 smooth
-                offset={230}
+                offset={0}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
