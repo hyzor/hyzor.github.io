@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -50,7 +50,7 @@ const rules = [
     test: /\.(css|scss)$/,
     include: path.join(__dirname, './src'),
     loader: production
-      ? ExtractTextPlugin.extract({ fallback: 'style-loader', use: stylesLoaders })
+      ? [MiniCssExtractPlugin.loader, ...stylesLoaders]
       : ['style-loader', ...stylesLoaders],
   },
 
@@ -58,10 +58,7 @@ const rules = [
     // do not load styles as css modules from other directories (e.g. node_modules) but src
     test: /\.(css)$/,
     loaders: production
-      ? ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader'],
-        })
+      ? [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       : ['style-loader', 'css-loader', 'postcss-loader'],
     exclude: path.resolve(__dirname, '../src'),
   },
@@ -113,7 +110,9 @@ const productionPlugins = [
   }),
   ...pluginsBase,
   new LodashModuleReplacementPlugin(),
-  new ExtractTextPlugin('[name].css'),
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+  }),
   new webpack.optimize.OccurrenceOrderPlugin(),
 ];
 
