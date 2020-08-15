@@ -157,7 +157,7 @@ Publications.propTypes = {
   classes: PropTypes.objectOf(PropTypes.string).isRequired,
   theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   data: PropTypes.shape({
-    publications: PropTypes.array,
+    publications: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
 };
 

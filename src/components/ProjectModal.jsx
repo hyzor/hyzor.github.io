@@ -171,9 +171,9 @@ ProjectModal.propTypes = {
   theme: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   project: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    fulltext: PropTypes.array,
+    fulltext: PropTypes.arrayOf(PropTypes.string),
     name: PropTypes.string.isRequired,
-    images: PropTypes.array.isRequired,
+    images: PropTypes.arrayOf(PropTypes.object).isRequired,
     source: PropTypes.string,
   }).isRequired,
   openProject: PropTypes.number,
