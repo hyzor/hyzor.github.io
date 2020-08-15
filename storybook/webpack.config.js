@@ -18,7 +18,7 @@ const stylesLoaders = [
   {
     loader: 'sass-loader',
     options: {
-      prependData: '@import "styles/globals";',
+      additionalData: '@import "styles/globals";',
       sassOptions: {
         includePaths: [path.join(__dirname, '../src')],
       },
