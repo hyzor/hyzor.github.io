@@ -45,7 +45,7 @@
     "enzyme-adapter-react-16": "^1.15.3",
     "enzyme-to-json": "^3.4.4",
     "lodash": "^4.17.20",
-    "mdi-material-ui": "^6.17.0",
+    "mdi-material-ui": "^6.18.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
     "ramda": "^0.27.1",
