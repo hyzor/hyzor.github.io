@@ -37,7 +37,7 @@
     "@storybook/addon-centered": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
-    "@storybook/theming": "^5.3.18",
+    "@storybook/theming": "^6.0.12",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "emailjs-com": "^2.6.3",
