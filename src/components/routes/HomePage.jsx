@@ -7,12 +7,8 @@ import Avatar from '@material-ui/core/Avatar';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import projectsData from 'data/projects.json';
 import aboutData from 'data/about.json';
-import Projects from 'components/Projects';
-import Resume from 'components/Resume';
 import { hot } from 'react-hot-loader';
-import Publications from 'components/Publications';
 import publicationsData from 'data/publications.json';
-import Contact from 'components/Contact';
 import { Facebook, Linkedin, Twitter, Instagram, Github } from 'mdi-material-ui';
 import IconButton from '@material-ui/core/IconButton';
 import { Trail, Spring, Keyframes } from 'react-spring/renderprops';
@@ -24,7 +20,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, scrollSpy } from 'react-scroll';
-import EmojiToggle from 'components/EmojiToggle';
+import loadable from '@loadable/component';
 
 const styles = (theme) => ({
   white: {
@@ -94,6 +90,12 @@ const FadeLoopScript = Keyframes.Spring(async (next) => {
     });
   }
 });
+
+const Projects = loadable(() => import('../Projects'));
+const Resume = loadable(() => import('../Resume'));
+const Publications = loadable(() => import('../Publications'));
+const Contact = loadable(() => import('../Contact'));
+const EmojiToggle = loadable(() => import('../EmojiToggle'));
 
 class HomePage extends React.Component {
   constructor(props) {
