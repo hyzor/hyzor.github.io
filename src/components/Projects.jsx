@@ -22,9 +22,13 @@ const styles = () => ({
     height: '100%',
     width: '100%',
   },
-  cardMedia: {
-    //paddingTop: '56.25%', // 16:9
-    paddingTop: '100%',
+  thumbnail: {
+    color: 'transparent',
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    textAlign: 'center',
+    textIndent: '10000px',
   },
 });
 
@@ -110,11 +114,20 @@ class Projects extends React.Component {
                     <Grid style={{ overflow: 'hidden' }} item key={item.id} sm={6} md={4} lg={4}>
                       <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
                         <Card style={{ height: '100%' }}>
-                          <CardMedia
-                            className={classes.cardMedia}
-                            image={item.thumbnail}
-                            title={item.name}
-                          />
+                          <CardMedia title={item.name}>
+                            <picture>
+                              <source type="image/webp" srcSet={`${item.thumbnail}.webp`} />
+                              <source
+                                type="image/jpeg"
+                                srcSet={`${item.thumbnail}.${item.extension}`}
+                              />
+                              <img
+                                alt={item.name}
+                                className={classes.thumbnail}
+                                src={`${item.thumbnail}.${item.extension}`}
+                              />
+                            </picture>
+                          </CardMedia>
                           <CardContent className={classes.cardContent}>
                             <Typography gutterBottom variant="h5" component="h2">
                               {item.name}

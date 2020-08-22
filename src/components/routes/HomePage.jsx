@@ -37,6 +37,17 @@ const styles = (theme) => ({
     width: 320,
     height: 320,
   },
+  avatarColor: {
+    backgroundColor: 'transparent',
+  },
+  avatarImg: {
+    color: 'transparent',
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    textAlign: 'center',
+    textIndent: '10000px',
+  },
   pageParent: {
     display: 'grid',
     placeItems: 'center',
@@ -244,9 +255,21 @@ class HomePage extends React.Component {
                 {(props) => (
                   <Avatar
                     style={props}
-                    src="images/DSC_0035_resized_512.png"
-                    className={classes.avatar}
-                  />
+                    classes={{
+                      root: classes.avatar,
+                      colorDefault: classes.avatarColor,
+                    }}
+                  >
+                    <picture>
+                      <source type="image/webp" srcSet="images/DSC_0035_resized_512.webp" />
+                      <source type="image/jpeg" srcSet="images/DSC_0035_resized_512.jpg" />
+                      <img
+                        alt="Portrait"
+                        className={classes.avatarImg}
+                        src="images/DSC_0035_resized_512.jpg"
+                      />
+                    </picture>
+                  </Avatar>
                 )}
               </Spring>
             </Parallax>

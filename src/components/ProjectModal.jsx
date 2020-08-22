@@ -118,12 +118,15 @@ class ProjectModal extends React.Component {
             {project.images.map((image) => {
               return (
                 <div key={image.label} className={classes.imgDiv}>
-                  <img
-                    key={image.label}
-                    className={classes.img}
-                    src={image.path}
-                    alt={image.label}
-                  />
+                  <picture key={image.label}>
+                    <source type="image/webp" srcSet={`${image.path}.webp`} />
+                    <source type="image/jpeg" srcSet={`${image.path}.${image.extension}`} />
+                    <img
+                      alt={image.label}
+                      className={classes.img}
+                      src={`${image.path}.${image.extension}`}
+                    />
+                  </picture>
                 </div>
               );
             })}

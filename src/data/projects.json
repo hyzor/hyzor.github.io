@@ -13,19 +13,23 @@
         "images": [
           {
             "label": "Skyflower promotion image",
-            "path": "images/skyflower.png"
+            "path": "images/skyflower",
+            "extension": "jpg"
           },
           {
             "label": "First level overview",
-            "path": "images/skyflower2.png"
+            "path": "images/skyflower2",
+            "extension": "jpg"
           },
           {
             "label": "A platform with enemies, event button and floating balloon platform",
-            "path": "images/skyflower3.png"
+            "path": "images/skyflower3",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/Skyflower",
-        "thumbnail": "images/skyflower3_2.png"
+        "thumbnail": "images/skyflower3_2",
+        "extension": "jpg"
       },
       {
         "id": 2,
@@ -37,15 +41,18 @@
         "images": [
           {
             "label": "Player model",
-            "path": "images/fancytitle.png"
+            "path": "images/fancytitle",
+            "extension": "jpg"
           },
           {
             "label": "A platform used in the game",
-            "path": "images/fancytitle2.png"
+            "path": "images/fancytitle2",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/GameProject",
-        "thumbnail": "images/fancytitle_2.png"
+        "thumbnail": "images/fancytitle_2",
+        "extension": "jpg"
       },
       {
         "id": 3,
@@ -62,15 +69,18 @@
         "images": [
           {
             "label": "Fluid particle system",
-            "path": "images/fluidparticlesystem.png"
+            "path": "images/fluidparticlesystem",
+            "extension": "jpg"
           },
           {
             "label": "Pseudo code SPH",
-            "path": "images/pseudo-code_SPH.png"
+            "path": "images/pseudo-code_SPH",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/BachelorsThesis",
-        "thumbnail": "images/fluidparticlesystem_2.png"
+        "thumbnail": "images/fluidparticlesystem_2",
+        "extension": "jpg"
       },
       {
         "id": 4,
@@ -84,11 +94,13 @@
         "images": [
           {
             "label": "Genetic Algorithm game",
-            "path": "images/GAGame.png"
+            "path": "images/GAGame",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/ML_Project",
-        "thumbnail": "images/GAGame_400x400.png"
+        "thumbnail": "images/GAGame_400x400",
+        "extension": "jpg"
       },
       {
         "id": 5,
@@ -106,19 +118,23 @@
         "images": [
           {
             "label": "Main menu",
-            "path": "images/epochFight_newGfx.png"
+            "path": "images/epochFight_newGfx",
+            "extension": "jpg"
           },
           {
             "label": "GUI",
-            "path": "images/epochFight_2.png"
+            "path": "images/epochFight_2",
+            "extension": "jpg"
           },
           {
             "label": "Two armies fighting!",
-            "path": "images/epochFight_3.png"
+            "path": "images/epochFight_3",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/EpochFight",
-        "thumbnail": "images/epochFight_newGfx_400x400.png"
+        "thumbnail": "images/epochFight_newGfx_400x400",
+        "extension": "jpg"
       },
       {
         "id": 6, 
@@ -134,19 +150,23 @@
         "images": [
           {
             "label": "Space Adventure GUI",
-            "path": "images/SpaceAdventureGUI.png"
+            "path": "images/SpaceAdventureGUI",
+            "extension": "jpg"
           },
           {
             "label": "Space Adventure Menu",
-            "path": "images/SpaceAdventureMeny.PNG"
+            "path": "images/SpaceAdventureMeny",
+            "extension": "jpg"
           },
           {
             "label": "A drawback of being a beginner in a low-level programming environment is the bugs and the inability to debug properly",
-            "path": "images/SpaceAdventureBug.png"
+            "path": "images/SpaceAdventureBug",
+            "extension": "jpg"
           }
         ],
         "source": null,
-        "thumbnail": "images/SpaceAdventureGUI_2.png"
+        "thumbnail": "images/SpaceAdventureGUI_2",
+        "extension": "jpg"
       },
       {
         "id": 7,
@@ -158,11 +178,13 @@
         "images": [
           {
             "label": "Rotating cubes and a spinning sphere",
-            "path": "images/DirectX12Test_window.PNG"
+            "path": "images/DirectX12Test_window",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/DirectX12Test",
-        "thumbnail": "images/DirectX12Test_400x400.PNG"
+        "thumbnail": "images/DirectX12Test_400x400",
+        "extension": "jpg"
       },
       {
         "id": 8,
@@ -177,11 +199,13 @@
         "images": [
           {
             "label": "Debugger front-end",
-            "path": "images/debugger.png"
+            "path": "images/debugger",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/MastersThesis",
-        "thumbnail": "images/debugger_400x400.png"
+        "thumbnail": "images/debugger_400x400",
+        "extension": "jpg"
       },
       {
         "id": 9,
@@ -194,11 +218,13 @@
         "images": [
           {
             "label": "Grid Pathfinder",
-            "path": "images/GridPathfinder.png"
+            "path": "images/GridPathfinder",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/PathfinderGrid",
-        "thumbnail": "images/GridPathfinder_400x400.png"
+        "thumbnail": "images/GridPathfinder_400x400",
+        "extension": "jpg"
       },
       {
         "id": 10,
@@ -212,27 +238,33 @@
         "images": [
           {
             "label": "Start page",
-            "path": "images/EmailApp_1.png"
+            "path": "images/EmailApp_1",
+            "extension": "jpg"
           },
           {
             "label": "Google authentication",
-            "path": "images/EmailApp_2.png"
+            "path": "images/EmailApp_2",
+            "extension": "jpg"
           },
           {
             "label": "Inbox page",
-            "path": "images/EmailApp_3.png"
+            "path": "images/EmailApp_3",
+            "extension": "jpg"
           },
           {
             "label": "New message text",
-            "path": "images/EmailApp_4.png"
+            "path": "images/EmailApp_4",
+            "extension": "jpg"
           },
           {
             "label": "E-mail successfully sent!",
-            "path": "images/EmailApp_5.png"
+            "path": "images/EmailApp_5",
+            "extension": "jpg"
           }
         ],
         "source": "https://github.com/hyzor/EmailApp",
-        "thumbnail": "images/EmailApp_400x400.png"
+        "thumbnail": "images/EmailApp_400x400",
+        "extension": "jpg"
       }
     ]
   }
