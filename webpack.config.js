@@ -40,9 +40,13 @@ const stylesLoaders = [
 
 const rules = [
   {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/,
+  },
+  {
     test: /\.(js|jsx)$/,
     loader: 'babel-loader',
-    include: path.join(__dirname, 'src'),
     exclude: /node_modules/,
   },
 

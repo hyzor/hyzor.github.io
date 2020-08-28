@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { pdfjs, Document, Page } from 'react-pdf';
+import { pdfjs, Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import IconButton from '@material-ui/core/IconButton';
 import Box from '@material-ui/core/Box';
 import EmojiToggle from 'components/EmojiToggle';
