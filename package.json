@@ -43,7 +43,7 @@
     "classnames": "^2.2.6",
     "emailjs-com": "^2.6.3",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-adapter-react-16": "^1.15.4",
     "enzyme-to-json": "^3.4.4",
     "lodash": "^4.17.20",
     "mdi-material-ui": "^6.18.0",
