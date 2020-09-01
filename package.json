@@ -36,7 +36,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.14",
     "@storybook/addon-actions": "^6.0.20",
-    "@storybook/addons": "^6.0.20",
+    "@storybook/addons": "^6.0.21",
     "@storybook/react": "^6.0.20",
     "@storybook/theming": "^6.0.20",
     "axios": "^0.20.0",
