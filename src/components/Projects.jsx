@@ -101,7 +101,7 @@ class Projects extends React.Component {
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeGrid}
           onChangeIndex={this.handleChangeGrid}
-          interval={10000000000}
+          interval={6000}
         >
           {projectChunks.map((chunk, _index) => {
             return (
