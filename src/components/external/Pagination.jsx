@@ -22,7 +22,7 @@ class Pagination extends React.Component {
 
     for (let i = 0; i < dots; i += 1) {
       children.push(
-        <PaginationDot key={i} index={i} active={i === index} onClick={this.handleClick} />
+        <PaginationDot key={i} index={i} active={i === index} onClick={this.handleClick} />,
       );
     }
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
@@ -19,7 +19,7 @@ const serverConfig = {
 new WebpackDevServer(webpack(webpackConfig), serverConfig).listen(
   SETTINGS.PORT,
   'localhost',
-  error => {
+  (error) => {
     if (error) {
       console.error(error);
     } else {
@@ -29,5 +29,5 @@ new WebpackDevServer(webpack(webpackConfig), serverConfig).listen(
         Default browser will be opened automatically when Webpack has finished building.
       `);
     }
-  }
+  },
 );

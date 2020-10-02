@@ -23,12 +23,9 @@ const styles = () => ({
     width: '100%',
   },
   thumbnail: {
-    color: 'transparent',
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    textAlign: 'center',
-    textIndent: '10000px',
   },
 });
 
@@ -104,17 +101,17 @@ class Projects extends React.Component {
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeGrid}
           onChangeIndex={this.handleChangeGrid}
-          interval={7500}
+          interval={10000000000}
         >
           {projectChunks.map((chunk, _index) => {
             return (
-              <Grid key={_index} container spacing={4} style={{ overflow: 'hidden' }}>
+              <Grid key={_index} container spacing={6} style={{ overflow: 'hidden' }}>
                 {chunk.map((item) => {
                   return (
-                    <Grid style={{ overflow: 'hidden' }} item key={item.id} sm={6} md={4} lg={4}>
+                    <Grid style={{ overflow: 'hidden' }} item key={item.id} xs={5} sm={4}>
                       <CardActionArea className={classes.card} onClick={this.handleClick(item)}>
                         <Card style={{ height: '100%' }}>
-                          <CardMedia title={item.name}>
+                          <CardMedia style={{ height: 200 }} title={item.name}>
                             <picture>
                               <source type="image/webp" srcSet={`${item.thumbnail}.webp`} />
                               <source

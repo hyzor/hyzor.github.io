@@ -6,5 +6,5 @@ import Publications from '../components/Publications';
 storiesOf('Publications', module).add(
   'Publications',
   () => <Publications data={publicationsData.data} />,
-  { layout: 'centered' }
+  { layout: 'centered' },
 );

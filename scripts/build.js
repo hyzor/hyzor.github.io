@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const webpack = require('webpack');
 const chalk = require('chalk');
@@ -9,7 +9,7 @@ module.exports = function build() {
   console.log(chalk.yellow`Building bundle`);
 
   return new Promise((resolve, reject) => {
-    webpack(config).run(err => {
+    webpack(config).run((err) => {
       if (err) {
         return reject(err);
       }

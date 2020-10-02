@@ -15,12 +15,12 @@ import { Trail, Spring, Keyframes } from 'react-spring/renderprops';
 import Particles from 'react-particles-js';
 import particlesData from 'data/particles.json';
 import Box from '@material-ui/core/Box';
-import { Parallax } from 'react-scroll-parallax';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Link, scrollSpy } from 'react-scroll';
 import loadable from '@loadable/component';
+import Parallax from 'components/external/Parallax';
 
 const styles = (theme) => ({
   white: {
@@ -53,6 +53,9 @@ const styles = (theme) => ({
       width: 1100,
       marginLeft: 'auto',
       marginRight: 'auto',
+      alignItems: 'center',
+      justifyContent: 'center',
+      display: 'flex',
     },
   },
   footer: {
@@ -131,7 +134,7 @@ class HomePage extends React.Component {
     return (
       <>
         <CssBaseline />
-        <AppBar color="secondary">
+        <AppBar position="sticky" color="secondary">
           <Toolbar>
             <div style={{ flexGrow: 1 }}>
               <Link
@@ -156,7 +159,7 @@ class HomePage extends React.Component {
                 to="projects"
                 spy
                 smooth
-                offset={0}
+                offset={75}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -175,7 +178,7 @@ class HomePage extends React.Component {
                 to="resume"
                 spy
                 smooth
-                offset={0}
+                offset={200}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -194,7 +197,7 @@ class HomePage extends React.Component {
                 to="about"
                 spy
                 smooth
-                offset={-60}
+                offset={100}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -213,7 +216,7 @@ class HomePage extends React.Component {
                 to="publications"
                 spy
                 smooth
-                offset={0}
+                offset={100}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -232,7 +235,7 @@ class HomePage extends React.Component {
                 to="contact"
                 spy
                 smooth
-                offset={0}
+                offset={150}
                 duration={500}
                 onSetActive={this.handleSetActive}
               >
@@ -251,8 +254,8 @@ class HomePage extends React.Component {
         </AppBar>
         <main>
           <Particles className={classes.particles} params={particlesData} />
-          <Box style={{ height: 1280 }} name="home">
-            <Parallax y={[50, 100]}>
+          <Box style={{ paddingTop: '10%', height: '100vh' }} name="home">
+            <Parallax speed={-3}>
               <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} delay={500}>
                 {(props) => (
                   <Avatar
@@ -275,7 +278,7 @@ class HomePage extends React.Component {
                 )}
               </Spring>
             </Parallax>
-            <Parallax y={[250, 120]}>
+            <Parallax speed={3}>
               <Box display="flex" flexWrap="wrap" justifyContent="center">
                 <Trail
                   items={['Jesper ', 'Hansson ', 'Falkenby']}
@@ -317,110 +320,100 @@ class HomePage extends React.Component {
                 </Trail>
               </Box>
             </Parallax>
-            <Parallax y={[1400, 1300]}>
-              <Box display="flex" flexWrap="wrap" justifyContent="center">
-                <FadeLoopScript delay={500}>
-                  {(props) => (
-                    <Typography variant="h4" style={props}>
-                      <span role="img" aria-label="Pointing down">
-                        👇
-                      </span>
-                    </Typography>
-                  )}
-                </FadeLoopScript>
-              </Box>
-            </Parallax>
+            <Box display="flex" flexWrap="wrap" justifyContent="center" marginTop="15%">
+              <FadeLoopScript delay={500}>
+                {(props) => (
+                  <Typography variant="h4" style={props}>
+                    <span role="img" aria-label="Pointing down">
+                      👇
+                    </span>
+                  </Typography>
+                )}
+              </FadeLoopScript>
+            </Box>
           </Box>
-          <Box style={{ height: 768, marginBottom: 768 }} name="projects">
-            <Parallax y={[50, 0]}>
-              <div className={classes.page}>
-                <Projects data={projectsData} />
-              </div>
-            </Parallax>
+          <Box className={classes.page} style={{ height: 1500 }} name="projects">
+            <Box style={{ height: 'fit-content' }}>
+              <Projects data={projectsData} />
+            </Box>
           </Box>
-          <Box style={{ height: 768, marginBottom: 768 }} name="resume">
-            <Parallax y={[50, 0]}>
+          <Box className={classes.page} style={{ height: 1500, paddingTop: 300 }} name="resume">
+            <Box style={{ height: 'fit-content' }}>
               <Resume />
-            </Parallax>
+            </Box>
           </Box>
-          <Box style={{ height: 512, marginBottom: 512 }} name="about">
-            <Parallax y={[50, 0]}>
-              <div className={classes.page}>
-                <Box display="flex" justifyContent="center">
-                  <Typography
-                    style={{ marginRight: 8 }}
-                    align="center"
-                    color="textSecondary"
-                    variant="h2"
-                    gutterBottom
-                  >
-                    About me
-                  </Typography>
-                  <EmojiToggle emoji1="👋" emoji2="💁‍♂️" />
-                </Box>
-                {aboutText}
-              </div>
-            </Parallax>
-          </Box>
-          <Box style={{ height: 512, marginBottom: 512 }} name="publications">
-            <Parallax y={[50, 0]}>
-              <Publications data={publicationsData.data} />
-            </Parallax>
-          </Box>
-          <Box style={{ height: 1700, paddingTop: 384 }} name="contact">
-            <Parallax y={[50, 0]}>
-              <Contact />
-            </Parallax>
-            <Parallax y={[225, 175]}>
-              <Box display="flex" flexDirection="column">
-                <Box
-                  display="flex"
-                  flexDirection="row"
-                  style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 100 }}
+          <Box className={classes.page} style={{ height: 1280, paddingTop: 300 }} name="about">
+            <Box style={{ height: 'fit-content' }}>
+              <Box display="flex" justifyContent="center">
+                <Typography
+                  style={{ marginRight: 8 }}
+                  align="center"
+                  color="textSecondary"
+                  variant="h2"
+                  gutterBottom
                 >
-                  <IconButton
-                    href="https://www.facebook.com/jesper.hansson.f"
-                    className={classes.white}
-                    aria-label="Facebook"
-                  >
-                    <Facebook />
-                  </IconButton>
-                  <IconButton
-                    href="https://www.linkedin.com/in/jesperfalkenby/"
-                    className={classes.white}
-                    aria-label="Linkedin"
-                  >
-                    <Linkedin />
-                  </IconButton>
-                  <IconButton
-                    href="https://twitter.com/JesperFalkenby"
-                    className={classes.white}
-                    aria-label="Twitter"
-                  >
-                    <Twitter />
-                  </IconButton>
-                  <IconButton
-                    href="https://www.instagram.com/jesperfalkenby/"
-                    className={classes.white}
-                    aria-label="Instagram"
-                  >
-                    <Instagram />
-                  </IconButton>
-                  <IconButton
-                    href="https://github.com/hyzor"
-                    className={classes.white}
-                    aria-label="GitHub"
-                  >
-                    <Github />
-                  </IconButton>
-                </Box>
-                <Box display="flex" justifyContent="center">
-                  <Typography color="textSecondary" variant="subtitle1" align="center" gutterBottom>
-                    Copyright © Jesper Hansson Falkenby 2020
-                  </Typography>
-                </Box>
+                  About me
+                </Typography>
+                <EmojiToggle emoji1="👋" emoji2="💁‍♂️" />
               </Box>
-            </Parallax>
+              {aboutText}
+            </Box>
+          </Box>
+          <Box style={{ height: 1500, paddingTop: 300 }} name="publications">
+            <Box style={{ height: 'fit-content' }}>
+              <Publications data={publicationsData.data} />
+            </Box>
+          </Box>
+          <Box style={{ height: 1700, paddingTop: 500 }} name="contact">
+            <Contact />
+            <Box display="flex" flexDirection="column">
+              <Box
+                display="flex"
+                flexDirection="row"
+                style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: 200 }}
+              >
+                <IconButton
+                  href="https://www.facebook.com/jesper.hansson.f"
+                  className={classes.white}
+                  aria-label="Facebook"
+                >
+                  <Facebook />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/in/jesperfalkenby/"
+                  className={classes.white}
+                  aria-label="Linkedin"
+                >
+                  <Linkedin />
+                </IconButton>
+                <IconButton
+                  href="https://twitter.com/JesperFalkenby"
+                  className={classes.white}
+                  aria-label="Twitter"
+                >
+                  <Twitter />
+                </IconButton>
+                <IconButton
+                  href="https://www.instagram.com/jesperfalkenby/"
+                  className={classes.white}
+                  aria-label="Instagram"
+                >
+                  <Instagram />
+                </IconButton>
+                <IconButton
+                  href="https://github.com/hyzor"
+                  className={classes.white}
+                  aria-label="GitHub"
+                >
+                  <Github />
+                </IconButton>
+              </Box>
+              <Box display="flex" justifyContent="center">
+                <Typography color="textSecondary" variant="subtitle1" align="center" gutterBottom>
+                  Copyright © Jesper Hansson Falkenby 2020
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         </main>
       </>

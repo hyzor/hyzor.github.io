@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 // your app's webpack.config.js
 const custom = require('./webpack.config.js');

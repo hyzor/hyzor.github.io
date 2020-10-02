@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');

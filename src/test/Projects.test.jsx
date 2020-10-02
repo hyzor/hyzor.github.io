@@ -10,7 +10,7 @@ describe('Projects component test with Enzyme', () => {
     const wrapper = shallow(
       <ThemeProvider theme={theme}>
         <Projects data={null} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(wrapper).toMatchSnapshot();

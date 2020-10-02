@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path');
 const webpack = require('webpack');
@@ -40,14 +40,9 @@ const stylesLoaders = [
 
 const rules = [
   {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
+    test: /\.(ts|js)x?$/,
     exclude: /node_modules/,
-  },
-  {
-    test: /\.(js|jsx)$/,
     loader: 'babel-loader',
-    exclude: /node_modules/,
   },
 
   {
@@ -104,7 +99,7 @@ const developmentPlugins = [
     },
     {
       reload: false,
-    }
+    },
   ),
 ];
 
@@ -146,7 +141,7 @@ module.exports = {
 
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
     },

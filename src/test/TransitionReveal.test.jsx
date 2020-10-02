@@ -12,7 +12,7 @@ describe('TransitionReveal component test with Enzyme', () => {
         <TransitionReveal>
           <div />
         </TransitionReveal>
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(wrapper).toMatchSnapshot();

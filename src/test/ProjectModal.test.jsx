@@ -21,7 +21,7 @@ describe('ProjectModal component test with Enzyme', () => {
     const wrapper = shallow(
       <ThemeProvider theme={theme}>
         <ProjectModal project={project} />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(wrapper).toMatchSnapshot();

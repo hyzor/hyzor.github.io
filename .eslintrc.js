@@ -1,7 +1,13 @@
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'plugin:jest/recommended', 'prettier', 'prettier/react'],
-  plugins: ['jest', 'import', 'jsx-a11y'],
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:jest/recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['jest'],
   env: {
     browser: true,
     node: true,
@@ -9,7 +15,7 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -77,5 +83,16 @@ module.exports = {
     'import/resolver': {
       webpack: {},
     },
+    react: {
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
   },
+  overrides: [
+    {
+      files: ['**/*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
 };

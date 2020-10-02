@@ -9,5 +9,5 @@ storiesOf('TransitionReveal', module).add(
       <span>Dummy text</span>
     </TransitionReveal>
   ),
-  { layout: 'centered' }
+  { layout: 'centered' },
 );

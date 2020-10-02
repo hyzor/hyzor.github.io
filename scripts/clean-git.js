@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const yesno = require('yesno');
 const chalk = require('chalk');
@@ -19,7 +19,7 @@ const handleDeleteSuccess = () => {
   process.exit(0);
 };
 
-const handleDeleteError = error => {
+const handleDeleteError = (error) => {
   console.log(`
     An error occured while .git folder removing:
     ${chalk.red(error.message)}
@@ -36,11 +36,9 @@ const handleDeleteCancel = () => {
   process.exit(0);
 };
 
-yesno.ask(prompt, true, response => {
+yesno.ask(prompt, true, (response) => {
   if (response) {
-    rimraf('.git')
-      .then(handleDeleteSuccess)
-      .catch(handleDeleteError);
+    rimraf('.git').then(handleDeleteSuccess).catch(handleDeleteError);
   } else {
     handleDeleteCancel();
   }

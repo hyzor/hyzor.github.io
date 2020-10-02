@@ -8,5 +8,5 @@ const project = projectsData.data.projects[0];
 storiesOf('ProjectModal', module).add(
   'ProjectModal',
   () => <ProjectModal project={project} openProject={project.id} />,
-  { layout: 'centered' }
+  { layout: 'centered' },
 );
