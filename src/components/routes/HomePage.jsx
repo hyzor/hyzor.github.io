@@ -18,10 +18,16 @@ import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import { Link, scrollSpy } from 'react-scroll';
+import { Link } from 'react-scroll';
 import loadable from '@loadable/component';
 import Parallax from 'components/external/Parallax';
 import { Waypoint } from 'react-waypoint';
+
+const appBarHeight = 64;
+const scrollOffset = -appBarHeight;
+const waypointOffset = '40%';
+const scrollDuration = 500; // ms
+const minPageHeight = 1200;
 
 const styles = (theme) => ({
   white: {
@@ -57,7 +63,8 @@ const styles = (theme) => ({
       alignItems: 'center',
       justifyContent: 'center',
       display: 'flex',
-      height: '100vh',
+      height: `calc(100vh - ${appBarHeight}px)`,
+      minHeight: minPageHeight,
     },
   },
   footer: {
@@ -102,23 +109,29 @@ const Publications = loadable(() => import('../Publications'));
 const Contact = loadable(() => import('../Contact'));
 const EmojiToggle = loadable(() => import('../EmojiToggle'));
 
-const appBarHeight = 64;
-const scrollOffset = 0;
-const waypointOffset = '40%';
-const scrollDuration = 500; // ms
-
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       active: '',
+      windowHeight: 1024,
+      windowWidth: 1024,
     };
   }
 
   componentDidMount() {
-    scrollSpy.update();
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
+
+  componentWillUnmount() {
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ windowWidth: window.innerWidth, windowHeight: window.innerHeight });
+  };
 
   handleSetActive = (to) => {
     this.setState({
@@ -128,7 +141,7 @@ class HomePage extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { active } = this.state;
+    const { active, windowHeight } = this.state;
 
     const aboutText = aboutData.data.about.map((item, i) => {
       return (
@@ -144,7 +157,7 @@ class HomePage extends React.Component {
         <AppBar position="sticky" color="secondary">
           <Toolbar>
             <div style={{ flexGrow: 1 }}>
-              <Link to="home" spy smooth offset={-appBarHeight} duration={scrollDuration}>
+              <Link to="home" spy smooth offset={scrollOffset} duration={scrollDuration}>
                 <Button variant="text" color="primary">
                   <Typography variant="h6" color="textSecondary">
                     Home
@@ -153,7 +166,7 @@ class HomePage extends React.Component {
               </Link>
             </div>
             <Box display="flex" flexWrap="wrap">
-              <Link to="projects" smooth offset={scrollOffset} duration={scrollDuration}>
+              <Link to="projects" isDynamic smooth offset={scrollOffset} duration={scrollDuration}>
                 <Button
                   style={{ display: 'flex' }}
                   variant={active === 'projects' ? 'contained' : 'text'}
@@ -175,7 +188,7 @@ class HomePage extends React.Component {
                   </Typography>
                 </Button>
               </Link>
-              <Link to="about" smooth duration={scrollDuration}>
+              <Link to="about" smooth offset={scrollOffset} duration={scrollDuration}>
                 <Button
                   style={{ display: 'flex' }}
                   variant={active === 'about' ? 'contained' : 'text'}
@@ -299,35 +312,35 @@ class HomePage extends React.Component {
               </Box>
             </Waypoint>
           </Box>
-          <Box className={classes.page} name="projects">
+          <Box className={classes.page} name={windowHeight < minPageHeight ? '' : 'projects'}>
             <Waypoint
               onEnter={() => this.handleSetActive('projects')}
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box>
+              <Box name={windowHeight >= minPageHeight ? '' : 'projects'}>
                 <Projects data={projectsData} />
               </Box>
             </Waypoint>
           </Box>
-          <Box className={classes.page} name="resume">
+          <Box className={classes.page} name={windowHeight < minPageHeight ? '' : 'resume'}>
             <Waypoint
               onEnter={() => this.handleSetActive('resume')}
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box>
+              <Box name={windowHeight >= minPageHeight ? '' : 'resume'}>
                 <Resume />
               </Box>
             </Waypoint>
           </Box>
-          <Box className={classes.page} name="about">
+          <Box className={classes.page} name={windowHeight < minPageHeight ? '' : 'about'}>
             <Waypoint
               onEnter={() => this.handleSetActive('about')}
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box>
+              <Box name={windowHeight >= minPageHeight ? '' : 'about'}>
                 <Box display="flex" justifyContent="center">
                   <Typography
                     style={{ marginRight: 8 }}
@@ -344,24 +357,24 @@ class HomePage extends React.Component {
               </Box>
             </Waypoint>
           </Box>
-          <Box className={classes.page} name="publications">
+          <Box className={classes.page} name={windowHeight < minPageHeight ? '' : 'publications'}>
             <Waypoint
               onEnter={() => this.handleSetActive('publications')}
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box>
+              <Box name={windowHeight >= minPageHeight ? '' : 'publications'}>
                 <Publications data={publicationsData.data} />
               </Box>
             </Waypoint>
           </Box>
-          <Box className={classes.page} name="contact">
+          <Box className={classes.page} name={windowHeight < minPageHeight ? '' : 'contact'}>
             <Waypoint
               onEnter={() => this.handleSetActive('contact')}
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box>
+              <Box name={windowHeight >= minPageHeight ? '' : 'contact'}>
                 <Contact />
                 <Box display="flex" flexDirection="column">
                   <Box
