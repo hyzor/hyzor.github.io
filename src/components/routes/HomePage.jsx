@@ -425,7 +425,7 @@ class HomePage extends React.Component {
                       align="center"
                       gutterBottom
                     >
-                      Copyright © Jesper Hansson Falkenby 2020
+                      Copyright © Jesper Hansson Falkenby 2021
                     </Typography>
                   </Box>
                 </Box>
