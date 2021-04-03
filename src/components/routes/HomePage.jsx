@@ -76,9 +76,12 @@ const styles = (theme) => ({
     left: 0,
     top: 0,
     bottom: 0,
-    zIndex: -1,
+    zIndex: 0,
     position: 'fixed',
   },
+  containerBox: {
+    zIndex: 1,
+  }
 });
 
 const FadeLoopScript = Keyframes.Spring(async (next) => {
@@ -363,7 +366,7 @@ class HomePage extends React.Component {
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box name={windowHeight >= minPageHeight ? '' : 'publications'}>
+              <Box className={classes.containerBox} name={windowHeight >= minPageHeight ? '' : 'publications'}>
                 <Publications data={publicationsData.data} />
               </Box>
             </Waypoint>
@@ -374,7 +377,7 @@ class HomePage extends React.Component {
               topOffset={waypointOffset}
               bottomOffset={waypointOffset}
             >
-              <Box name={windowHeight >= minPageHeight ? '' : 'contact'}>
+              <Box className={classes.containerBox} name={windowHeight >= minPageHeight ? '' : 'contact'}>
                 <Contact />
                 <Box display="flex" flexDirection="column">
                   <Box
