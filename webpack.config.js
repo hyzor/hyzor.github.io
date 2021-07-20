@@ -78,11 +78,7 @@ const pluginsBase = [
     },
   }),
   new CopyWebpackPlugin({
-    patterns: [
-      { from: 'static/' },
-      { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' },
-      { from: 'CNAME' },
-    ],
+    patterns: [{ from: 'static/' }, { from: 'node_modules/pdfjs-dist/cmaps/', to: 'cmaps/' }],
   }),
 ];
 
