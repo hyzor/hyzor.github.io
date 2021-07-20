@@ -54,7 +54,7 @@
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
     "react-icons": "^4.2.0",
-    "react-particles-js": "^3.3.0",
+    "react-particles-js": "^3.5.3",
     "react-pdf": "^5.0.0",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
@@ -68,6 +68,7 @@
     "rellax": "^1.12.1",
     "storybook-addon-material-ui": "^0.9.0-alpha.21",
     "storybook-router": "^0.3.4",
+    "tsparticles": "^1.31.1",
     "typeface-roboto": "^1.1.13",
     "webpack-bundle-analyzer": "^3.9.0"
   },
