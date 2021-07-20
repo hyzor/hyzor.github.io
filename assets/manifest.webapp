@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "portfolio",
+  "description": "Personal website built with React and Material-UI.",
+  "icons": {
+    "60": "/assets/firefox_app_60x60.png",
+    "128": "/assets/firefox_app_128x128.png",
+    "512": "/assets/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Jesper Hansson Falkenby",
+    "url": null
+  }
+}
